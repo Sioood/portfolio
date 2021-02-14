@@ -28,7 +28,7 @@
   font-size: 24px;
 }
 
-.about-container-left h1::after{
+.about-container-left h1::after {
   content: "Dupont";
   padding-top: 10px;
   padding-left: 10px;
@@ -39,10 +39,11 @@
   pointer-events: visible;
 }
 
-.about-container-left h2{
+.about-container-left h2 {
   padding-top: 10px;
   color: #fff;
   font-family: "fivo_sans_modernheavy";
+  font-size: 64px;
   text-align: justify;
   pointer-events: visible;
   font-size: 50px !important;
@@ -114,29 +115,29 @@ img {
   width: 12.5px;
   display: block;
   bottom: 10%;
-	left: 0.5%;
-	animation: arrow-scroll 2s ease-in-out infinite;
+  left: 0.5%;
+  animation: arrow-scroll 2s ease-in-out infinite;
 }
 
-@keyframes arrow-scroll{
-	0%{
-		transform: translate( 0%, 0%);
-		transform: rotateY(0deg);
-	}
-	25%{
-		transform: translate( 0%, 50%);
-	}
-	50%{
-		transform: translate( 0%, 25%);
-		transform: rotateY(180deg);
-	}
-	75%{
-		transform: translate( 0%, 50%);
-	}
-	100%{
-		transform: translate( 0%, 0%);
-		transform: rotateY(0deg);
-	}
+@keyframes arrow-scroll {
+  0% {
+    transform: translate(0%, 0%);
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: translate(0%, 50%);
+  }
+  50% {
+    transform: translate(0%, 25%);
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: translate(0%, 50%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+    transform: rotateY(0deg);
+  }
 }
 
 @media screen and (max-width: 415px) {
@@ -147,11 +148,12 @@ img {
     margin-top: 5vh;
     margin-bottom: 10vh;
   }
-  
+
   .about-container-left {
     position: absolute;
     width: 90%;
     height: auto;
+    top: 30%;
     left: 5%;
     background-color: rgba(255, 255, 255, 0);
     display: flex;
@@ -162,15 +164,15 @@ img {
     z-index: 2;
     pointer-events: none;
   }
-  
+
   .about-container-left h1 {
     padding-top: 10px;
     color: #fff;
     font-family: "fivo_sans_modernitalic";
     font-size: 12px;
   }
-  
-  .about-container-left h1::after{
+
+  .about-container-left h1::after {
     content: "Dupont";
     padding-top: 10px;
     padding-left: 10px;
@@ -180,16 +182,16 @@ img {
     text-transform: uppercase !important;
     pointer-events: visible;
   }
-  
+
   .about-container-left h2 {
     padding-top: 10px;
     font-size: 24px !important;
   }
-  
+
   #h5esperluette {
     font-family: "avarabold_italic";
   }
-  
+
   .about-container-left p {
     padding-top: 20px;
     color: #fff;
@@ -198,13 +200,13 @@ img {
     pointer-events: visible;
     text-transform: uppercase !important;
   }
-  
+
   .about-btn-contact {
     padding-top: 30px;
     padding-left: 0%;
     background: transparent;
   }
-  
+
   .about-btn-contact button {
     padding: 10px;
     background-color: transparent;
@@ -215,17 +217,17 @@ img {
     pointer-events: visible;
     cursor: pointer;
   }
-  
+
   .about-btn-contact button:hover {
     color: #e63b3b;
     font-style: oblique;
   }
-  
+
   .about-btn-contact button:active {
     transform: scale(0.95);
     transition-duration: 0.2s;
   }
-  
+
   .about-container-right {
     position: absolute;
     width: 90%;
@@ -234,14 +236,13 @@ img {
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0);
   }
-  
+
   .arrow-scroll img {
     position: absolute;
     width: 12.5px;
     display: block;
-    bottom: 10%;
-    left: 0.5%;
+    bottom: 0%;
+    left: 90.5%;
     animation: arrow-scroll 2s ease-in-out infinite;
   }
-  
 }
