@@ -1,0 +1,66 @@
+.citation{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.hide-scroll-bar{
+	position: absolute;
+	width: 675px;
+	height: 200px;
+	background-color: rgba(0, 0, 0, 1);
+	z-index: 2;
+	pointer-events: none;
+}
+
+.container-citation-scroll{
+	position: inherit;
+	margin: 0;
+	padding: 0;
+  width: 100vh;
+	height: 110vw;
+  transform: rotate(-105deg) translateX(-120vh) translateY(-25vh);
+	transform-origin: top left;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	z-index: 1;
+
+  /* pour ie et mozilla */
+  /* -ms-overlow-style: none;
+  scrollbar-width: none; */
+}
+
+/* ::-webkit-scrollbar {
+  display: none; */
+
+.citation-scroll-Horizontal {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  transform: rotate(90deg) translateY(-100vh);
+	transform-origin: top left;
+}
+
+.citation-scroll-txt {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.citation-scroll-txt h2 {
+  color: #fff;
+  font-family: "avarabold_italic";
+  font-size: 200px;
+	padding-left: 15vw;
+}
+
+.citation-scroll-txt h3 {
+  color: #fff;
+	font-family: "fivo_sans_modernitalic";
+  padding-right: 15vw;
+}

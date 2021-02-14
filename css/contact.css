@@ -1,0 +1,91 @@
+.contact {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.anim-hover {
+  position: relative;
+}
+
+.anim-hover .txt-hover {
+  position: inherit;
+  font-family: "avarabold_italic";
+  font-size: 72px;
+}
+
+
+.txt-hover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  transform-origin: center right;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #222;
+  transition: 0.5s ease-in-out;
+}
+
+.txt-hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  transform-origin: center left;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: 0.5s 0.25s ease-in-out;
+}
+
+.txt-hover:hover::before {
+  transform: scaleX(0);
+}
+
+.txt-hover:hover::after {
+  transform: scaleX(1);
+}
+
+.container-cards{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards{
+  position: absolute;
+  width: 37.7vw;
+  height: 24.4vw;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  /* mix-blend-mode: difference; */
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* .cards:active{
+  z-index: 5;
+} */
+
+.cards:hover{
+  z-index: 2;
+}
+
+.card-one{
+  transform: translate( -90px, -25px);
+}
+
+.card-two{
+  transform: translate( -200px, 50px);
+}
+
+.card-three{
+  transform: translate( 50px, 100px);
+}
