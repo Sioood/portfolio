@@ -1,53 +1,95 @@
-.work{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.75);
-    overflow: hidden;
+.work {
+  width: 100vw;
+  height: auto;
+  padding: 0 0 5vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.work-img{
-    position: relative;
-    margin: 2vw;
-    width: 25vw;
-    height: auto;
-    z-index: 0;
-    overflow: hidden;
+.container-works {
+  position: relative;
+  width: 90vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.work-img img{
+.top {
+  position: relative;
+  background-color: rgba(125, 125, 125, 0);
+  padding: 8vh 0 8vh 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.top span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 95%;
+  height: 0.2vh;
+  background-color: #fff;
+}
+
+.work-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.work-left {
+  width: 30%;
+  height: auto;
+  margin: 0 0 4vh 0;
+  padding-right: 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.work-left h1 {
+  font-family: "fivo_sans_modernheavy";
+  font-size: 64px;
+  text-transform: uppercase;
+  text-align: left;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.first-info h1:nth-child(1) {
+  font-style: italic;
+}
+
+.work-right {
+  margin-left: 5%;
+  width: 65%;
+  margin: 0 0 4vh 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.work-right img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px){
+  .work-content {
+    flex-direction: column;
+  }
+
+  .work-left {
     width: 100%;
-    height: auto;
-}
+  }
 
-.work-img a{
-    transition: 2s ease;
-}
-
-.work-img a:hover + #seemore1{
-    transform: translateX(-130%);
-    font-style: oblique;  
-}
-
-.work-img a:hover{
-    filter: sepia(75%);
-}
-
-.work h5{
-    position: absolute;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    font-family: "fivo_sans_modernregular";
-    color: #fff;
-    mix-blend-mode: difference;
-    text-align: center;
-    z-index: 1;
-    bottom: 2%;
-    right: -17.5%;
-    transition: 2s ease;
-    pointer-events: none;
+  .work-right {
+    width: 100%;
+  }
 }
