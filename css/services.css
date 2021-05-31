@@ -10,7 +10,7 @@
 
 .services-container {
   width: 85vw;
-  height: 55%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -18,7 +18,7 @@
 
 .services-container h2 {
   font-family: "avarabold_italic";
-  font-size: 8vw;
+  font-size: 12vw;
 }
 
 .services-container-txt {
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: "avarablack";
-  font-size: 5vw;
+  font-size: 7vw;
   white-space: nowrap;
   color: #000;
   -webkit-text-stroke: 1px #fff;

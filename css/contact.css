@@ -2,7 +2,6 @@
   position: relative;
   width: 100vw;
   height: 110vh;
-  background-color: rgba(255, 255, 255, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,8 +79,12 @@
 
 .cards h1{
   font-family: "fivo_sans_modernheavy";
-  font-size: 46px;
+  font-size: 4vw;
   text-transform: uppercase;
+}
+
+.cards h2{
+  font-size: 2vw;
 }
 
 
@@ -99,4 +102,40 @@
 
 .card-three {
   transform: translate(90px, 60px);
+}
+
+@media screen and (max-width: 1000px){
+  .container-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cards{
+    position: relative;
+    width: 60vw;
+    height: 38.8vw;
+    margin-bottom: 5vh;
+  }
+  
+  .cards h1{
+    font-size: 6vw;
+  }
+  
+  .cards h2{
+    font-size: 4vw;
+  }
+
+  .card-one {
+    transform: translate(0px, 5px);
+  }
+  
+  .card-two {
+    transform: translate(0px, 0px);
+  }
+  
+  .card-three {
+    transform: translate(0px, 0px);
+  }
 }
