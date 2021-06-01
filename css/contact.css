@@ -65,46 +65,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.60);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(134, 97, 108, 0.37);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  cursor: pointer;
+  /* cursor: pointer; */
   z-index: 1;
   color: black;
 }
 
-.cards h1{
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
+.cards h1 {
   font-family: "fivo_sans_modernheavy";
-  font-size: 4vw;
+  font-size: 3vw;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.cards h2{
+.cards h2 {
   font-size: 2vw;
+  text-align: center;
 }
 
+.cards a {
+  color: #e63b3b;
+  text-align: center;
+}
 
 .cards:hover {
-  z-index: 2;
+  z-index: 3;
 }
 
 .card-one {
-  transform: translate(-50px, -65px);
+  z-index: 2;
+  transform: translate(90px, 60px);
 }
 
 .card-two {
+  z-index: 1;
   transform: translate(-130px, 10px);
 }
 
 .card-three {
-  transform: translate(90px, 60px);
+  z-index: 0;
+  transform: translate(-50px, -65px);
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
   .container-cards {
     display: flex;
     flex-direction: column;
@@ -112,29 +128,42 @@
     justify-content: center;
   }
 
-  .cards{
+  .cards {
     position: relative;
-    width: 60vw;
-    height: 38.8vw;
+    width: 70vw;
+    height: 45.3vw;
     margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(134, 97, 108, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* cursor: pointer; */
+    z-index: 1;
+    color: black;
   }
-  
-  .cards h1{
+
+  .cards h1 {
     font-size: 6vw;
   }
-  
-  .cards h2{
+
+  .cards h2 {
     font-size: 4vw;
   }
 
   .card-one {
-    transform: translate(0px, 5px);
+    transform: translate(0px, 0px);
   }
-  
+
   .card-two {
     transform: translate(0px, 0px);
   }
-  
+
   .card-three {
     transform: translate(0px, 0px);
   }

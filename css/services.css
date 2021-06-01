@@ -10,7 +10,7 @@
 
 .services-container {
   width: 85vw;
-  height: 85%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -28,7 +28,7 @@
 }
 
 .services-container-scroll {
-  animation: scrollServices 5s linear infinite;
+  animation: scrollServices 10s linear infinite;
 }
 
 @keyframes scrollServices {
@@ -98,7 +98,31 @@
 }
 
 .s3:hover::before {
-  opacity: 3;
+  opacity: 1;
+}
+
+.s4::before {
+  content: "004";
+}
+
+.s4:hover::before {
+  opacity: 1;
+}
+
+.s5::before {
+  content: "005";
+}
+
+.s5:hover::before {
+  opacity: 1;
+}
+
+.s6::before {
+  content: "006";
+}
+
+.s6:hover::before {
+  opacity: 1;
 }
 
 @media screen and (max-width: 1000px){
