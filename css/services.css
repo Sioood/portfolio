@@ -129,5 +129,9 @@
   .services {
     height: 50vh;
   }
+
+  .services-container {
+    height: 70%;
+  }
   
 }
