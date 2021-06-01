@@ -32,7 +32,7 @@
   position: absolute;
   top: 50%;
   left: 0;
-  width: 97.25%;
+  width: 87.5vw;
   height: 0.2vh;
   background-color: #fff;
 }
@@ -55,16 +55,13 @@
 
 .work-left h1 {
   font-family: "fivo_sans_modernheavy";
-  font-size: 64px;
+  font-size: 8vh;
   text-transform: uppercase;
   text-align: left;
+  word-wrap: break-word;
   overflow-wrap: anywhere;
   hyphens: auto;
 }
-
-/* .first-info h1:nth-child(1) {
-  font-style: italic;
-} */
 
 .second-info {
   font-size: 1.2vh;
