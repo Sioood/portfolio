@@ -59,6 +59,7 @@
   text-transform: uppercase;
   text-align: left;
   word-wrap: break-word;
+  word-break: break-all;
   overflow-wrap: anywhere;
   hyphens: auto;
 }
