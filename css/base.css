@@ -21,6 +21,161 @@ html body {
   /* text-transform: uppercase !important; */
 }
 
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader-progress {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  background: #696969;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+#dot1{
+  animation: dot1 10s linear infinite;
+}
+
+@keyframes dot1 {
+  5% {
+    left: 0%;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  7.5%{
+    left: 0%;
+    transform: scale(0.9 , 1);
+  }
+
+  20% {
+    left: 5%;
+    transform: scale(1, 1);
+  }
+}
+#dot2{
+  animation: dot2 10s linear infinite;
+}
+
+@keyframes dot2 {
+  32.5% {
+    left: 34%;
+    transform: scale(1);
+  }
+  40% {
+    left: 34%;
+    transform: scale(0.9 , 1);
+  }
+  57.5% {
+    left: 39%;
+    transform: scale(1, 1);
+  }
+}
+#dot3{
+  animation: dot3 10s linear infinite;
+}
+
+@keyframes dot3 {
+  70% {
+    left: 67%;
+    transform: scale(1);
+  }
+  77.5% {
+    left: 67%;
+    transform: scale(0.9 , 1);
+  }
+  95% {
+    left: 76%;
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+.dot-progress {
+  position: absolute;
+  left: 70%;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 10px;
+  margin: 10px;
+  animation: loader 10s linear infinite;
+}
+
+@keyframes loader {
+  0%{
+    left: -10%;
+    opacity: 0;
+  }
+  5% {
+    left: 0%;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  7.5%{
+    left: 0%;
+    transform: scale(0.9 , 1);
+  }
+
+  20% {
+    left: 5%;
+    transform: scale(1, 0.8);
+  }
+
+  32.5% {
+    left: 34%;
+    transform: scale(1);
+  }
+  40% {
+    left: 34%;
+    transform: scale(0.9 , 1);
+  }
+  57.5% {
+    left: 39%;
+    transform: scale(1, 0.8);
+  }
+
+  70% {
+    left: 67%;
+    transform: scale(1);
+  }
+  77.5% {
+    left: 67%;
+    transform: scale(0.9 , 1);
+  }
+  95% {
+    left: 76%;
+    transform: scale(1, 0.8);
+    opacity: 1;
+  }
+
+  100%{
+    left: 86%;
+    opacity: 0;
+  }
+}
+
+
 .custom-cursor {
   position: fixed;
   opacity: 0;
@@ -35,11 +190,30 @@ html body {
   transition: transform 350ms ease;
   transform: translate(-50%, -50%) scale(0.3);
   z-index: 1000;
-  animation: anim-cursor 2s linear infinite;
+  
+}
+
+.custom-cursor--link {
+  transform: translate(-50%, -50%) scale(0.5) rotateZ(360deg);
+  /* animation: anim-cursor 2s linear infinite; */
 }
 
 @keyframes anim-cursor{
- 
+  0% {
+    transform: rotateZ(-0deg);
+  }
+  25% {
+    transform: rotateZ(-90deg);
+  }
+  50% {
+    transform: rotateZ(-180deg);
+  }
+  75% {
+    transform: rotateZ(-270deg);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
 }
 
 *::-webkit-scrollbar {
