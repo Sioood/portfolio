@@ -31,6 +31,10 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .citation {
+  height: 50vh;
+}
+  
   .citation-scroll-txt h2 {
     color: #fff;
     font-family: "avarabold_italic";
