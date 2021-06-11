@@ -57,7 +57,7 @@
 
   <!-- preload fonts -->
 
-  <link
+  <!-- <link
     rel="preload"
     href="fonts/FivosSansModern/fivosansmodern-regular-oblique-webfont.woff2"
     as="font"
@@ -105,7 +105,7 @@
     as="font"
     type="font/woff2"
     crossorigin
-  />
+  /> -->
 
   <!-- favicon -->
   <link
@@ -127,11 +127,11 @@
   />
   <link rel="manifest" href="favicon/site.webmanifest" />
 
-  <body>
+  <body  data-scroll-container>
     <header>
       <!-- navbar -->
       <div class="navbar">
-        <div class="navbar-logo" title="Home">
+        <div class="navbar-logo" id="logo" title="Home">
           <div class="navbar-logo-svg">
             <a href=""
               ><svg
@@ -227,23 +227,9 @@
       </div>
     </div>
 
-    <div class="citation">
-      <div class="citation-pc">
-        <div class="hide-scroll-bar"></div>
-        <div class="container-citation-scroll">
-          <div class="citation-scroll-Horizontal">
-            <div class="citation-scroll-txt">
-              <h2>"La Laideur se vend mal"</h2>
-              <h3>Raymond Loewy</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="citation-phone">
-        <h2>
-          "La <br />
-          Laideur se <br />vend mal"
-        </h2>
+    <div class="citation" >
+      <div class="citation-scroll-txt">
+        <h2>"La Laideur se vend mal"</h2>
         <h3>Raymond Loewy</h3>
       </div>
     </div>
@@ -558,8 +544,8 @@
       </div>
     </div>
 
-    <!-- disable script -->
-    <script type="text/javascript" src="script-disable.js"></script>
+    <!-- script -->
+    <script src="app.js"></script>
 
     <!-- Script parallax texte-->
 
@@ -607,5 +593,6 @@
     <div class="custom-cursor" id="custom-cursor"></div>
 
     <!-- Custom cursor END -->
+
   </body>
 </html>

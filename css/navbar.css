@@ -24,13 +24,18 @@ header {
 .navbar-logo {
   width: 25px;
   height: 25px;
-  position: fixed;
+  position: absolute;
   top: 1.5vh;
   right: 1.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+#logo {
+  position: absolute;
+  left: 0;
 }
 
 .navbar-logo::after {
