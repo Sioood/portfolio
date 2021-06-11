@@ -2,6 +2,9 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0);
 }
@@ -30,38 +33,39 @@
   padding-right: 15vw;
 }
 
-.citation-scroll-txt-phone{
+.citation-scroll-txt-phone {
   display: none;
 }
 
 @media screen and (max-width: 1000px) {
-
   .citation-scroll-txt {
     display: none;
   }
 
   .citation-scroll-txt-phone {
     display: block;
-    position: absolute;
     left: 100px;
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
   }
-  
+
   .citation-scroll-txt-phone h2 {
-    color: #fff;
+    padding: 0vh;
+    text-align: start;
     font-family: "avarabold_italic";
-    font-size: 10vh;
-    padding-left: 15vw;
+    font-size: 48px;
+    display: flex;
+		flex-direction: column;
   }
-  
+
   .citation-scroll-txt-phone h3 {
-    color: #fff;
     font-family: "fivo_sans_modernitalic";
-    padding-right: 15vw;
+    font-size: 20px;
+    text-align: right;
   }
 }
