@@ -35,7 +35,7 @@
   height: 50vh;
 }
   .citation-scroll-txt {
-top: 0;
+top: -1vh;
 }
 
   .citation-scroll-txt h2 {
