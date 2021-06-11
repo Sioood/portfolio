@@ -35,6 +35,11 @@
 }
 
 @media screen and (max-width: 1000px) {
+
+  .citation-scroll-txt {
+    display: none;
+  }
+
   .citation-scroll-txt-phone {
     display: block;
     position: absolute;
