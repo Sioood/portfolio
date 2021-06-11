@@ -127,7 +127,7 @@
   />
   <link rel="manifest" href="favicon/site.webmanifest" />
 
-  <body  data-scroll-container>
+  <body data-scroll-container>
     <header>
       <!-- navbar -->
       <div class="navbar">
@@ -167,6 +167,17 @@
         <a href="#contact" class="navbar-menu-link">Contact</a>
       </div>
     </header>
+
+    <!-- loader -->
+
+    <div class="loader">
+      <div class="loader-progress">
+        <div class="dot" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
+        <div class="dot" id="dot3"></div>
+        <div class="dot-progress"></div>
+      </div>
+    </div>
 
     <!-- pages-->
 
@@ -227,13 +238,16 @@
       </div>
     </div>
 
-    <div class="citation" >
+    <div class="citation">
       <div class="citation-scroll-txt">
         <h2>"La Laideur se vend mal"</h2>
         <h3>Raymond Loewy</h3>
       </div>
       <div class="citation-scroll-txt-phone">
-        <h2>"La Laideur <br> se vend mal"</h2>
+        <h2>
+          "La Laideur <br />
+          se vend mal"
+        </h2>
         <h3>Raymond Loewy</h3>
       </div>
     </div>
@@ -444,7 +458,7 @@
                 </div>
               </div>
               <div class="work-right">
-                <img src="/img/7-randwords/1.png" alt="">
+                <img src="/img/7-randwords/1.png" alt="" />
               </div>
             </div>
           </div>
@@ -518,31 +532,39 @@
       <div class="container-cards">
         <div class="cards card-one" data-score="-3.5">
           <div class="contact-info">
-            <a href="mailto:theodupontpro@gmail.com?subject=Contact&amp;body=" id="mail"><h2>theodupontpro@gmail.com</h2></a>
+            <a
+              href="mailto:theodupontpro@gmail.com?subject=Contact&amp;body="
+              id="mail"
+              ><h2>theodupontpro@gmail.com</h2></a
+            >
           </div>
         </div>
         <div class="cards card-two" data-score="2.5">
           <div class="contact-info">
             <h1>Instagram</h1>
             <a target="_blank" href="https://www.instagram.com/sioooood/"
-              ><h2>@Sioooood</h2></a>
+              ><h2>@Sioooood</h2></a
+            >
           </div>
           <div class="contact-info">
             <h1>Twitter</h1>
             <a target="_blank" href="https://twitter.com/Siooooood"
-              ><h2>@Siooooood</h2></a>
+              ><h2>@Siooooood</h2></a
+            >
           </div>
         </div>
         <div class="cards card-three" data-score="-1">
           <div class="contact-info">
             <h1>Linkedin</h1>
             <a target="_blank" href="https://www.linkedin.com/in/théodupont/"
-              ><h2>théodupont</h2></a>
+              ><h2>théodupont</h2></a
+            >
           </div>
           <div class="contact-info">
             <h1>Mon CV</h1>
-        <a target="_blank" href="/CV_Dupont_Theo.pdf"
-          ><h2>Téléchargement</h2></a>
+            <a target="_blank" href="/CV_Dupont_Theo.pdf"
+              ><h2>Téléchargement</h2></a
+            >
           </div>
         </div>
       </div>
@@ -597,6 +619,5 @@
     <div class="custom-cursor" id="custom-cursor"></div>
 
     <!-- Custom cursor END -->
-
   </body>
 </html>
