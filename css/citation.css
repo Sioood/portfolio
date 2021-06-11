@@ -34,7 +34,10 @@
   .citation {
   height: 50vh;
 }
-  
+  .citation-scroll-txt {
+top: 50%;
+}
+
   .citation-scroll-txt h2 {
     color: #fff;
     font-family: "avarabold_italic";
