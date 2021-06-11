@@ -1,3 +1,13 @@
+const loader = document.querySelector(".loader");
+const loaderProgress = document.querySelector(".loader-progress");
+
+window.onload = () => {
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 5000);
+  window.scrollTo(0, 0);
+}
+
 const logoRotation = document.querySelector("#logo");
 const translateCitation = document.querySelector(".citation-scroll-txt");
 
