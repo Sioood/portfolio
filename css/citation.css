@@ -30,18 +30,33 @@
   padding-right: 15vw;
 }
 
-@media screen and (max-width: 1000px) {
-  .citation {
-  height: 50vh;
-}
-  .citation-scroll-txt {
-top: -5vh;
+.citation-scroll-txt-phone{
+  display: none;
 }
 
-  .citation-scroll-txt h2 {
+@media screen and (max-width: 1000px) {
+  .citation-scroll-txt-phone {
+    display: block;
+    position: absolute;
+    left: 100px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  .citation-scroll-txt-phone h2 {
     color: #fff;
     font-family: "avarabold_italic";
     font-size: 10vh;
     padding-left: 15vw;
+  }
+  
+  .citation-scroll-txt-phone h3 {
+    color: #fff;
+    font-family: "fivo_sans_modernitalic";
+    padding-right: 15vw;
   }
 }
