@@ -30,8 +30,7 @@
   padding-right: 15vw;
 }
 
-
-@media screen and(max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .citation-scroll-txt h2 {
     color: #fff;
     font-family: "avarabold_italic";
