@@ -86,13 +86,13 @@ html body {
   -webkit-animation-iteration-count: infinite;
 }
 
-.moving-dot:nth-last-child(1){
+.moving-dot2{
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   -webkit-filter: blur(2.5px);
-  background: greenyellow;
+  background: red;
   -webkit-animation-duration: 10s;
   -webkit-animation-fill-mode: both;
   -webkit-animation-name: pulse;
@@ -139,7 +139,6 @@ greenyellow
   transition: transform 350ms ease;
   transform: translate(-50%, -50%) scale(0.3);
   z-index: 1000;
-  
 }
 
 .custom-cursor--link {
