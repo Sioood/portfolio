@@ -198,4 +198,8 @@ greenyellow
   .custom-cursor{
     display: none;
   }
+
+  .loader{
+    display: none;
+  }
 }
