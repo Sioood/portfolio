@@ -1,5 +1,4 @@
 const loader = document.querySelector(".loader");
-const loaderProgress = document.querySelector(".loader-progress");
 
 window.onload = () => {
   setTimeout(() => {
