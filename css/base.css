@@ -1,3 +1,15 @@
+:root{
+  --primary: #000;
+  --second: #fff;
+  --third: #e63b3b;
+}
+
+/* :root{
+  --primary: #FFEDBC;
+  --second: #ED4264;
+  --third: #e63b3b;
+} */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,10 +25,10 @@ html body {
   position: relative;
   width: 100vw;
   height: auto;
-  background: #000;
+  background: var(--primary);
   overflow-x: hidden;
   font-family: "fivo_sans_modernregular" !important;
-  color: #fff !important;
+  color: var(--second) !important;
   cursor: none;
   /* text-transform: uppercase !important; */
 }
@@ -124,7 +136,6 @@ orange
 greenyellow
 */
 
-
 .custom-cursor {
   position: fixed;
   opacity: 0;
@@ -166,27 +177,27 @@ greenyellow
 
 *::-webkit-scrollbar {
   width: 7px;
-  background-color: #000;
+  background-color: var(--primary);
 }
 
 *::-webkit-scrollbar-thumb {
   width: 50% !important;
-  background-color: #fff;
+  background-color: var(--second);
 }
 
 *::selection {
-  background: #000;
-  color: #e63b3b;
+  background: var(--primary);
+  color: var(--third);
 }
 
 *::-moz-selection {
-  background: #000;
-  color: #e63b3b;
+  background: var(--primary);
+  color: var(--third);
 }
 
 *::-webkit-selection {
-  background: #000;
-  color: #e63b3b;
+  background: var(--primary);
+  color: var(--third);
 }
 
 

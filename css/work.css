@@ -32,9 +32,9 @@
   position: absolute;
   top: 50%;
   left: 0;
-  width: 87.5vw;
+  width: 82.5vw;
   height: 0.2vh;
-  background-color: #fff;
+  background-color: var(--second);
 }
 
 .work-content {
@@ -66,17 +66,17 @@
 
 .second-info {
   font-size: 1.2vh;
-  color: #e63b3b;
+  color: var(--third);
 }
 
 .second-info h2:nth-child(1){
-  color: #fff;
+  color: var(--second);
   opacity: 0.5;
   padding: 0 0 1vh 0;
 }
 
 .second-info a{
-  color: #e63b3b;
+  color: var(--third);
 }
 
 .work-right {

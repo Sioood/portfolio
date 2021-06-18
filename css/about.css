@@ -22,7 +22,7 @@
 
 .about-container-left h1 {
   padding-top: 10px;
-  color: #fff;
+  color: var(--second);
   font-family: "fivo_sans_modernitalic";
   font-size: 24px;
 }
@@ -31,7 +31,7 @@
   content: "Dupont";
   padding-top: 10px;
   padding-left: 10px;
-  color: #fff;
+  color: var(--second);
   font-family: "avarabold_italic";
   font-size: 24px;
   text-transform: uppercase !important;
@@ -40,7 +40,7 @@
 
 .about-container-left h2 {
   padding-top: 10px;
-  color: #fff;
+  color: var(--second);
   font-family: "fivo_sans_modernheavy";
   font-size: 50px;
   text-align: justify;
@@ -54,7 +54,7 @@
 
 .about-container-left p {
   padding-top: 20px;
-  color: #fff;
+  color: var(--second);
   font-family: "fivo_sans_modernitalic";
   font-size: 24px;
   pointer-events: visible;
@@ -70,8 +70,8 @@
 .about-btn-contact button {
   padding: 10px;
   background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  color: var(--second);
+  border: 2px solid var(--second);
   font-family: "fivo_sans_modernmedium";
   overflow: hidden;
   pointer-events: visible;
@@ -79,7 +79,7 @@
 }
 
 .about-btn-contact button:hover {
-  color: #e63b3b;
+  color: var(--third);
   font-style: oblique;
 }
 
@@ -160,7 +160,7 @@ img {
 
   .about-container-left h1 {
     padding-top: 10px;
-    color: #fff;
+    color: var(--second);
     font-family: "fivo_sans_modernitalic";
     font-size: 12px;
   }
@@ -169,7 +169,7 @@ img {
     content: "Dupont";
     padding-top: 10px;
     padding-left: 10px;
-    color: #fff;
+    color: var(--second);
     font-family: "avarabold_italic";
     font-size: 12px;
     text-transform: uppercase !important;
@@ -188,7 +188,7 @@ img {
 
   .about-container-left p {
     padding-top: 20px;
-    color: #fff;
+    color: var(--second);
     font-family: "fivo_sans_modernitalic";
     font-size: 16px;
     pointer-events: visible;
@@ -204,8 +204,8 @@ img {
   .about-btn-contact button {
     padding: 10px;
     background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
+    color: var(--second);
+    border: 2px solid var(--second);
     font-family: "fivo_sans_modernmedium";
     overflow: hidden;
     pointer-events: visible;
@@ -213,7 +213,7 @@ img {
   }
 
   .about-btn-contact button:hover {
-    color: #e63b3b;
+    color: var(--third);
     font-style: oblique;
   }
 
@@ -229,7 +229,6 @@ img {
     top: 15%;
     right: 5%;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0);
   }
 
   .arrow-scroll img {

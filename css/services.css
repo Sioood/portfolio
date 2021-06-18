@@ -51,13 +51,13 @@
   font-family: "avarablack";
   font-size: 7vw;
   white-space: nowrap;
-  color: #000;
-  -webkit-text-stroke: 1px #fff;
+  color: var(--primary);
+  -webkit-text-stroke: 1px var(--second);
   cursor: pointer;
 }
 
 .services-container-scroll h2:hover {
-  color: #fff;
+  color: var(--second);
 }
 
 .services-container-scroll:hover {

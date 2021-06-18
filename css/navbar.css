@@ -11,7 +11,7 @@ header {
   height: 100vh;
   margin: 0;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: var(--primary);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,7 +45,7 @@ header {
   display: block;
   width: 115%;
   height: 115%;
-  background-color: #fff;
+  background-color: var(--second);
   opacity: 0;
   pointer-events: none;
 }
@@ -77,14 +77,19 @@ header {
   margin: 0;
   padding: 0;
   display: inline-block;
-  color: #fff;
+  color: var(--second);
   text-decoration: none;
   opacity: 0.35;
 }
 
 .navbar a:hover {
-  color: #e63b3b;
+  color: var(--third);
   font-style: oblique;
+}
+
+.active{
+  color: var(--third);
+  opacity: 1;
 }
 
 @media screen and (max-width: 900px) {

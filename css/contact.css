@@ -38,7 +38,7 @@
   bottom: 0;
   height: 3px;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--second);
   transform: scaleX(0);
   transition: 0.5s 0.25s ease-in-out;
 }
@@ -68,13 +68,13 @@
   justify-content: space-around;
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 8px 32px 0 rgba(134, 97, 108, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(30px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* cursor: pointer; */
   z-index: 1;
-  color: black;
+  color: var(--primary);
 }
 
 .contact-info {
@@ -97,7 +97,7 @@
 }
 
 .cards a {
-  color: #e63b3b;
+  color: var(--third);
   text-align: center;
 }
 
@@ -145,7 +145,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     /* cursor: pointer; */
     z-index: 1;
-    color: black;
+    color: var(--primary);
   }
 
   .cards h1 {

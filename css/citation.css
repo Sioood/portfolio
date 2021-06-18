@@ -21,14 +21,14 @@
 }
 
 .citation-scroll-txt h2 {
-  color: #fff;
+  color: var(--second);
   font-family: "avarabold_italic";
   font-size: 20vh;
   padding-left: 15vw;
 }
 
 .citation-scroll-txt h3 {
-  color: #fff;
+  color: var(--second);
   font-family: "fivo_sans_modernitalic";
   padding-right: 15vw;
 }
@@ -43,8 +43,7 @@
   }
 
   .citation-scroll-txt-phone {
-    display: block;
-    left: 100px;
+    display: initial;
     width: 100vw;
     height: 100vh;
     display: flex;
