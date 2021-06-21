@@ -3,8 +3,8 @@ const loader = document.querySelector(".loader");
 window.onload = () => {
   setTimeout(() => {
     loader.style.display = "none";
+    window.scrollTo(0, 0);
   }, 5000);
-  window.scrollTo(0, 0);
 }
 
 const logoRotation = document.querySelector("#logo");
