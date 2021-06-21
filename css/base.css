@@ -202,15 +202,17 @@ greenyellow
 
 
 @media screen and (max-width: 850px) {
+  .loader{
+    display: none;
+  }
+}
+
+@media screen and (orientation : portrait) {
   html body{
     cursor: auto;
   }
 
   .custom-cursor{
-    display: none;
-  }
-
-  .loader{
     display: none;
   }
 }
