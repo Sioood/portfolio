@@ -87,8 +87,9 @@ header {
   font-style: oblique;
 }
 
-.active{
+.active-nav{
   color: var(--third);
+  font-style: oblique;
   opacity: 1;
 }
 

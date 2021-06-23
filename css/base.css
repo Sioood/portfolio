@@ -153,11 +153,17 @@ greenyellow
 }
 
 .custom-cursor--link {
-  transform: translate(-50%, -50%) scale(0.5) rotateZ(360deg);
-  /* animation: anim-cursor 2s linear infinite; */
+  background-color: #e63b3b;
+  border-radius: 20% 50% 50% 50%;
+  transform: translate(-50%, -50%) scale(0.35) rotate(30deg);
 }
 
-@keyframes anim-cursor{
+.custom-cursor--img {
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(2) rotateZ(60deg);
+}
+
+/* @keyframes anim-cursor{
   0% {
     transform: rotateZ(-0deg);
   }
@@ -173,7 +179,7 @@ greenyellow
   100% {
     transform: rotateZ(-360deg);
   }
-}
+} */
 
 *::-webkit-scrollbar {
   width: 7px;
@@ -200,6 +206,17 @@ greenyellow
   color: var(--third);
 }
 
+
+footer{
+  width: 100vw;
+  height: 1vh;
+  margin: 2vh;
+/*   background-color: var(--primary);
+  background-image: url(/img/Logo\ Siod.png);
+  background-size: contain;
+  background-repeat: no-repeat; */
+  opacity: 0.3;
+}
 
 @media screen and (max-width: 850px) {
   .loader{
