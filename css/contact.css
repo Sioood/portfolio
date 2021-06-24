@@ -138,15 +138,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(134, 97, 108, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    /* cursor: pointer; */
-    z-index: 1;
-    color: var(--primary);
   }
 
   .cards h1 {
