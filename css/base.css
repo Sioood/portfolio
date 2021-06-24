@@ -206,6 +206,22 @@ greenyellow
   color: var(--third);
 }
 
+#langs{
+  position: absolute;
+  top: 2vh;
+  left: 2vh;
+  z-index: 999;
+}
+
+#lang{
+  color: var(--second);
+  opacity: 0.6;
+}
+
+#lang:hover{
+  color: var(--third);
+  font-style: oblique;
+}
 
 footer{
   width: 100vw;
