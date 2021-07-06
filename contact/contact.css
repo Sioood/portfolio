@@ -97,13 +97,6 @@ html body {
   transition: 1.5s ease;
 }
 
-.fixed {
-  position: fixed;
-  bottom: 0;
-  z-index: 668;
-  overflow: hidden;
-}
-
 .contact h6 {
   position: absolute;
   font-family: "avarabold_italic";
@@ -120,11 +113,6 @@ html body {
   align-items: flex-start;
   justify-content: center;
   color: var(--second);
-  overflow: hidden;
-}
-
-.contact ul {
-  overflow: hidden;
 }
 
 .contact-info li {
@@ -133,7 +121,6 @@ html body {
   align-items: center;
   justify-content: center;
   transition: 1.5s ease;
-  overflow: hidden;
 }
 
 .contact-info li a {
