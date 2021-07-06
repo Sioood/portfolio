@@ -1,4 +1,4 @@
-:root{
+:root {
   --primary: #000;
   --second: #fff;
   --third: #e63b3b;
@@ -24,7 +24,7 @@ html body {
   overflow-x: hidden;
   font-family: "fivo_sans_modernregular" !important;
   color: var(--second) !important;
-  cursor: none;
+  /* cursor: none; */
   /* text-transform: uppercase !important; */
 }
 
@@ -39,21 +39,6 @@ html body {
   overflow: hidden !important;
 }
 
-.contact h2 {
-  position: absolute;
-  font-family: "avarabold_italic";
-  font-size: 6vh;
-}
-
-.contact h3{
-  position: absolute;
-  left: 50%;
-  font-family: "avarabold_italic";
-  font-size: 2vh;
-  transform: translate(-50%, 150%);
-  color: var(--third);
-  text-decoration: underline;
-}
 .circle-contact {
   position: relative;
   width: 100vw;
