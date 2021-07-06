@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden !important;
 }
 
 .contact h2 {
@@ -14,6 +15,15 @@
   font-size: 6vh;
 }
 
+.contact h3{
+  position: absolute;
+  left: 50%;
+  font-family: "avarabold_italic";
+  font-size: 2vh;
+  transform: translate(-50%, 150%);
+  color: var(--third);
+  text-decoration: underline;
+}
 .circle-contact {
   position: relative;
   width: 100vw;
@@ -61,6 +71,7 @@
   position: fixed;
   bottom: 0;
   z-index: 668;
+  overflow: hidden;
 }
 
 .contact h6 {
@@ -129,14 +140,16 @@
   content: "resume";
 }
 
-
 @media screen and (max-width: 900px) {
+  .circle-contact {
+    clip-path: circle(100% at 50% 50%);
+  }
 
   .contact-info {
-    top:45vh;
+    top: 45vh;
     left: 25vw;
   }
-  
+
   .contact-info li a {
     font-size: 4vw;
   }

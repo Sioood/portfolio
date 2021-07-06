@@ -291,16 +291,6 @@ greenyellow
   color: var(--third);
 }
 
-footer{
-  width: 100vw;
-  height: 1vh;
-  margin: 2vh;
-/*   background-color: var(--primary);
-  background-image: url(/img/Logo\ Siod.png);
-  background-size: contain;
-  background-repeat: no-repeat; */
-  opacity: 0.3;
-}
 
 @media screen and (max-width: 900px) {
   #langs{

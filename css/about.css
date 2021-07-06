@@ -78,10 +78,11 @@
   cursor: pointer;
 }
 
-.about-btn-contact button a {
+.about-btn-contact button a{
   color: var(--second);
   text-decoration: none;
 }
+
 
 .about-btn-contact button:hover {
   font-style: oblique;
