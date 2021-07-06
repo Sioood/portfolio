@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   var imgs = document.querySelectorAll("img");
   var initCursor = false;
 
+  //double click for scale up
+
+  document.addEventListener("dblclick", () => {
+    cursor.classList.toggle("custom-cursor--scale");
+  });
+
   //anim for links
 
   for (var i = 0; i < links.length; i++) {
@@ -28,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     selfImg.addEventListener("mouseout", function () {
       cursor.classList.remove("custom-cursor--img");
     });
-  };
+  }
 
   window.onmousemove = function (e) {
     var mouseX = e.clientX;
@@ -56,9 +62,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 });
 
-
 window.onmousemove = function (e) {
   let cursor = document.querySelector(".custom-cursor");
   cursor.style.top = e.pageY + "px";
   cursor.style.left = e.pageX + "px";
-}
+};
