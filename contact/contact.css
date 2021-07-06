@@ -1,0 +1,200 @@
+:root{
+  --primary: #000;
+  --second: #fff;
+  --third: #e63b3b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html body {
+  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
+  height: auto;
+  background: var(--primary);
+  overflow-x: hidden;
+  font-family: "fivo_sans_modernregular" !important;
+  color: var(--second) !important;
+  cursor: none;
+  /* text-transform: uppercase !important; */
+}
+
+.contact {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden !important;
+}
+
+.contact h2 {
+  position: absolute;
+  font-family: "avarabold_italic";
+  font-size: 6vh;
+}
+
+.contact h3{
+  position: absolute;
+  left: 50%;
+  font-family: "avarabold_italic";
+  font-size: 2vh;
+  transform: translate(-50%, 150%);
+  color: var(--third);
+  text-decoration: underline;
+}
+.circle-contact {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--third);
+  transition: 0.5s ease;
+  clip-path: circle(100% at 50% 50%);
+  overflow: hidden;
+  /* transform: translate(0, 50vh); */
+}
+
+.return-arrow {
+  position: absolute;
+  top: 0vh;
+  left: 2vh;
+  width: 75px;
+  height: 75;
+  font-size: 6vh;
+  cursor: pointer;
+  text-decoration: none;
+  /* transform: translate(0, -15%); */
+}
+
+.inner-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 1.5s ease;
+}
+
+.inner-contact img {
+  position: absolute;
+  top: 5vh;
+  left: 10vw;
+  width: 75vh;
+  height: 75vh;
+  transition: 1.5s ease;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  z-index: 668;
+  overflow: hidden;
+}
+
+.contact h6 {
+  position: absolute;
+  font-family: "avarabold_italic";
+  bottom: 2vh;
+  left: 2vh;
+}
+
+.contact-info {
+  position: absolute;
+  top: 45vh;
+  left: 45vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--second);
+  overflow: hidden;
+}
+
+.contact ul {
+  overflow: hidden;
+}
+
+.contact-info li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: 1.5s ease;
+  overflow: hidden;
+}
+
+.contact-info li a {
+  position: relative;
+  color: var(--second);
+  font-family: "avarabold_italic";
+  font-size: 2.5vw;
+  text-decoration: none;
+  transition: 1.5s ease;
+}
+
+.contact-info a:before {
+  content: "";
+  position: absolute;
+  transform: translate(-120%, 125%);
+  font-family: "fivo_sans_modernregular";
+  font-size: 1.2vw;
+  transition: 1.5s ease;
+}
+
+#mail:before {
+  content: "*";
+  position: absolute;
+  transform: translate(-65%, -35%);
+  font-family: "avarabold_italic";
+  font-size: 25vw;
+  transition: 1.5s ease;
+  pointer-events: none;
+}
+
+#instagram:before {
+  content: "instagram";
+}
+
+#linkedin:before {
+  content: "linkedin";
+}
+
+#cv:before {
+  content: "resume";
+}
+
+@media screen and (max-width: 900px) {
+  .circle-contact {
+    clip-path: circle(100% at 50% 50%);
+  }
+
+  .contact-info {
+    top: 45vh;
+    left: 25vw;
+  }
+
+  .contact-info li a {
+    font-size: 4vw;
+  }
+
+  .contact-info a:before {
+    font-size: 3.2vw;
+  }
+
+  #mail:before {
+    font-size: 40vw;
+  }
+}
