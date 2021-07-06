@@ -10,13 +10,18 @@
 />
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D9WMY8BM6D"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-D9WMY8BM6D"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
-  gtag('config', 'G-D9WMY8BM6D');
+  gtag("config", "G-D9WMY8BM6D");
 </script>
 
 <!-- Open Graph / Facebook -->
@@ -192,8 +197,8 @@
     <!-- pages-->
 
     <div id="langs">
-      <a href="https://en.theodupont.ga" id="lang">en</a>
-      <a href="https://theodupont.ga" id="lang">fr</a>
+      <a href="https://en.theodupont.ga" class="lang">en</a>
+      <a href="https://theodupont.ga" class="lang lang-select">fr</a>
     </div>
 
     <div class="about page" id="about">
@@ -209,7 +214,7 @@
         </p>
         <div class="about-btn-contact">
           <button onclick="location.href='#contact'" id="about-btn-contact">
-            Contactez-moi
+            <a href="#contact">Contactez-moi</a>
           </button>
 
           <div class="arrow-scroll">
@@ -293,7 +298,7 @@
                   >
                 </div>
               </div>
-              <div class="work-right">
+              <div class="work-right work-bg-white">
                 <img src="/img/1-Akolade/Akolade-1.png" alt="" />
                 <img src="/img/1-Akolade/Akolade-2.png" alt="" />
                 <img src="/img/1-Akolade/Akolade-3.png" alt="" />
@@ -385,7 +390,7 @@
                   <h2>L'atelier d'Émile</h2>
                 </div>
               </div>
-              <div class="work-right">
+              <div class="work-right work-bg-white">
                 <img src="/img/4-l'atelier d'emile/1.png" alt="" />
                 <img src="/img/4-l'atelier d'emile/2.png" alt="" />
                 <img src="/img/4-l'atelier d'emile/3.png" alt="" />
@@ -411,8 +416,14 @@
                 </div>
               </div>
               <div class="work-right">
-                <img src="/img/5-astérique/1.png" alt="Affiche recto projet astérique par siod" />
-                <img src="/img/5-astérique/2.png" alt="Affiche verso projet astérique par siod" />
+                <img
+                  src="/img/5-astérique/1.png"
+                  alt="Affiche recto projet astérique par siod"
+                />
+                <img
+                  src="/img/5-astérique/2.png"
+                  alt="Affiche verso projet astérique par siod"
+                />
               </div>
             </div>
           </div>
@@ -445,9 +456,18 @@
                 </div>
               </div>
               <div class="work-right">
-                <img src="/img/6-betraying the martyrs/1.png" alt="cover de betraying the martyrs fictive recto et verso par siod" />
-                <img src="/img/6-betraying the martyrs/2.png" alt="cover de betraying the martyrs fictive de face par siod" />
-                <img src="/img/6-betraying the martyrs/3.png" alt="cover de betraying the martyrs fictive de derrière par siod" />
+                <img
+                  src="/img/6-betraying the martyrs/1.png"
+                  alt="cover de betraying the martyrs fictive recto et verso par siod"
+                />
+                <img
+                  src="/img/6-betraying the martyrs/2.png"
+                  alt="cover de betraying the martyrs fictive de face par siod"
+                />
+                <img
+                  src="/img/6-betraying the martyrs/3.png"
+                  alt="cover de betraying the martyrs fictive de derrière par siod"
+                />
               </div>
             </div>
           </div>
@@ -473,7 +493,11 @@
                 </div>
               </div>
               <div class="work-right">
-                <a target="_blank" href="https://randwords.ga"><img  src="/img/7-randwords/1.png" alt="Randwords game randwords.ga" /></a>
+                <a target="_blank" href="https://randwords.ga"
+                  ><img
+                    src="/img/7-randwords/1.png"
+                    alt="Randwords game randwords.ga"
+                /></a>
               </div>
             </div>
           </div>
@@ -541,52 +565,56 @@
     <!-- <embed src="http://randwords.ga" style="width:100%; height: 80vh;">  -->
 
     <div class="contact page" id="contact">
-      <!-- <div class="anim-hover">
-        <h2 class="txt-hover">Hover me plz</h2>
-      </div> -->
-      <div class="container-cards">
-        <div class="cards card-one">
-          <div class="contact-info">
-            <a
-              href="mailto:theodupontpro@gmail.com?subject=Contact&amp;body="
-              id="mail"
-              title="contact me"
-              ><h2>theodupontpro@gmail.com</h2></a
-            >
-          </div>
+      <h2>Scroll me</h2>
+      <div class="circle-contact">
+        <a href="" class="return-arrow">
+          <img src="img/circle-arrow-point-to-left.svg" alt="" />
+        </a>
+
+        <div class="inner-contact">
+          <img src="/img/circle-contact.svg" class="contact-rotate" alt="">
+          <ul class="contact-info">
+            <li>
+              <a
+                target="_blank"
+                href="mailto:theodupontpro@gmail.com?subject=Contact&amp;body="
+                id="mail"
+                title="contact me"
+                ><h3>theodupontpro@gmail.com</h3></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/sioooood/"
+                title="contact me"
+                id="instagram"
+                ><h3>@Sioooood</h3></a
+              >
+            </li>
+  
+            <li>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/théodupont/"
+                title="contact me"
+                id="linkedin"
+                ><h3>théodupont</h3></a
+              >
+            </li>
+  
+            <li>
+              <a
+                target="_blank"
+                href="/CV_Dupont_Theo.pdf"
+                title="contact me"
+                id="cv"
+                ><h3>Téléchargement</h3></a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="cards card-two">
-          <div class="contact-info">
-            <h1>Instagram</h1>
-            <a target="_blank" href="https://www.instagram.com/sioooood/"
-            title="contact me"
-              ><h2>@Sioooood</h2></a
-            >
-          </div>
-          <div class="contact-info">
-            <h1>Twitter</h1>
-            <a target="_blank" href="https://twitter.com/Siooooood"
-            title="contact me"
-              ><h2>@Siooooood</h2></a
-            >
-          </div>
-        </div>
-        <div class="cards card-three">
-          <div class="contact-info">
-            <h1>Linkedin</h1>
-            <a target="_blank" href="https://www.linkedin.com/in/théodupont/"
-            title="contact me"
-              ><h2>théodupont</h2></a
-            >
-          </div>
-          <div class="contact-info">
-            <h1>Mon CV</h1>
-            <a target="_blank" href="/CV_Dupont_Theo.pdf"
-            title="contact me"
-              ><h2>Téléchargement</h2></a
-            >
-          </div>
-        </div>
+        <h6>©Siod - 2021</h6>
       </div>
     </div>
 
