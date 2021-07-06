@@ -24,6 +24,7 @@
   color: var(--third);
   text-decoration: underline;
 }
+
 .circle-contact {
   position: relative;
   width: 100vw;
@@ -65,6 +66,7 @@
   width: 75vh;
   height: 75vh;
   transition: 1.5s ease;
+  pointer-events: none;
 }
 
 .fixed {
