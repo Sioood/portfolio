@@ -18,7 +18,7 @@
 }
 
 html {
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
 }
 
 html body {
@@ -34,11 +34,6 @@ html body {
   /* text-transform: uppercase !important; */
 }
 
-* {
-  padding: 0;
-  margin: 0;
-}
-
 .loader {
   width: 100vw;
   height: 100vh;
@@ -48,6 +43,7 @@ html body {
   align-items: center;
   justify-content: center;
   position: fixed;
+  filter: contrast(40);
   -webkit-filter: contrast(40);
   z-index: 1000;
 }
@@ -60,10 +56,24 @@ html body {
   align-items: center;
   justify-content: center;
   position: relative;
-  animation: test 30s linear infinite;
+  animation: loader 30s linear infinite;
 }
 
-@-webkit-keyframes test{
+@keyframes loader{
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes loader{
   0% {
     -webkit-transform: rotate(0deg);
   }
@@ -82,6 +92,7 @@ html body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  filter: blur(15px);
   -webkit-filter: blur(15px);
   margin: 2vh;
 }
@@ -91,8 +102,13 @@ html body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  -webkit-filter: blur(10px);
   background: rgb(79, 47, 60);
+  filter: blur(10px);
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  -webkit-filter: blur(10px);
   -webkit-animation-duration: 10s;
   -webkit-animation-fill-mode: both;
   -webkit-animation-name: pulse;
@@ -104,12 +120,31 @@ html body {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  -webkit-filter: blur(2.5px);
   background: red;
+  filter: blur(2.5px);
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  -webkit-filter: blur(2.5px);
   -webkit-animation-duration: 10s;
   -webkit-animation-fill-mode: both;
   -webkit-animation-name: pulse;
   -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: translateX(-115px);
+  }
+
+  50% {
+    -webkit-transform: translateX(115px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-115px);
+  }
 }
 
 @-webkit-keyframes pulse {
@@ -147,22 +182,37 @@ greenyellow
   width: 50px;
   height: 50px;
   border-radius: 20% 50% 50% 50%;
-  background-color: white;
+  background: white;
   transition: transform 350ms ease;
   transform: translate(-50%, -50%) scale(0.3);
   z-index: 1000;
 }
 
 .custom-cursor--link {
-  background-color: #e63b3b;
+/*   background-color: #e63b3b;
   border-radius: 20% 50% 50% 50%;
-  transform: translate(-50%, -50%) scale(0.35) rotate(30deg);
+  transform: translate(-50%, -50%) scale(0.35) rotate(30deg); */
+  background: transparent;
+  transition: background 1s ease;
+  transform: translate(-50%, -50%) scale(1) rotate(30deg);
+  border: 2px solid var(--second);
+  border-radius: 50%;
 }
 
 .custom-cursor--img {
+  background: rgb(170, 170, 170);
+  transition: background 1s ease;
+  mix-blend-mode: difference;
+  border: 2px solid var(--second);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(2) rotateZ(60deg);
 }
+
+.custom-cursor--scale {
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(2);
+}
+
 
 /* @keyframes anim-cursor{
   0% {
@@ -181,6 +231,40 @@ greenyellow
     transform: rotateZ(-360deg);
   }
 } */
+
+#langs{
+  position: absolute;
+  top: 2vh;
+  left: 2vh;
+  display: flex;
+  z-index: 999;
+}
+
+.lang{
+  padding: 5px;
+  width: 25px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--second);
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.lang-select{
+  border: 2px solid var(--second);
+  border-radius: 50%;
+}
+
+.lang:nth-child(1){
+  margin: 0 1vh 0 0;
+}
+
+.lang:hover{
+  color: var(--third);
+  font-style: oblique;
+}
 
 *::-webkit-scrollbar {
   width: 7px;
@@ -205,23 +289,6 @@ greenyellow
 *::-webkit-selection {
   background: var(--primary);
   color: var(--third);
-}
-
-#langs{
-  position: absolute;
-  top: 2vh;
-  left: 2vh;
-  z-index: 999;
-}
-
-#lang{
-  color: var(--second);
-  opacity: 0.6;
-}
-
-#lang:hover{
-  color: var(--third);
-  font-style: oblique;
 }
 
 footer{

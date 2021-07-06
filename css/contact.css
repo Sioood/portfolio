@@ -1,162 +1,151 @@
 .contact {
   position: relative;
   width: 100vw;
-  height: 110vh;
+  height: 100vh;
+  background: var(--primary);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.anim-hover {
-  position: relative;
-}
-
-.anim-hover .txt-hover {
-  position: inherit;
+.contact h2 {
+  position: absolute;
   font-family: "avarabold_italic";
-  font-size: 72px;
+  font-size: 6vh;
 }
 
-.txt-hover::before {
-  content: "";
-  display: block;
-  position: absolute;
-  transform-origin: center right;
-  bottom: 0;
-  height: 3px;
-  width: 100%;
-  background-color: #222;
-  transition: 0.5s ease-in-out;
-}
-
-.txt-hover::after {
-  content: "";
-  display: block;
-  position: absolute;
-  transform-origin: center left;
-  bottom: 0;
-  height: 3px;
-  width: 100%;
-  background-color: var(--second);
-  transform: scaleX(0);
-  transition: 0.5s 0.25s ease-in-out;
-}
-
-.txt-hover:hover::before {
-  transform: scaleX(0);
-}
-
-.txt-hover:hover::after {
-  transform: scaleX(1);
-}
-
-.container-cards {
+.circle-contact {
   position: relative;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--third);
+  transition: 0.5s ease;
+  clip-path: circle(0% at 50% 50%);
+  overflow: hidden;
+  /* transform: translate(0, 50vh); */
 }
 
-.cards {
+.return-arrow {
   position: absolute;
-  width: 37.7vw;
-  height: 24.4vw;
+  top: 0vh;
+  left: 2vh;
+  width: 75px;
+  height: 75;
+  font-size: 6vh;
+  cursor: pointer;
+  text-decoration: none;
+  /* transform: translate(0, -15%); */
+}
+
+.inner-contact {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  background: rgba(0, 0, 0, 0.75);
-  /* background: rgba(91, 93, 102, 0); */
-  backdrop-filter: blur(100px);
-  border-radius: 10px;
-  border: 3px solid rgba(255, 255, 255, 0.8);
-/*   box-shadow: 0 8px 32px 0 rgba(134, 97, 108, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18); */
-  z-index: 1;
-  color: var(--second);
-  overflow: hidden;
+  justify-content: center;
+  transition: 1.5s ease;
+}
+
+.inner-contact img {
+  position: absolute;
+  top: 5vh;
+  left: 10vw;
+  width: 75vh;
+  height: 75vh;
+  transition: 1.5s ease;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  z-index: 668;
+}
+
+.contact h6 {
+  position: absolute;
+  font-family: "avarabold_italic";
+  bottom: 2vh;
+  left: 2vh;
 }
 
 .contact-info {
+  position: absolute;
+  top: 45vh;
+  left: 45vw;
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-items: flex-start;
   justify-content: center;
+  color: var(--second);
 }
 
-.cards h1 {
-  font-family: "fivo_sans_modernheavy";
-  font-size: 3vw;
-  text-align: center;
-  text-transform: uppercase;
+.contact-info li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: 1.5s ease;
 }
 
-.cards h2 {
-  font-size: 2vw;
-  text-align: center;
+.contact-info li a {
+  position: relative;
+  color: var(--second);
+  font-family: "avarabold_italic";
+  font-size: 2.5vw;
+  text-decoration: none;
+  transition: 1.5s ease;
 }
 
-.cards a {
-  color: var(--third);
-  text-align: center;
+.contact-info a:before {
+  content: "";
+  position: absolute;
+  transform: translate(-120%, 125%);
+  font-family: "fivo_sans_modernregular";
+  font-size: 1.2vw;
+  transition: 1.5s ease;
 }
 
-.cards:hover {
-  z-index: 3;
+#mail:before {
+  content: "*";
+  position: absolute;
+  transform: translate(-65%, -35%);
+  font-family: "avarabold_italic";
+  font-size: 25vw;
+  transition: 1.5s ease;
+  pointer-events: none;
 }
 
-.card-one {
-  z-index: 2;
-  transform: translate(90px, 60px);
+#instagram:before {
+  content: "instagram";
 }
 
-.card-two {
-  z-index: 1;
-  transform: translate(-130px, 10px);
+#linkedin:before {
+  content: "linkedin";
 }
 
-.card-three {
-  z-index: 0;
-  transform: translate(-50px, -65px);
+#cv:before {
+  content: "resume";
 }
 
-@media screen and (max-width: 1000px) {
-  .container-cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+@media screen and (max-width: 900px) {
+
+  .contact-info {
+    top:45vh;
+    left: 25vw;
   }
-
-  .cards {
-    position: relative;
-    width: 70vw;
-    height: 45.3vw;
-    margin-bottom: 5vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .cards h1 {
-    font-size: 6vw;
-  }
-
-  .cards h2 {
+  
+  .contact-info li a {
     font-size: 4vw;
   }
 
-  .card-one {
-    transform: translate(0px, 0px);
+  .contact-info a:before {
+    font-size: 3.2vw;
   }
 
-  .card-two {
-    transform: translate(0px, 0px);
-  }
-
-  .card-three {
-    transform: translate(0px, 0px);
+  #mail:before {
+    font-size: 40vw;
   }
 }

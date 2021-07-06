@@ -78,8 +78,12 @@
   cursor: pointer;
 }
 
+.about-btn-contact button a {
+  color: var(--second);
+  text-decoration: none;
+}
+
 .about-btn-contact button:hover {
-  color: var(--third);
   font-style: oblique;
 }
 
@@ -181,8 +185,8 @@ img {
     font-size: 40px !important;
   }
 
-  #h5esperluette {
-    font-family: "avarabold_italic";
+  #h2esperluette {
+    font-family: "avarabold_italic" !important;
     padding-left: 50%;
   }
 
@@ -193,33 +197,6 @@ img {
     font-size: 16px;
     pointer-events: visible;
     text-transform: uppercase !important;
-  }
-
-  .about-btn-contact {
-    padding-top: 30px;
-    padding-left: 0%;
-    background: transparent;
-  }
-
-  .about-btn-contact button {
-    padding: 10px;
-    background-color: transparent;
-    color: var(--second);
-    border: 2px solid var(--second);
-    font-family: "fivo_sans_modernmedium";
-    overflow: hidden;
-    pointer-events: visible;
-    cursor: pointer;
-  }
-
-  .about-btn-contact button:hover {
-    color: var(--third);
-    font-style: oblique;
-  }
-
-  .about-btn-contact button:active {
-    transform: scale(0.95);
-    transition-duration: 0.2s;
   }
 
   .about-container-right {

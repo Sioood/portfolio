@@ -58,6 +58,7 @@
 
 .services-container-scroll h2:hover {
   color: var(--second);
+  font-style: oblique;
 }
 
 .services-container-scroll:hover {
