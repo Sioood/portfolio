@@ -80,9 +80,9 @@ const contactRotate = document.querySelector(".contact-rotate");
 
 // contact.addEventListener("wheel", onWheel);
 
-contact.addEventListener("wheel", onWheelContact);
+contact.addEventListener("wheel", onWheelContact, {passive: true});
 
-document.body.addEventListener("wheel", onWheel);
+document.body.addEventListener("wheel", onWheel, {passive: true});
 
 let scrollValue = 0;
 
