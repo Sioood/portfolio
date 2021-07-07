@@ -34,7 +34,7 @@
   justify-content: center;
   background: var(--third);
   transition: 0.5s ease;
-  clip-path: circle(0% at 50% 50%);
+  clip-path: circle(100% at 50% 50%);
   overflow: hidden;
   /* transform: translate(0, 50vh); */
 }
@@ -143,9 +143,9 @@
 }
 
 @media screen and (max-width: 900px) {
-  .circle-contact {
+/*   .circle-contact {
     clip-path: circle(100% at 50% 50%);
-  }
+  } */
 
   .contact-info {
     top: 45vh;
