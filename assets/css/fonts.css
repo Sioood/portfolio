@@ -1,0 +1,44 @@
+/* PRIMARY */
+@font-face {
+  font-family: "Nyght Serif";
+  src: local("Nyght Serif"),
+    url("./fonts/primary/WOFF2/NyghtSerif-Light.woff2") format("woff2"),
+    url("./fonts/primary/WOFF/NyghtSerif-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: local("Nyght Serif"),
+    url("./fonts/primary/WOFF2/NyghtSerif-LightItalic.woff2") format("woff2"),
+    url("./fonts/primary/WOFF/NyghtSerif-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: local("Nyght Serif"),
+    url("./fonts/primary/WOFF2/NyghtSerif-Dark.woff2") format("woff2"),
+    url("./fonts/primary/WOFF/NyghtSerif-Dark.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: local("Nyght Serif"),
+    url("./fonts/primary/WOFF2/NyghtSerif-DarkItalic.woff2") format("woff2"),
+    url("./fonts/primary/WOFF/NyghtSerif-DarkItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* SECONDARY */
+@font-face {
+  font-family: 'Nohemi';
+  src: url('./fonts/secondary/TTF/Nohemi-VF-BF6438cc58ad63d.ttf') format('truetype-variations');
+  font-weight: 1 999;
+  font-style: normal;
+}
