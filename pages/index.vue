@@ -62,8 +62,19 @@ console.log("Hello World");
     >
       <div
         class="absolute top-1/3 right-0 -translate-x-1/2 -translate-y-1/2 w-[10rem] aspect-square bg-secondary-100 rounded-full blur-3xl"
-      ></div> 
+      ></div>
     </div>
+  </section>
+
+  <section class="mt-52 min-h-screen">
+    <canvas class="absolute w-full h-screen border"></canvas>
+    <div class="px-52 w-full min-h-screen flex items-center justify-end">
+      <h2 class="text-8xl italic">Curiosité</h2>
+    </div>
+  </section>
+
+  <section>
+    <LayoutWorkGrid name="" date="" items="" variant="2" />
   </section>
 
   <section id="contact" class="relative min-h-screen flex flex-col">
