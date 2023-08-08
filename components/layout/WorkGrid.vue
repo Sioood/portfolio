@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const props = defineProps({
   name: {
-    type: string,
+    type: String,
   },
   data: {
-    type: string,
+    type: String,
   },
   items: {
-    type: array,
+    type: Array,
   },
   variant: {
     type: String,

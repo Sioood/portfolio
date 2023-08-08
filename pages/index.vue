@@ -66,14 +66,19 @@ console.log("Hello World");
     </div>
   </section>
 
-  <section class="mt-52 min-h-screen">
-    <canvas class="absolute w-full h-screen border"></canvas>
-    <div class="px-52 w-full min-h-screen flex items-center justify-end">
-      <h2 class="text-8xl italic">Curiosité</h2>
+  <section class="relative mt-52 min-h-screen overflow-x-clip">
+    <div class="blur-3xl">
+      <CanvasDraw class="absolute top-0 w-full h-screen" />
+    </div>
+
+    <div
+      class="position sticky px-52 w-full min-h-screen flex items-center justify-end pointer-events-none"
+    >
+      <h2 class="text-8xl italic text-background">Curiosité</h2>
     </div>
   </section>
 
-  <section>
+  <section class="mt-24 flex flex-col items-center">
     <LayoutWorkGrid name="" date="" items="" variant="2" />
   </section>
 
