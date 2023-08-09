@@ -1,1 +1,0 @@
-<template>WORK NAME</template>
