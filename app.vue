@@ -16,9 +16,7 @@ const descriptionTemplate = () => {
 };
 
 const imageTemplate = () => {
-  return route.meta.image
-    ? `custom image`
-    : `default image`;
+  return route.meta.image ? `custom image` : `default image`;
 };
 
 const routeTemplate = () => {

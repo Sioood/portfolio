@@ -26,6 +26,26 @@ let work = {
       caption: "",
       src: "https://picsum.photos/id/5/1000/1000",
     },
+    {
+      id: "6",
+      caption: "",
+      src: "https://picsum.photos/id/6/1000/1000",
+    },
+    {
+      id: "7",
+      caption: "",
+      src: "https://picsum.photos/id/7/1000/1000",
+    },
+    {
+      id: "8",
+      caption: "",
+      src: "https://picsum.photos/id/8/1000/1000",
+    },
+    {
+      id: "9",
+      caption: "",
+      src: "https://picsum.photos/id/9/1000/1000",
+    },
   ],
 };
 

@@ -3,7 +3,7 @@ const props = defineProps({
   name: {
     type: String,
   },
-  data: {
+  date: {
     type: String,
   },
   items: {

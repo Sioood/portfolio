@@ -20,6 +20,9 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "nuxt-simple-sitemap"],
   css: ["~/assets/css/main.css"],
   components: ["~/components"],
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+  },
   // image: {
   // provider: "directus",
   // directus: {
