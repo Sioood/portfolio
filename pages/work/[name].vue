@@ -1,7 +1,47 @@
 <script setup lang="ts">
-let selectedImage = ref("");
+let work = {
+  images: [
+    {
+      id: "1",
+      caption: "",
+      src: "https://picsum.photos/id/1/1000/1000",
+    },
+    {
+      id: "2",
+      caption: "",
+      src: "https://picsum.photos/id/2/1000/1000",
+    },
+    {
+      id: "3",
+      caption: "",
+      src: "https://picsum.photos/id/3/1000/1000",
+    },
+    {
+      id: "4",
+      caption: "",
+      src: "https://picsum.photos/id/4/1000/1000",
+    },
+    {
+      id: "5",
+      caption: "",
+      src: "https://picsum.photos/id/5/1000/1000",
+    },
+  ],
+};
+
+let selectedImage = ref({
+  id: "",
+  caption: "",
+  src: "",
+});
 
 let slider = ref();
+
+interface SliderImage {
+  el: HTMLElement;
+  left: number;
+}
+let sliderImages: Ref<SliderImage[]> = ref([]);
 let isDragging = ref(false);
 let hasDragged = ref(false);
 let observerRoot = ref();
@@ -9,6 +49,36 @@ let observerRoot = ref();
 const draggingStartFrom = {
   pageX: 0,
   scrollLeft: 0,
+};
+
+const initSlider = () => {
+  const images = slider.value.querySelectorAll("li");
+
+  // aiming for resize specifically -> more fast than refind an existing element and update the keft
+  sliderImages.value = [];
+  images.forEach((image: HTMLElement) => {
+    image.setAttribute(
+      "data-original-left",
+      image.getBoundingClientRect().left.toString()
+    );
+
+    sliderImages.value.push({
+      el: image,
+      // to prevent resize with negative left value if the user has already scrolled
+      left: image.getBoundingClientRect().left + slider.value.scrollLeft,
+    });
+  });
+
+  const [lastImage] = sliderImages.value.slice(-1);
+
+  // const maxNativeScrollLeft =
+  //   slider.value.scrollWidth - slider.value.clientWidth;
+
+  lastImage.el.style.marginRight = `${
+    slider.value.getBoundingClientRect().width -
+    lastImage.el.getBoundingClientRect().width -
+    18
+  }px`;
 };
 
 const beginDrag = (e: any) => {
@@ -34,39 +104,61 @@ const drag = (e: any) => {
 
 const stopDrag = () => {
   isDragging.value = false;
+
+  if (selectedImage.value) {
+    const selectedImageElement = document.querySelector(
+      `[data-slider-img="${selectedImage.value.id}"]`
+    );
+
+    const matchedImage = sliderImages.value.find(
+      (image) => image.el === selectedImageElement
+    );
+
+    if (matchedImage) {
+      const padding = 7;
+
+      slider.value.style.scrollBehavior = "smooth";
+      slider.value.scrollLeft =
+        matchedImage.left - slider.value.getBoundingClientRect().left - padding;
+
+      slider.value.style.scrollBehavior = "auto";
+    }
+  }
 };
 
-const selectImage = (src: string) => {
-  selectedImage.value = src || "";
+const selectImage = (id: string | number) => {
+  const image = work.images.find((image) => image.id === id);
 
-  const img = document.querySelector(`[data-slider-img="3"]`);
-
-
-  // can't work because the boundingClientRect is updated according to scrollLeft...
-  // console.log("test", img.getBoundingClientRect());
-
-  // slider.value.scrollLeft = img.getBoundingClientRect().left;
+  if (image) {
+    selectedImage.value = image;
+  }
 };
 
-// the root element seem to not record entries for some reason (position absolute ??? not directly parent IDK)
+const clickedImage = (id: number | string) => {
+  const img = document.querySelector(`[data-slider-img="${id}"]`);
+
+  const matchedImage = sliderImages.value.find((image) => image.el === img);
+
+  if (matchedImage) {
+    const padding = 7;
+
+    slider.value.style.scrollBehavior = "smooth";
+    slider.value.scrollLeft =
+      matchedImage.left - slider.value.getBoundingClientRect().left - padding;
+
+    slider.value.style.scrollBehavior = "auto";
+  }
+};
+
 const initObservers = () => {
   const imgs = slider.value.querySelectorAll("li");
-
-  console.log(imgs);
 
   const callback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.intersectionRatio === 1) {
-        // selectedImage.value = entry.target.dataset.sliderImg;
-        // selectedImage.value = entry.target.dataset.sliderImg;
-
-        const imgObserved = entry.target.querySelector("img");
-        if (imgObserved instanceof HTMLImageElement) {
-          const imageSrc = imgObserved.src;
-          selectImage(imageSrc);
-        }
-
-        // console.log(entry.target);
+        selectImage(
+          entry.target.getAttribute("data-slider-img") ?? work.images[0].id
+        );
       }
     });
   };
@@ -85,6 +177,11 @@ const initObservers = () => {
 };
 
 onMounted(() => {
+  initSlider();
+  addEventListener("resize", () => {
+    initSlider();
+  });
+
   slider.value.addEventListener("mousedown", (e: Event) => {
     beginDrag(e);
   });
@@ -115,7 +212,6 @@ onMounted(() => {
         Name <sup>2000</sup>, <i>Client</i> / Type of work / Some Tags, Nuxt,
         Directus, Tailwind / <a href=""><u>Visiter le site ↗</u></a>
       </h1>
-
       <div
         class="w-full h-[85vh] flex flex-col items-center gap-6 overflow-hidden"
       >
@@ -124,51 +220,41 @@ onMounted(() => {
           class="flex-[75%] w-2/3 md:w-2/5 aspect-[4/3] bg-surface overflow-hidden"
         >
           <!-- {{ selectedImage }} -->
-          <img class="w-full h-full object-cover" :src="selectedImage" alt="" />
+          <img
+            class="w-full h-full object-cover"
+            :src="selectedImage.src"
+            alt=""
+          />
         </div>
-
-        <!-- <div
-            ref="observerRoot"
-            class="scale-125 absolute left-0 h-full aspect-[4/3] border pointer-events-none"
-          ></div> -->
 
         <div class="w-2/3 md:w-2/5 flex-[15%] overflow-y-clip">
           <div ref="observerRoot" class="w-[20vh] aspect-[4/3] border">
             <ul
+              data-lenis-prevent
               ref="slider"
-              class="p-2 w-[50vw] h-full flex gap-2 overflow-x-hidden cursor-move"
+              class="p-2 w-[80vw] md:w-[70vw] h-full inline-flex gap-2 overflow-x-hidden cursor-move"
             >
               <li
-                v-for="i in 10"
+                v-for="(image, i) in work.images"
                 :key="i"
-                :data-slider-img="i"
+                :data-slider-img="image.id"
                 class="aspect-[4/3] bg-surface"
               >
                 <button
-                  @click="
-                    if (hasDragged === false)
-                      selectImage(`https://picsum.photos/id/${i}/1000/1000`);
-                  "
+                  @click="if (hasDragged === false) clickedImage(image.id);"
                   class="aspect-[4/3]"
                 >
                   <img
                     class="w-full h-full object-cover transition-all"
                     :class="{
-                      'grayscale invert-[65%]':
-                        selectedImage !==
-                        `https://picsum.photos/id/${i}/1000/1000`,
+                      'grayscale invert-[65%]': selectedImage.id !== image.id,
                     }"
-                    :src="`https://picsum.photos/id/${i}/1000/1000`"
+                    :src="image.src"
                     alt=""
                     draggable="false"
                   />
                 </button>
               </li>
-
-              <!-- Need padding for the slider because the last img can't be in the observer -->
-              <!-- <li v-for="i in 10" :key="i" class="aspect-[4/3] bg-success">
-                {{ i }}
-              </li> -->
             </ul>
           </div>
         </div>
