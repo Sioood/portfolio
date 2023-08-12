@@ -43,6 +43,56 @@ onMounted(() => {
   initContactClipPathAnimation();
 });
 
+const initFlipPageTransition = (e: Event) => {
+  const target = e.target as HTMLElement;
+
+  const { setFlipState } = useFlipTransition();
+
+  const flipElement = target.hasAttribute("data-flip-id")
+    ? target
+    : target?.querySelector("[data-flip-id='1']");
+  console.log(flipElement);
+
+  // // deceive gsap.Flip which deal with scrollTop position for page transition to a fixed element on top of the page (like in the viewport)
+  const useFixedFlipClone = (element: HTMLElement) => {
+    // avoid router error or something which can broke flip transition
+    const existingFlipClone = document.getElementById("flip-clone");
+    if (existingFlipClone) {
+      existingFlipClone.remove();
+    }
+
+    const flipSandbox = document.querySelector("main");
+
+    const elementRect = element?.getBoundingClientRect();
+
+    const clone = element?.cloneNode(true) as HTMLElement;
+
+    if (clone) {
+      clone.id = "flip-clone";
+
+      // clone.style.opacity = "0";
+      clone.style.pointerEvents = "none";
+
+      clone.style.position = `absolute`;
+      clone.style.top = `${elementRect?.top}px`;
+      clone.style.left = `${elementRect?.left}px`;
+      clone.style.width = `${elementRect?.width}px`;
+      clone.style.height = `${elementRect?.height}px`;
+
+      flipSandbox?.appendChild(clone);
+    }
+
+    // delete clone ?
+    return clone;
+  };
+
+  if (flipElement) {
+    // flipElement.style.transformOrigin = "center center";
+
+    setFlipState("1", useFixedFlipClone(flipElement as HTMLElement));
+  }
+};
+
 definePageMeta({
   pageTransition: {
     name: "page-transition",
@@ -63,6 +113,12 @@ definePageMeta({
       // console.log(document.querySelector("[data-animate-element='contact']"));
     },
     onLeave: (el, done) => {
+      // use router to handle transition for different route
+      const router = useRouter();
+
+      if (router.currentRoute.value.fullPath.includes("/work")) {
+        console.log(" can init work transition");
+      }
       // console.log(el);
       // console.log(el.querySelector("[data-animate-element='contact']"));
 
@@ -70,17 +126,38 @@ definePageMeta({
       //   Flip.getState(el.querySelector("[data-animate-element='contact']"))
       // );
 
-      const { setFlipState } = useFlipTransition();
+      // const { setFlipState } = useFlipTransition();
 
-      const flipElement = el.querySelector("[data-flip-id='1']");
+      // const flipElement = el.querySelector("[data-flip-id='1']");
 
-      console.log(flipElement?.getBoundingClientRect());
+      // // deceive gsap.Flip which deal with scrollTop position for page transition to a fixed element on top of the page (like in the viewport)
+      // const useFixedFlipClone = (element: HTMLElement) => {
+      //   const flipSandbox = el;
+      //   const elementRect = element?.getBoundingClientRect();
 
-      if (flipElement) {
-        // flipElement.style.transformOrigin = "center center";
+      //   const clone = element?.cloneNode(true) as HTMLElement;
 
-        setFlipState("1", flipElement);
-      }
+      //   if (clone) {
+      //     clone.style.opacity = "0";
+      //     clone.style.pointerEvents = "none";
+
+      //     clone.style.position = `absolute`;
+      //     clone.style.top = `${elementRect?.top}px`;
+      //     clone.style.left = `${elementRect?.left}px`;
+      //     clone.style.width = `${elementRect?.width}px`;
+      //     clone.style.height = `${elementRect?.height}px`;
+
+      //     flipSandbox?.appendChild(clone);
+      //   }
+
+      //   return clone;
+      // };
+
+      // if (flipElement) {
+      //   // flipElement.style.transformOrigin = "center center";
+
+      //   setFlipState("1", useFixedFlipClone(flipElement as HTMLElement));
+      // }
 
       console.log("onLeave...");
 
@@ -122,6 +199,13 @@ definePageMeta({
       </div>
     </section>
 
+    <UiLink @click="initFlipPageTransition" to="/experiments" variant="ghost">
+      <div
+        data-flip-id="1"
+        class="w-1/3 aspect-[16/9] background-surface border"
+      ></div
+    ></UiLink>
+
     <section class="relative mt-52 mb-[20vh] min-h-screen overflow-x-clip">
       <div class="blur-3xl">
         <CanvasDraw class="absolute top-0 w-full h-screen" />
@@ -147,6 +231,7 @@ definePageMeta({
 
     <section id="contact" class="relative min-h-screen flex flex-col">
       <div
+        data-flip-wrapper="1"
         data-animate-element="contact"
         class="sticky top-0 w-full h-screen pb-16 flex flex-col justify-between bg-background"
       >

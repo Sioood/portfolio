@@ -6,7 +6,7 @@ gsap.registerPlugin(Flip);
 let flipBuffer = new Map();
 
 const useFlipTransition = () => {
-  const setFlipState = (id: string | number, element: Element) => {
+  const setFlipState = (id: string | number, element: Element ) => {
     flipBuffer.set(id, {
       id,
       flipState: Flip.getState(element, {simple: true}),
