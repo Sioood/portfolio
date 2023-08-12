@@ -122,7 +122,7 @@ definePageMeta({
       </div>
     </section>
 
-    <section class="relative mt-52 min-h-screen overflow-x-clip">
+    <section class="relative mt-52 mb-[20vh] min-h-screen overflow-x-clip">
       <div class="blur-3xl">
         <CanvasDraw class="absolute top-0 w-full h-screen" />
       </div>
@@ -134,8 +134,15 @@ definePageMeta({
       </div>
     </section>
 
-    <section class="mt-24 flex flex-col items-center">
-      <LayoutWorkGrid name="" date="" :items="[]" variant="2" />
+    <section class="mt-24 mb-[50vh] w-full flex justify-center">
+      <!-- w-2/3 is good instead of w-full maybe -->
+      <div class="w-2/3 flex flex-col items-center">
+        <LayoutWorkGrid name="" date="" :items="[1, 2, 3]" variant="1" />
+        <LayoutWorkGrid name="" date="" :items="[1, 2]" variant="1" />
+        <LayoutWorkGrid name="" date="" :items="[1, 2]" variant="2" />
+        <LayoutWorkGrid name="" date="" :items="[1]" variant="1" />
+        <LayoutWorkGrid name="" date="" :items="[1]" variant="2" />
+      </div>
     </section>
 
     <section id="contact" class="relative min-h-screen flex flex-col">
