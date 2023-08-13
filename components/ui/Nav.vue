@@ -35,8 +35,10 @@ const toggleTheme = () => {
     </div>
 
     <ul class="inline-flex gap-2.5">
-      <li @click="toggleTheme" id="theme-switcher" class="p-1">
-        <UiLink to="/"><h6 class="font-medium uppercase">Dark</h6></UiLink>
+      <li id="theme-switcher" class="p-1">
+        <UiButton @click="toggleTheme" variant="ghost">
+          <h6 class="font-medium uppercase">Dark</h6></UiButton
+        >
       </li>
     </ul>
   </nav>

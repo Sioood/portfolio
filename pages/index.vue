@@ -78,7 +78,7 @@ const initContactClipPathAnimation = () => {
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger, Flip);
 
-  animateHeader();
+  // animateHeader();
 
   initContactClipPathAnimation();
 });
@@ -133,6 +133,15 @@ const initFlipPageTransition = (e: Event) => {
 
   if (flipElement && flipId) {
     setFlipState(flipId, useFixedFlipClone(flipElement as HTMLElement));
+  } else {
+    // MINDFUCKING BUG RESOLVING -> When i click on the project name the flipElement is not found
+    // I need to change the way i handle flipElement -> closest wrapper and querySelector data-flip-id
+    // because project name is more deep in the DOM to retrieve a closest data-flip-id
+    console.log("--------------------");
+    console.log("flipElement or flipId not found");
+    console.log(flipElement, flipId);
+    console.log(target.closest("[data-flip-id]"));
+    console.log("--------------------");
   }
 
   // const div = document.createElement("div");
@@ -160,14 +169,13 @@ const initFlipPageTransition = (e: Event) => {
   // });
 
   // setTimeout(() => {
-    transitioning.status = false;
+  transitioning.status = false;
   // }, 1000);
 };
 
 definePageMeta({
   pageTransition: {
     name: "page-transition",
-    mode: "out-in",
     onBeforeEnter: (el) => {
       console.log("Before enter...");
     },
@@ -204,6 +212,7 @@ definePageMeta({
       if (!transitioning.status) {
         done();
       }
+      done();
 
       // setTimeout(() => {
       // done();

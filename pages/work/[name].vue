@@ -281,7 +281,7 @@ definePageMeta({
     onEnter: (el, done) => {
       // useRoute results undefined ??
       const router = useRouter();
-      const workId = Number(router.currentRoute.value.params.name);
+      const workId = router.currentRoute.value.params.name.toString();
 
       const { transitioning } = usePageTransition();
 
@@ -315,6 +315,7 @@ definePageMeta({
       };
 
       const { flipBuffer, flipFrom } = useFlipTransition();
+      console.log(flipBuffer);
 
       if (!flipBuffer.size) {
         console.log("flipBuffer is empty");
@@ -331,13 +332,13 @@ definePageMeta({
 
       if (target) {
         flipFrom(workId, target, {}, () => {
+          done();
+
           animatePageElements();
         });
       }
 
       transitioning.lastLifeCycle = "onEnter";
-
-      done();
     },
     onLeave: (el, done) => {
       console.log("onLeave...");

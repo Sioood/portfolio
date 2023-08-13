@@ -21,7 +21,8 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   components: ["~/components"],
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    // it's default page transition. If no css page transition is defined, it will be used and cause some latency
+    // pageTransition: { name: "page", mode: "out-in" },
   },
   // image: {
   // provider: "directus",
