@@ -9,13 +9,16 @@
 
 #__nuxt {
   min-height: 100svh;
-  background-color: rgb(var(--color-background));
-}
-
-#__nuxt {
   font-family: var(--font-primary), serif;
+  background-color: rgb(var(--color-background));
   color: rgb(var(--color-neutral-900));
 }
+/* 
+#__nuxt.dark {
+  --color-background: ;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-neutral-900));
+} */
 
 h1,
 h2,
