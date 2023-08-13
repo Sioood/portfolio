@@ -11,6 +11,8 @@ const setCanvasSize = () => {
 };
 
 const handleWindowResize = () => {
+  if(!canvas.value) return;
+
   const ctx = canvas.value.getContext("2d");
 
   const imageData = ctx.getImageData(

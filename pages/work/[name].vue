@@ -76,6 +76,8 @@ const draggingStartFrom = {
 };
 
 const initSlider = () => {
+  if (!slider.value) return;
+
   const images = slider.value.querySelectorAll("li");
 
   // aiming for resize specifically -> more fast than refind an existing element and update the keft
@@ -178,7 +180,7 @@ const clickedImage = (id: number | string) => {
 };
 
 const initListeners = () => {
-  addEventListener("resize", () => {
+  window.addEventListener("resize", () => {
     initSlider();
   });
 
@@ -200,6 +202,18 @@ const initListeners = () => {
   slider.value.addEventListener("touchend", stopDrag);
 
   slider.value.addEventListener("mouseleave", stopDrag);
+};
+
+const removeListeners = () => {
+  // the onresize is not removed. idk for the others
+  window.removeEventListener("resize", initSlider);
+  slider.value.removeEventListener("mousedown", beginDrag);
+  slider.value.removeEventListener("touchstart", beginDrag);
+  slider.value.removeEventListener("mousemove", drag);
+  slider.value.removeEventListener("touchmove", drag);
+  slider.value.removeEventListener("mouseup", stopDrag);
+  slider.value.removeEventListener("touchend", stopDrag);
+  slider.value.removeEventListener("mouseleave", stopDrag);
 };
 
 const initObservers = () => {
@@ -251,6 +265,10 @@ onMounted(() => {
       initAll();
     }
   });
+});
+
+onBeforeUnmount(() => {
+  removeListeners;
 });
 
 definePageMeta({
@@ -311,7 +329,6 @@ definePageMeta({
 
       const target = el.querySelector(`[data-flip-id='${workId}']`);
 
-
       if (target) {
         flipFrom(workId, target, {}, () => {
           animatePageElements();
@@ -335,10 +352,11 @@ definePageMeta({
     <main class="relative w-full flex">
       <h1
         id="text"
-        class="z-[2] absolute md:w-1/2 text-5xl break-words hyphens-auto"
+        class="z-[2] absolute md:w-1/2 text-[clamp(2rem,4vw,4.5rem)] break-words hyphens-auto"
       >
         Name <sup>2000</sup>, <i>Client</i> / Type of work / Some Tags, Nuxt,
-        Directus, Tailwind / <a href=""><u>Visiter le site ↗</u></a>
+        Directus, Tailwind /
+        <a href=""><u class="whitespace-nowrap">Visiter le site ↗</u></a>
       </h1>
       <div
         class="pb-20 w-full h-[94vh] flex flex-col items-center gap-6 overflow-hidden"

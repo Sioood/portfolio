@@ -96,7 +96,9 @@ const initFlipPageTransition = (e: Event) => {
     ? target
     : target?.querySelector("[data-flip-id]") ||
       target.closest("[data-flip-id]");
-  const flipId = flipElement.getAttribute("data-flip-id");
+  const flipId = flipElement?.getAttribute("data-flip-id");
+
+  const flipSandbox = document.querySelector("main");
 
   // // deceive gsap.Flip which deal with scrollTop position for page transition to a fixed element on top of the page (like in the viewport)
   const useFixedFlipClone = (element: HTMLElement) => {
@@ -105,8 +107,6 @@ const initFlipPageTransition = (e: Event) => {
     if (existingFlipClone) {
       existingFlipClone.remove();
     }
-
-    const flipSandbox = document.querySelector("main");
 
     const elementRect = element?.getBoundingClientRect();
 
@@ -135,8 +135,32 @@ const initFlipPageTransition = (e: Event) => {
     setFlipState(flipId, useFixedFlipClone(flipElement as HTMLElement));
   }
 
+  // const div = document.createElement("div");
+  // div.style.position = "fixed";
+  // div.style.top = "0";
+  // div.style.left = "0";
+  // div.style.left = "0";
+  // div.style.width = "100vw";
+  // div.style.height = "100vh";
+  // div.style.background = "#919191";
+  // div.style.zIndex = "1";
+  // flipSandbox?.appendChild(div);
+
+  // gsap.set(div, {
+  //   yPercent: -100,
+  // });
+
+  // gsap.to(div, {
+  //   duration: 1.5,
+  //   yPercent: 0,
+  //   ease: "power3.easeOut",
+  //   onComplete: () => {
+  //     transitioning.status = false;
+  //   },
+  // });
+
   // setTimeout(() => {
-  transitioning.status = false;
+    transitioning.status = false;
   // }, 1000);
 };
 

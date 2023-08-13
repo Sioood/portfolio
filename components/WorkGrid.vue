@@ -54,11 +54,11 @@ onMounted(() => {
     observer.observe(element);
   });
 });
+
+defineEmits(["transition"]);
 </script>
 
 <template>
-  <!-- v-if ="items.length === 3" -->
-  <!-- 3 -->
   <UiLink
     v-if="props.items?.length === 3 && props.variant === '1'"
     @click="$emit('transition', $event)"
@@ -75,7 +75,7 @@ onMounted(() => {
 
       <div
         :data-flip-id="props.id"
-        class="w-full h-full bg-surface col-start-2 col-end-6 row-start-2 row-end-4"
+        class="z-[2] w-full h-full bg-surface col-start-2 col-end-6 row-start-2 row-end-4"
       >
         <img
           class="w-full h-full object-cover"
@@ -103,7 +103,6 @@ onMounted(() => {
     </div>
   </UiLink>
 
-  <!-- 2 -->
   <UiLink
     v-if="props.items?.length === 2 && props.variant === '1'"
     @click="$emit('transition', $event)"
@@ -172,7 +171,6 @@ onMounted(() => {
     </div>
   </UiLink>
 
-  <!-- 1 -->
   <UiLink
     v-if="props.items?.length === 1 && props.variant === '1'"
     @click="$emit('transition', $event)"
