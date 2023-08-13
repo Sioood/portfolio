@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import gsap from "gsap";
+
 let work = {
   images: [
     {
       id: "1",
       caption: "",
-      src: "https://picsum.photos/id/1/1000/1000",
+      src: "https://images.unsplash.com/photo-1691229732670-f7034e54d2cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
     },
     {
       id: "2",
@@ -111,7 +113,6 @@ const beginDrag = (e: any) => {
 
 const drag = (e: any) => {
   e.preventDefault();
-
   if (!isDragging.value) return;
   hasDragged.value = true;
 
@@ -124,6 +125,8 @@ const drag = (e: any) => {
 
 const stopDrag = () => {
   isDragging.value = false;
+
+  if (!hasDragged.value) return;
 
   if (selectedImage.value) {
     const selectedImageElement = document.querySelector(
@@ -157,7 +160,9 @@ const selectImage = (id: string | number) => {
 const clickedImage = (id: number | string) => {
   const img = document.querySelector(`[data-slider-img="${id}"]`);
 
-  const matchedImage = sliderImages.value.find((image) => image.el === img);
+  const matchedImage = sliderImages.value.find((image) => {
+    return image.el === img;
+  });
 
   if (matchedImage) {
     const padding = 7;
@@ -168,6 +173,31 @@ const clickedImage = (id: number | string) => {
 
     slider.value.style.scrollBehavior = "auto";
   }
+};
+
+const initListeners = () => {
+  addEventListener("resize", () => {
+    initSlider();
+  });
+
+  slider.value.addEventListener("mousedown", (e: Event) => {
+    beginDrag(e);
+  });
+  slider.value.addEventListener("touchstart", (e: Event) => {
+    beginDrag(e);
+  });
+
+  slider.value.addEventListener("mousemove", (e: Event) => {
+    drag(e);
+  });
+  slider.value.addEventListener("touchmove", (e: Event) => {
+    drag(e);
+  });
+
+  slider.value.addEventListener("mouseup", stopDrag);
+  slider.value.addEventListener("touchend", stopDrag);
+
+  slider.value.addEventListener("mouseleave", stopDrag);
 };
 
 const initObservers = () => {
@@ -197,62 +227,118 @@ const initObservers = () => {
 };
 
 onMounted(() => {
-  initSlider();
-  addEventListener("resize", () => {
+  const { transitioning } = usePageTransition();
+
+  const initAll = () => {
+    selectImage(work.images[0].id);
+
     initSlider();
-  });
 
-  slider.value.addEventListener("mousedown", (e: Event) => {
-    beginDrag(e);
-  });
-  slider.value.addEventListener("touchstart", (e: Event) => {
-    beginDrag(e);
-  });
+    initListeners();
 
-  slider.value.addEventListener("mousemove", (e: Event) => {
-    drag(e);
+    initObservers();
+  };
+
+  if (!transitioning.status) {
+    initAll();
+  }
+
+  watch(transitioning, () => {
+    // onMounted event run before the onEnter so we need to wait the onEnter event because the slider will init with wrong data
+    if (transitioning.lastLifeCycle === "onEnter") {
+      initAll();
+    }
   });
-  slider.value.addEventListener("touchmove", (e: Event) => {
-    drag(e);
-  });
+});
 
-  slider.value.addEventListener("mouseup", stopDrag);
-  slider.value.addEventListener("touchend", stopDrag);
+definePageMeta({
+  pageTransition: {
+    name: "test",
+    mode: "out-in",
+    onBeforeEnter: (el) => {
+      console.log("Before enter...");
+    },
+    onEnter: (el, done) => {
+      console.log("On enter...");
 
-  slider.value.addEventListener("mouseleave", stopDrag);
+      const sliderWrapper = document.querySelector("#slider-wrapper");
+      const text = document.querySelector("#text");
 
-  initObservers();
+      if (sliderWrapper && text) {
+        gsap.set([sliderWrapper, text], {
+          // xPercent: -100,
+          yPercent: 10,
+          opacity: 0,
+        });
+      }
+
+      const { flipFrom } = useFlipTransition();
+
+      const target = el.querySelector("[data-flip-id='1']");
+
+      if (target) {
+        flipFrom("1", target, {}, () => {
+          if (sliderWrapper && text) {
+            gsap.to([sliderWrapper, text], {
+              // xPercent: -100,
+              yPercent: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.easeOut",
+              stagger: {
+                each: 0.2,
+              }
+            });
+          }
+        });
+      }
+
+      done();
+
+      const { transitioning } = usePageTransition();
+      transitioning.lastLifeCycle = "onEnter";
+    },
+    onLeave: (el, done) => {
+      console.log("onLeave...");
+      done();
+    },
+  },
 });
 </script>
 
 <template>
   <div class="p-2 w-full flex flex-col items-center">
     <main class="relative w-full flex">
-      <h1 class="absolute md:w-1/2 text-5xl break-words hyphens-auto">
+      <h1
+        id="text"
+        class="z-[2] absolute md:w-1/2 text-5xl break-words hyphens-auto"
+      >
         Name <sup>2000</sup>, <i>Client</i> / Type of work / Some Tags, Nuxt,
         Directus, Tailwind / <a href=""><u>Visiter le site ↗</u></a>
       </h1>
-      <div
-        class="w-full h-[85vh] flex flex-col items-center gap-6 overflow-hidden"
-      >
+      <div class="pb-20 w-full h-[94vh] flex flex-col items-center gap-6 overflow-hidden">
         <!-- translate with calc(index * 100%) -->
-        <div
-          class="flex-[75%] w-2/3 md:w-2/5 aspect-[4/3] bg-surface overflow-hidden"
-        >
+        <div class="z-[1] h-[75%] w-2/3 md:w-2/5 aspect-[4/3]">
           <!-- {{ selectedImage }} -->
-          <img
-            class="w-full h-full object-cover"
-            :src="selectedImage.src"
-            alt=""
-          />
+          <div data-flip-id="1" class="w-full h-full">
+            <img
+              class="w-full h-full object-cover"
+              :src="selectedImage.src"
+              alt=""
+            />
+          </div>
         </div>
 
-        <div class="w-2/3 md:w-2/5 flex-[15%] overflow-y-clip">
-          <div ref="observerRoot" class="w-[20vh] aspect-[4/3] border">
+        <div class="w-2/3 md:w-2/5 h-[20%]">
+          <div
+            id="slider-wrapper"
+            ref="observerRoot"
+            class="w-[20vh] aspect-[4/3] border"
+          >
             <ul
               data-lenis-prevent
               ref="slider"
-              class="p-2 w-[80vw] md:w-[70vw] h-full inline-flex gap-2 overflow-x-hidden cursor-move"
+              class="p-2 w-[80vw] md:w-[68vw] h-full inline-flex gap-2 overflow-hidden cursor-move"
             >
               <li
                 v-for="(image, i) in work.images"

@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
 
+const route = useRoute();
+
 // ScrollTrigger.defaults({
 
 // })
@@ -44,14 +46,18 @@ onMounted(() => {
 });
 
 const initFlipPageTransition = (e: Event) => {
+  const { transitioning } = usePageTransition();
+  transitioning.status = true;
+  transitioning.from = route.fullPath;
+
   const target = e.target as HTMLElement;
 
   const { setFlipState } = useFlipTransition();
 
   const flipElement = target.hasAttribute("data-flip-id")
     ? target
-    : target?.querySelector("[data-flip-id='1']");
-  console.log(flipElement);
+    : target?.querySelector("[data-flip-id='1']") ||
+      target.closest("[data-flip-id='1']");
 
   // // deceive gsap.Flip which deal with scrollTop position for page transition to a fixed element on top of the page (like in the viewport)
   const useFixedFlipClone = (element: HTMLElement) => {
@@ -70,7 +76,7 @@ const initFlipPageTransition = (e: Event) => {
     if (clone) {
       clone.id = "flip-clone";
 
-      // clone.style.opacity = "0";
+      clone.style.opacity = "0";
       clone.style.pointerEvents = "none";
 
       clone.style.position = `absolute`;
@@ -87,10 +93,12 @@ const initFlipPageTransition = (e: Event) => {
   };
 
   if (flipElement) {
-    // flipElement.style.transformOrigin = "center center";
-
     setFlipState("1", useFixedFlipClone(flipElement as HTMLElement));
   }
+
+  // setTimeout(() => {
+  transitioning.status = false;
+  // }, 1000);
 };
 
 definePageMeta({
@@ -119,50 +127,23 @@ definePageMeta({
       if (router.currentRoute.value.fullPath.includes("/work")) {
         console.log(" can init work transition");
       }
-      // console.log(el);
-      // console.log(el.querySelector("[data-animate-element='contact']"));
-
-      // console.log(
-      //   Flip.getState(el.querySelector("[data-animate-element='contact']"))
-      // );
-
-      // const { setFlipState } = useFlipTransition();
-
-      // const flipElement = el.querySelector("[data-flip-id='1']");
-
-      // // deceive gsap.Flip which deal with scrollTop position for page transition to a fixed element on top of the page (like in the viewport)
-      // const useFixedFlipClone = (element: HTMLElement) => {
-      //   const flipSandbox = el;
-      //   const elementRect = element?.getBoundingClientRect();
-
-      //   const clone = element?.cloneNode(true) as HTMLElement;
-
-      //   if (clone) {
-      //     clone.style.opacity = "0";
-      //     clone.style.pointerEvents = "none";
-
-      //     clone.style.position = `absolute`;
-      //     clone.style.top = `${elementRect?.top}px`;
-      //     clone.style.left = `${elementRect?.left}px`;
-      //     clone.style.width = `${elementRect?.width}px`;
-      //     clone.style.height = `${elementRect?.height}px`;
-
-      //     flipSandbox?.appendChild(clone);
-      //   }
-
-      //   return clone;
-      // };
-
-      // if (flipElement) {
-      //   // flipElement.style.transformOrigin = "center center";
-
-      //   setFlipState("1", useFixedFlipClone(flipElement as HTMLElement));
-      // }
 
       console.log("onLeave...");
 
+      const { transitioning, setPageTransitionWatcherCallback } =
+        usePageTransition();
+
+      setPageTransitionWatcherCallback(() => {
+        transitioning.lastLifeCycle = "onLeave";
+        done();
+      });
+
+      if (!transitioning.status) {
+        done();
+      }
+
       // setTimeout(() => {
-      done();
+      // done();
       // }, 1000);
     },
   },
@@ -199,12 +180,12 @@ definePageMeta({
       </div>
     </section>
 
-    <UiLink @click="initFlipPageTransition" to="/experiments" variant="ghost">
+    <!-- <UiLink @click="initFlipPageTransition" to="/experiments" variant="ghost">
       <div
         data-flip-id="1"
         class="w-1/3 aspect-[16/9] background-surface border"
       ></div
-    ></UiLink>
+    ></UiLink> -->
 
     <section class="relative mt-52 mb-[20vh] min-h-screen overflow-x-clip">
       <div class="blur-3xl">
@@ -221,7 +202,13 @@ definePageMeta({
     <section class="mt-24 mb-[50vh] w-full flex justify-center">
       <!-- w-2/3 is good instead of w-full maybe -->
       <div class="w-2/3 flex flex-col items-center">
-        <LayoutWorkGrid name="" date="" :items="[1, 2, 3]" variant="1" />
+        <LayoutWorkGrid
+          @transition="initFlipPageTransition"
+          name=""
+          date=""
+          :items="[1, 2, 3]"
+          variant="1"
+        />
         <LayoutWorkGrid name="" date="" :items="[1, 2]" variant="1" />
         <LayoutWorkGrid name="" date="" :items="[1, 2]" variant="2" />
         <LayoutWorkGrid name="" date="" :items="[1]" variant="1" />

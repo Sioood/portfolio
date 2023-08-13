@@ -6,10 +6,10 @@ gsap.registerPlugin(Flip);
 let flipBuffer = new Map();
 
 const useFlipTransition = () => {
-  const setFlipState = (id: string | number, element: Element ) => {
+  const setFlipState = (id: string | number, element: Element) => {
     flipBuffer.set(id, {
       id,
-      flipState: Flip.getState(element, {simple: true}),
+      flipState: Flip.getState(element, { simple: true }),
     });
 
     console.log(flipBuffer);
@@ -18,15 +18,13 @@ const useFlipTransition = () => {
   const flipFrom = (
     id: string | number,
     target: Element,
-    flipOptions: object
+    flipOptions?: object,
+    onComplete?: () => void
   ) => {
     let from = flipBuffer.get(id);
 
-    console.log(from);
-
-
     if (!from) {
-      throw new Error("flip element not found");
+      return "flip element not found";
     }
 
     const options = {
@@ -38,13 +36,12 @@ const useFlipTransition = () => {
       ...flipOptions,
     };
 
-    console.log(from.flipState);
-
     Flip.from(from.flipState, {
       targets: target,
       ...options,
+
       onComplete: () => {
-        console.log(true);
+        if (onComplete) onComplete();
 
         flipBuffer.delete(id);
       },

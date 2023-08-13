@@ -28,7 +28,7 @@ definePageMeta({
 </script>
 
 <template>
-  <main class="relative flex flex-col items-center overflow-hidden">
+  <main class="relative flex flex-col items-center">
     EXPERIMENTS
 
     <div class="w-full h-[90vh] flex justify-center border">
