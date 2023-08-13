@@ -7,12 +7,10 @@ let flipBuffer = new Map();
 
 const useFlipTransition = () => {
   const setFlipState = (id: string | number, element: Element) => {
-    flipBuffer.set(id, {
+    flipBuffer.set(id.toString(), {
       id,
       flipState: Flip.getState(element, { simple: true }),
     });
-
-    console.log(flipBuffer);
   };
 
   const flipFrom = (
@@ -21,7 +19,7 @@ const useFlipTransition = () => {
     flipOptions?: object,
     onComplete?: () => void
   ) => {
-    let from = flipBuffer.get(id);
+    let from = flipBuffer.get(id.toString());
 
     if (!from) {
       return "flip element not found";
@@ -49,6 +47,7 @@ const useFlipTransition = () => {
   };
 
   return {
+    flipBuffer,
     setFlipState,
     flipFrom,
   };

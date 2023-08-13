@@ -5,14 +5,17 @@
 /* not necessary with the nuxt module */
 /* @import "tailwind.css" */
 
-
-
 #__nuxt {
   min-height: 100svh;
   font-family: var(--font-primary), serif;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-neutral-900));
 }
+
+* {
+  transition: background 1s ease-in-out, color 0.1s ease-in-out;
+}
+
 /* 
 #__nuxt.dark {
   --color-background: ;

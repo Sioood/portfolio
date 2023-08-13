@@ -5,6 +5,44 @@ import { Flip } from "gsap/Flip";
 
 const route = useRoute();
 
+let works = [
+  {
+    id: "1",
+    name: "Titre 1",
+    date: "2000",
+    items: [1, 2, 3],
+    variant: "1",
+  },
+  {
+    id: "2",
+    name: "Titre 2",
+    date: "2000",
+    items: [1, 2],
+    variant: "1",
+  },
+  {
+    id: "3",
+    name: "Titre 3",
+    date: "2000",
+    items: [1, 2],
+    variant: "2",
+  },
+  {
+    id: "4",
+    name: "Titre 4",
+    date: "2000",
+    items: [1],
+    variant: "1",
+  },
+  {
+    id: "5",
+    name: "Titre 5",
+    date: "2000",
+    items: [1],
+    variant: "2",
+  },
+];
+
 // ScrollTrigger.defaults({
 
 // })
@@ -56,8 +94,9 @@ const initFlipPageTransition = (e: Event) => {
 
   const flipElement = target.hasAttribute("data-flip-id")
     ? target
-    : target?.querySelector("[data-flip-id='1']") ||
-      target.closest("[data-flip-id='1']");
+    : target?.querySelector("[data-flip-id]") ||
+      target.closest("[data-flip-id]");
+  const flipId = flipElement.getAttribute("data-flip-id");
 
   // // deceive gsap.Flip which deal with scrollTop position for page transition to a fixed element on top of the page (like in the viewport)
   const useFixedFlipClone = (element: HTMLElement) => {
@@ -92,8 +131,8 @@ const initFlipPageTransition = (e: Event) => {
     return clone;
   };
 
-  if (flipElement) {
-    setFlipState("1", useFixedFlipClone(flipElement as HTMLElement));
+  if (flipElement && flipId) {
+    setFlipState(flipId, useFixedFlipClone(flipElement as HTMLElement));
   }
 
   // setTimeout(() => {
@@ -199,20 +238,30 @@ definePageMeta({
       </div>
     </section>
 
-    <section class="mt-24 mb-[50vh] w-full flex justify-center">
+    <section id="works" class="mt-24 mb-[50vh] w-full flex justify-center">
       <!-- w-2/3 is good instead of w-full maybe -->
       <div class="w-2/3 flex flex-col items-center">
-        <LayoutWorkGrid
+        <WorkGrid
+          v-for="work in works"
+          :key="work.id"
+          @transition="initFlipPageTransition"
+          :id="work.id"
+          :name="work.name"
+          :date="work.date"
+          :items="work.items"
+          :variant="work.variant"
+        />
+        <!-- <WorkGrid
           @transition="initFlipPageTransition"
           name=""
           date=""
           :items="[1, 2, 3]"
           variant="1"
         />
-        <LayoutWorkGrid name="" date="" :items="[1, 2]" variant="1" />
-        <LayoutWorkGrid name="" date="" :items="[1, 2]" variant="2" />
-        <LayoutWorkGrid name="" date="" :items="[1]" variant="1" />
-        <LayoutWorkGrid name="" date="" :items="[1]" variant="2" />
+        <WorkGrid name="" date="" :items="[1, 2]" variant="1" />
+        <WorkGrid name="" date="" :items="[1, 2]" variant="2" />
+        <WorkGrid name="" date="" :items="[1]" variant="1" />
+        <WorkGrid name="" date="" :items="[1]" variant="2" /> -->
       </div>
     </section>
 

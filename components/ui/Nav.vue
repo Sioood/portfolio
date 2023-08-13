@@ -17,7 +17,7 @@ const toggleTheme = () => {
 
       <ul class="inline-flex gap-2.5">
         <li>
-          <UiLink to="/#works"
+          <UiLink to="/#works" @click="$lenis.scrollTo('#works')"
             ><h6 class="font-medium uppercase">Works</h6></UiLink
           >
         </li>
@@ -43,16 +43,14 @@ const toggleTheme = () => {
 </template>
 
 <style scoped>
-
-#theme-switcher {
+/* #theme-switcher {
   box-shadow: 0 0 0rem 0rem black;
   transition: box-shadow 0.3s ease-in-out;
-  /* transition: all 0.3s ease-in-out; */
 }
 
 #theme-switcher:hover {
   background: #000;
   color: #919191;
   box-shadow: 0 0 100rem 50rem black;
-}
+} */
 </style>

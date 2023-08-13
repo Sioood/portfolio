@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import gsap from "gsap";
 
+const route = useRoute();
+
 let work = {
   images: [
     {
@@ -259,6 +261,12 @@ definePageMeta({
       console.log("Before enter...");
     },
     onEnter: (el, done) => {
+      // useRoute results undefined ??
+      const router = useRouter();
+      const workId = Number(router.currentRoute.value.params.name);
+
+      const { transitioning } = usePageTransition();
+
       console.log("On enter...");
 
       const sliderWrapper = document.querySelector("#slider-wrapper");
@@ -272,31 +280,47 @@ definePageMeta({
         });
       }
 
-      const { flipFrom } = useFlipTransition();
+      const animatePageElements = () => {
+        console.log("animatePageElements...");
+        if (sliderWrapper && text) {
+          gsap.to([sliderWrapper, text], {
+            // xPercent: -100,
+            yPercent: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.easeOut",
+            stagger: {
+              each: 0.2,
+            },
+          });
+        }
+      };
 
-      const target = el.querySelector("[data-flip-id='1']");
+      const { flipBuffer, flipFrom } = useFlipTransition();
+
+      if (!flipBuffer.size) {
+        console.log("flipBuffer is empty");
+
+        animatePageElements();
+
+        transitioning.lastLifeCycle = "onEnter";
+
+        done();
+        return;
+      }
+
+      const target = el.querySelector(`[data-flip-id='${workId}']`);
+
 
       if (target) {
-        flipFrom("1", target, {}, () => {
-          if (sliderWrapper && text) {
-            gsap.to([sliderWrapper, text], {
-              // xPercent: -100,
-              yPercent: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "power3.easeOut",
-              stagger: {
-                each: 0.2,
-              }
-            });
-          }
+        flipFrom(workId, target, {}, () => {
+          animatePageElements();
         });
       }
 
-      done();
-
-      const { transitioning } = usePageTransition();
       transitioning.lastLifeCycle = "onEnter";
+
+      done();
     },
     onLeave: (el, done) => {
       console.log("onLeave...");
@@ -316,11 +340,13 @@ definePageMeta({
         Name <sup>2000</sup>, <i>Client</i> / Type of work / Some Tags, Nuxt,
         Directus, Tailwind / <a href=""><u>Visiter le site ↗</u></a>
       </h1>
-      <div class="pb-20 w-full h-[94vh] flex flex-col items-center gap-6 overflow-hidden">
+      <div
+        class="pb-20 w-full h-[94vh] flex flex-col items-center gap-6 overflow-hidden"
+      >
         <!-- translate with calc(index * 100%) -->
         <div class="z-[1] h-[75%] w-2/3 md:w-2/5 aspect-[4/3]">
           <!-- {{ selectedImage }} -->
-          <div data-flip-id="1" class="w-full h-full">
+          <div :data-flip-id="route.params.name" class="w-full h-full">
             <img
               class="w-full h-full object-cover"
               :src="selectedImage.src"
