@@ -359,11 +359,12 @@ definePageMeta({
         Directus, Tailwind /
         <a href=""><u class="whitespace-nowrap">Visiter le site ↗</u></a>
       </h1>
+
       <div
-        class="pb-20 w-full h-[94vh] flex flex-col items-center gap-6 overflow-hidden"
+        class="md:pb-20 w-full h-[94vh] flex flex-col items-center justify-end gap-6 overflow-hidden"
       >
         <!-- translate with calc(index * 100%) -->
-        <div class="z-[1] h-[75%] w-2/3 md:w-2/5 aspect-[4/3]">
+        <div class="z-[1] md:h-[75%] w-4/5 sm:w-2/5 aspect-[3/4]">
           <!-- {{ selectedImage }} -->
           <div :data-flip-id="route.params.name" class="w-full h-full">
             <img
@@ -374,7 +375,7 @@ definePageMeta({
           </div>
         </div>
 
-        <div class="w-2/3 md:w-2/5 h-[20%]">
+        <div class="w-4/5 sm:w-2/5 h-[20%]">
           <div
             id="slider-wrapper"
             ref="observerRoot"
@@ -383,7 +384,7 @@ definePageMeta({
             <ul
               data-lenis-prevent
               ref="slider"
-              class="p-2 w-[80vw] md:w-[68vw] h-full inline-flex gap-2 overflow-hidden cursor-move"
+              class="p-2 w-[85vw] md:w-[68vw] h-full inline-flex gap-2 overflow-hidden cursor-move"
             >
               <li
                 v-for="(image, i) in work.images"
