@@ -1,12 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/", "sitemap.xml"],
-    },
-  },
+  // nitro: {
+  //   prerender: {
+  //     crawlLinks: true,
+  //     routes: ["/", "sitemap.xml"],
+  //   },
+  // },
   build: {
     postcss: {
       postcssOptions: {
@@ -17,7 +17,10 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-simple-sitemap"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    // "nuxt-simple-sitemap"
+  ],
   css: ["~/assets/css/main.css"],
   components: ["~/components"],
   app: {
