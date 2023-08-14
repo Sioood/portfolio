@@ -67,6 +67,7 @@ defineEmits(["transition"]);
     class="w-full h-full"
   >
     <div
+      :data-flip-wrapper="props.id"
       class="p-2 w-full h-screen grid grid-rows-5 grid-cols-[repeat(12,minmax(0,1fr))] gap-2"
     >
       <div
@@ -111,6 +112,7 @@ defineEmits(["transition"]);
     class="w-full h-full"
   >
     <div
+      :data-flip-wrapper="props.id"
       class="p-2 w-full min-h-screen grid grid-rows-5 grid-cols-[repeat(12,minmax(0,1fr))] gap-2"
     >
       <div
@@ -145,6 +147,7 @@ defineEmits(["transition"]);
     class="w-full h-full"
   >
     <div
+      :data-flip-wrapper="props.id"
       class="p-2 w-full min-h-screen grid grid-rows-5 grid-cols-[repeat(12,minmax(0,1fr))] gap-2"
     >
       <div
@@ -179,6 +182,7 @@ defineEmits(["transition"]);
     class="w-full h-full"
   >
     <div
+      :data-flip-wrapper="props.id"
       class="p-2 w-full min-h-screen grid grid-rows-5 grid-cols-[repeat(12,minmax(0,1fr))] gap-2"
     >
       <div
@@ -209,6 +213,7 @@ defineEmits(["transition"]);
     class="w-full h-full"
   >
     <div
+      :data-flip-wrapper="props.id"
       class="p-2 w-full min-h-screen grid grid-rows-5 grid-cols-[repeat(12,minmax(0,1fr))] gap-2"
     >
       <div

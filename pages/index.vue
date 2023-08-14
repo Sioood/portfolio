@@ -94,8 +94,8 @@ const initFlipPageTransition = (e: Event) => {
 
   const flipElement = target.hasAttribute("data-flip-id")
     ? target
-    : target?.querySelector("[data-flip-id]") ||
-      target.closest("[data-flip-id]");
+    : target.closest("[data-flip-wrapper]")?.querySelector("[data-flip-id]");
+
   const flipId = flipElement?.getAttribute("data-flip-id");
 
   const flipSandbox = document.querySelector("main");
@@ -112,7 +112,7 @@ const initFlipPageTransition = (e: Event) => {
 
     const clone = element?.cloneNode(true) as HTMLElement;
 
-    if (clone) {
+    const setClone = (to: HTMLElement) => {
       clone.id = "flip-clone";
 
       clone.style.opacity = "0";
@@ -124,7 +124,11 @@ const initFlipPageTransition = (e: Event) => {
       clone.style.width = `${elementRect?.width}px`;
       clone.style.height = `${elementRect?.height}px`;
 
-      flipSandbox?.appendChild(clone);
+      to.appendChild(clone);
+    };
+
+    if (clone && flipSandbox) {
+      setClone(flipSandbox);
     }
 
     // delete clone ?
@@ -133,15 +137,6 @@ const initFlipPageTransition = (e: Event) => {
 
   if (flipElement && flipId) {
     setFlipState(flipId, useFixedFlipClone(flipElement as HTMLElement));
-  } else {
-    // MINDFUCKING BUG RESOLVING -> When i click on the project name the flipElement is not found
-    // I need to change the way i handle flipElement -> closest wrapper and querySelector data-flip-id
-    // because project name is more deep in the DOM to retrieve a closest data-flip-id
-    console.log("--------------------");
-    console.log("flipElement or flipId not found");
-    console.log(flipElement, flipId);
-    console.log(target.closest("[data-flip-id]"));
-    console.log("--------------------");
   }
 
   // const div = document.createElement("div");
@@ -273,7 +268,7 @@ definePageMeta({
 
     <section id="works" class="mt-24 mb-[50vh] w-full flex justify-center">
       <!-- w-2/3 is good instead of w-full maybe -->
-      <div class="w-2/3 flex flex-col items-center">
+      <div class="w-full md:w-2/3 flex flex-col items-center">
         <WorkGrid
           v-for="work in works"
           :key="work.id"
