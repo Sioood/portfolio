@@ -8,17 +8,17 @@ let work = {
     {
       id: "1",
       caption: "",
-      src: "https://images.unsplash.com/photo-1691229732670-f7034e54d2cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      src: "6fd0cff1-2f21-49f8-accc-5e5286c323fd",
     },
     {
       id: "2",
       caption: "",
-      src: "https://picsum.photos/id/2/1000/1000",
+      src: "https://images.unsplash.com/photo-1691229732670-f7034e54d2cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
     },
     {
       id: "3",
       caption: "",
-      src: "https://picsum.photos/id/3/1000/1000",
+      src: "https://picsum.photos/id/2/1000/1000",
     },
     {
       id: "4",
@@ -367,10 +367,15 @@ definePageMeta({
         <div class="z-[1] md:h-[75%] w-4/5 sm:w-2/5 aspect-[3/4]">
           <!-- {{ selectedImage }} -->
           <div :data-flip-id="route.params.name" class="w-full h-full">
-            <img
+            <!-- <img
               class="w-full h-full object-cover"
               :src="selectedImage.src"
               alt=""
+            /> -->
+
+            <NuxtImg
+              class="w-full h-full object-cover"
+              :src="selectedImage.src || '6fd0cff1-2f21-49f8-accc-5e5286c323fd'"
             />
           </div>
         </div>

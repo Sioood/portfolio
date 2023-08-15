@@ -219,7 +219,12 @@ defineEmits(["transition"]);
       <div
         :data-flip-id="props.id"
         class="w-full h-full bg-surface col-start-5 col-end-7 row-start-1 row-end-6"
-      ></div>
+      >
+        <NuxtImg
+          class="w-full h-full object-cover"
+          src="6fd0cff1-2f21-49f8-accc-5e5286c323fd"
+        />
+      </div>
 
       <div
         class="w-full h-full flex items-end justify-start col-start-6 col-end-10 row-start-3 row-end-4"
