@@ -294,6 +294,8 @@ definePageMeta({
     </section>
 
     <section id="contact" class="relative min-h-screen flex flex-col">
+      <!-- translate-y-[100%] sticky top-[-100%] this can reduce the 100vh need to get the second sticky and seem to scroll 2 sections with one not existing instead of just one -->
+      <!-- Need to translate the section -100% y also or something to avoid the 100vh top fake margin due to the translate of the first -->
       <div
         data-flip-wrapper="1"
         data-animate-element="contact"

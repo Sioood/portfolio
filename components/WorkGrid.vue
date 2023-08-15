@@ -88,7 +88,7 @@ defineEmits(["transition"]);
       <div
         class="w-full h-full flex items-end justify-start col-start-6 col-end-10 row-start-3 row-end-4"
       >
-        <h2 class="text-4xl italic">
+        <h2 class="text-4xl leading-tight italic">
           Project name
           <sup
             data-split-text
@@ -127,7 +127,7 @@ defineEmits(["transition"]);
       <div
         class="w-full h-full flex items-end justify-start col-start-5 col-end-9 row-start-4 row-end-5"
       >
-        <h2 class="text-4xl italic">
+        <h2 class="text-4xl leading-tight italic">
           Project name
           <sup
             data-split-text
@@ -162,7 +162,7 @@ defineEmits(["transition"]);
       <div
         class="w-full h-full flex items-end justify-start col-start-4 col-end-8 row-start-2 row-end-3"
       >
-        <h2 class="text-4xl italic">
+        <h2 class="text-4xl leading-tight italic">
           Project name
           <sup
             data-split-text
@@ -193,7 +193,7 @@ defineEmits(["transition"]);
       <div
         class="w-full h-full flex items-end justify-start col-start-8 col-end-12 row-start-4 row-end-5"
       >
-        <h2 class="text-4xl italic">
+        <h2 class="text-4xl leading-tight italic">
           Project name
           <sup
             data-split-text
@@ -224,7 +224,7 @@ defineEmits(["transition"]);
       <div
         class="w-full h-full flex items-end justify-start col-start-6 col-end-10 row-start-3 row-end-4"
       >
-        <h2 class="text-4xl italic">
+        <h2 class="text-4xl leading-tight italic">
           Project name
           <sup
             data-split-text
