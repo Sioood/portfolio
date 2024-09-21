@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   // nitro: {
   //   prerender: {
   //     crawlLinks: true,
@@ -8,11 +9,14 @@ export default defineNuxtConfig({
   //   },
   // },
   modules: [
-    "@nuxtjs/tailwindcss",
     // "nuxt-simple-sitemap"
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content',
   ],
-  css: ["~/assets/css/main.css"],
-  components: ["~/components"],
+
+  css: ['~/assets/css/main.css'],
+  components: ['~/components'],
+
   // image: {
   // provider: "directus",
   // directus: {
@@ -27,5 +31,7 @@ export default defineNuxtConfig({
   app: {
     // it's default page transition. If no css page transition is defined, it will be used and cause some latency
     // pageTransition: { name: "page", mode: "out-in" },
-  }
-});
+  },
+
+  compatibilityDate: '2024-09-21',
+})

@@ -6,38 +6,27 @@ const props = defineProps({
   },
   variant: {
     type: String,
-    default: "primary",
+    default: 'primary',
     validator: (value: string) => {
-      return [
-        "primary",
-        "secondary",
-        "outline",
-        "ghost",
-        "destructive",
-      ].includes(value);
+      return ['primary', 'secondary', 'outline', 'ghost', 'destructive'].includes(value)
     },
   },
   size: {
     type: String,
-    default: "md",
+    default: 'md',
     validator: (value: string) => {
-      return ["sm", "md", "lg"].includes(value);
+      return ['sm', 'md', 'lg'].includes(value)
     },
   },
-});
+})
 
 const isExternalLink = computed(() => {
-  return typeof props.to === "string" && props.to.startsWith("http");
-});
+  return typeof props.to === 'string' && props.to.startsWith('http')
+})
 </script>
 
 <template>
-  <a
-    v-if="isExternalLink"
-    :href="props.to"
-    target="_blank"
-    class="&>[*]:whitespace-nowrap"
-  >
+  <a v-if="isExternalLink" :href="props.to" target="_blank" class="&>[*]:whitespace-nowrap">
     <slot></slot>
   </a>
 

@@ -1,27 +1,25 @@
 <script setup lang="ts">
-const config = useRuntimeConfig();
+const config = useRuntimeConfig()
 
-const route = useRoute();
+const route = useRoute()
 
 const titleTemplate = () => {
-  return route.meta.title
-    ? `${route.meta.title} — TITLE`
-    : "TITLE — Référencer l'art, partager l'information.";
-};
+  return route.meta.title ? `${route.meta.title} — TITLE` : "TITLE — Référencer l'art, partager l'information."
+}
 
 const descriptionTemplate = () => {
   return route.meta.description
     ? route.meta.description
-    : "Référencer l'art, partager l'information. Partager, découvrir, s'inspirer, pour tous, par tous et au même endroit.";
-};
+    : "Référencer l'art, partager l'information. Partager, découvrir, s'inspirer, pour tous, par tous et au même endroit."
+}
 
 const imageTemplate = () => {
-  return route.meta.image ? `custom image` : `default image`;
-};
+  return route.meta.image ? `custom image` : `default image`
+}
 
 const routeTemplate = () => {
-  return `${config.public.siteUrl}${route.fullPath}`;
-};
+  return `${config.public.siteUrl}${route.fullPath}`
+}
 
 /**
  * SEO
@@ -29,7 +27,7 @@ const routeTemplate = () => {
 useHead({
   title: titleTemplate,
   htmlAttrs: {
-    lang: "fr",
+    lang: 'fr',
   },
   link: [
     // {
@@ -37,7 +35,7 @@ useHead({
     //   href: "https://fonts.googleapis.com",
     // },
     {
-      rel: "canonical",
+      rel: 'canonical',
       href: routeTemplate,
     },
   ],
@@ -48,43 +46,43 @@ useHead({
     //   children: `document.documentElement.classList.add('${config.public.theme}');`,
     // },
   ],
-});
+})
 
 useSeoMeta({
-  charset: "utf-8",
-  viewport: "width=device-width, initial-scale=1",
+  charset: 'utf-8',
+  viewport: 'width=device-width, initial-scale=1',
   title: titleTemplate,
   ogTitle: titleTemplate,
   description: descriptionTemplate,
   ogDescription: descriptionTemplate,
-  author: "theodupontpro@gmail.com",
-  creator: "",
-  ogType: "website",
+  author: 'theodupontpro@gmail.com',
+  creator: '',
+  ogType: 'website',
   ogUrl: routeTemplate,
   ogImage: imageTemplate,
-  twitterCard: "summary_large_image",
+  twitterCard: 'summary_large_image',
   twitterTitle: titleTemplate,
   twitterDescription: descriptionTemplate,
   twitterImage: imageTemplate,
   twitterImageAlt: `og image for ${routeTemplate()}`,
-  twitterSite: "",
-  twitterCreator: "",
-});
+  twitterSite: '',
+  twitterCreator: '',
+})
 
 /**
  * LENIS SCROLL
  */
 
-const { $lenis } = useNuxtApp();
+const { $lenis } = useNuxtApp()
 
 onMounted(() => {
-  function raf(time) {
-    $lenis.raf(time);
-    requestAnimationFrame(raf);
+  function raf(time: number) {
+    $lenis.raf(time)
+    requestAnimationFrame(raf)
   }
 
-  requestAnimationFrame(raf);
-});
+  requestAnimationFrame(raf)
+})
 </script>
 
 <template>

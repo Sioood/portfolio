@@ -1,4 +1,4 @@
-import Lenis from "@studio-freight/lenis";
+import Lenis from '@studio-freight/lenis'
 
 export default defineNuxtPlugin((nuxtApp) => {
   return {
@@ -8,6 +8,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         // infinite: true
       }),
     },
-  };
-});
+  }
+})
 //

@@ -1,30 +1,30 @@
-let transitioning = reactive({
+const transitioning = reactive({
   status: false,
-  from: "",
-  to: "",
-  lastLifeCycle: "",
-});
+  from: '',
+  to: '',
+  lastLifeCycle: '',
+})
 
 const usePageTransition = () => {
   let pageTransitionWatcherCallback = () => {
-    return;
-  };
+    return
+  }
 
   watch(transitioning, () => {
-    pageTransitionWatcherCallback();
+    pageTransitionWatcherCallback()
 
     pageTransitionWatcherCallback = () => {
-      return;
-    };
-  });
+      return
+    }
+  })
 
   const setPageTransitionWatcherCallback = (callback: any) => {
-    pageTransitionWatcherCallback = callback;
-  };
+    pageTransitionWatcherCallback = callback
+  }
 
   return {
     transitioning,
     setPageTransitionWatcherCallback,
-  };
-};
-export { usePageTransition };
+  }
+}
+export { usePageTransition }

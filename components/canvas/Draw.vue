@@ -1,115 +1,110 @@
 <script setup lang="ts">
-let canvas = ref();
+let canvas = ref()
 
 const setCanvasSize = () => {
-  console.log("setCanvasSize");
-  canvas.value.style.width = window.innerWidth + "px";
-  canvas.value.style.height = window.innerHeight + "px";
+  console.log('setCanvasSize')
+  canvas.value.style.width = window.innerWidth + 'px'
+  canvas.value.style.height = window.innerHeight + 'px'
 
-  canvas.value.width = window.innerWidth * 2;
-  canvas.value.height = window.innerHeight * 2;
-};
+  canvas.value.width = window.innerWidth * 2
+  canvas.value.height = window.innerHeight * 2
+}
 
 const handleWindowResize = () => {
-  if(!canvas.value) return;
+  if (!canvas.value) return
 
-  const ctx = canvas.value.getContext("2d");
+  const ctx = canvas.value.getContext('2d')
 
-  const imageData = ctx.getImageData(
-    0,
-    0,
-    canvas.value.width,
-    canvas.value.height
-  );
+  const imageData = ctx.getImageData(0, 0, canvas.value.width, canvas.value.height)
 
   // setCanvasSize();
-  initDrawing();
+  initDrawing()
 
-  const scaleX = canvas.value.width / imageData.width;
-  const scaleY = canvas.value.height / imageData.height;
+  const scaleX = canvas.value.width / imageData.width
+  const scaleY = canvas.value.height / imageData.height
 
-  ctx.putImageData(imageData, 0, 0);
-};
+  ctx.putImageData(imageData, 0, 0)
+}
 
 const initDrawing = () => {
-  const ctx = canvas.value.getContext("2d");
+  const ctx = canvas.value.getContext('2d')
 
-  setCanvasSize();
+  setCanvasSize()
 
-  ctx.strokeStyle = "#000";
+  ctx.strokeStyle = '#000'
   // ctx.lineJoin = "round";
-  ctx.lineCap = "round";
-  ctx.lineWidth = 200;
+  ctx.lineCap = 'round'
+  ctx.lineWidth = 200
 
   // blur the stroke
-  ctx.shadowBlur = 100;
-  ctx.shadowColor = "#000";
+  ctx.shadowBlur = 100
+  ctx.shadowColor = '#000'
 
-  let isDrawing = false;
-  let lastX = 0;
-  let lastY = 0;
-  let hue = 0;
+  let isDrawing = false
+  let lastX = 0
+  let lastY = 0
+  let hue = 0
 
   const draw = (e: any) => {
-    if (!isDrawing) return;
+    if (!isDrawing) return
 
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(e.offsetX * 2, e.offsetY * 2);
-    ctx.stroke();
-    [lastX, lastY] = [e.offsetX * 2, e.offsetY * 2];
-  };
+    ctx.beginPath()
+    ctx.moveTo(lastX, lastY)
+    ctx.lineTo(e.offsetX * 2, e.offsetY * 2)
+    ctx.stroke()
+    ;[lastX, lastY] = [e.offsetX * 2, e.offsetY * 2]
+  }
 
-  canvas.value.addEventListener("mousemove", (e: any) => {
-    draw(e);
-    isDrawing = true;
-    [lastX, lastY] = [e.offsetX * 2, e.offsetY * 2];
-  });
-  canvas.value.addEventListener("touchmove", (e: any) => {
+  canvas.value.addEventListener('mousemove', (e: any) => {
+    draw(e)
+    isDrawing = true
+    ;[lastX, lastY] = [e.offsetX * 2, e.offsetY * 2]
+  })
+  canvas.value.addEventListener('touchmove', (e: any) => {
     console.log(true)
 
-    draw(e);
-    isDrawing = true;
-    [lastX, lastY] = [e.offsetX * 2, e.offsetY * 2];
-  });
+    draw(e)
+    isDrawing = true
+    ;[lastX, lastY] = [e.offsetX * 2, e.offsetY * 2]
+  })
 
-  canvas.value.addEventListener("mousedown", (e: Event) => {
-    ctx.strokeStyle = "#919191";
-    ctx.shadowColor = "#919191";
-  });
-  canvas.value.addEventListener("touchstart", (e: Event) => {
-    ctx.strokeStyle = "#000";
-    ctx.shadowColor = "#000";
-  });
+  canvas.value.addEventListener('mousedown', (e: Event) => {
+    ctx.strokeStyle = '#919191'
+    ctx.shadowColor = '#919191'
+  })
+  canvas.value.addEventListener('touchstart', (e: Event) => {
+    ctx.strokeStyle = '#000'
+    ctx.shadowColor = '#000'
+  })
 
-  canvas.value.addEventListener("mouseup", (e: Event) => {
-    ctx.strokeStyle = "#000";
-    ctx.shadowColor = "#000";
+  canvas.value.addEventListener('mouseup', (e: Event) => {
+    ctx.strokeStyle = '#000'
+    ctx.shadowColor = '#000'
 
-    isDrawing = false;
-  });
-  canvas.value.addEventListener("touchend", (e: Event) => {
-    ctx.strokeStyle = "#000";
-    ctx.shadowColor = "#000";
+    isDrawing = false
+  })
+  canvas.value.addEventListener('touchend', (e: Event) => {
+    ctx.strokeStyle = '#000'
+    ctx.shadowColor = '#000'
 
-    isDrawing = false;
-  });
+    isDrawing = false
+  })
 
   // canvas.value.addEventListener("mousedown", (e) => {
   //   isDrawing = true;
   //   [lastX, lastY] = [e.offsetX, e.offsetY];
   // });
-};
+}
 
 onMounted(() => {
-  initDrawing();
+  initDrawing()
 
-  addEventListener("resize", (event) => {
+  addEventListener('resize', (event) => {
     // setCanvasSize()
     // initDrawing()
-    handleWindowResize();
-  });
-});
+    handleWindowResize()
+  })
+})
 </script>
 
 <template>

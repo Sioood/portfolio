@@ -1,56 +1,51 @@
-import { gsap } from "gsap";
-import { Flip } from "gsap/Flip";
+import { gsap } from 'gsap'
+import { Flip } from 'gsap/Flip'
 
-gsap.registerPlugin(Flip);
+gsap.registerPlugin(Flip)
 
-let flipBuffer = new Map();
+const flipBuffer = new Map()
 
 const useFlipTransition = () => {
   const setFlipState = (id: string | number, element: Element) => {
     flipBuffer.set(id.toString(), {
       id,
       flipState: Flip.getState(element, { simple: true }),
-    });
-  };
+    })
+  }
 
-  const flipFrom = (
-    id: string | number,
-    target: Element,
-    flipOptions?: object,
-    onComplete?: () => void
-  ) => {
-    let from = flipBuffer.get(id.toString());
+  const flipFrom = (id: string | number, target: Element, flipOptions?: object, onComplete?: () => void) => {
+    const from = flipBuffer.get(id.toString())
 
     if (!from) {
-      return "flip element not found";
+      return 'flip element not found'
     }
 
     const options = {
       // absolute: true,
       duration: 2,
-      ease: "power3.inOut",
+      ease: 'power3.inOut',
       // delay: 1,
       // watch out to rewrite ?? maybe use || insted on each prop
       ...flipOptions,
-    };
+    }
 
     Flip.from(from.flipState, {
       targets: target,
       ...options,
 
       onComplete: () => {
-        if (onComplete) onComplete();
+        if (onComplete) onComplete()
 
-        flipBuffer.delete(id);
+        flipBuffer.delete(id)
       },
-    });
-  };
+    })
+  }
 
   return {
     flipBuffer,
     setFlipState,
     flipFrom,
-  };
-};
+  }
+}
 
-export { useFlipTransition };
+export { useFlipTransition }

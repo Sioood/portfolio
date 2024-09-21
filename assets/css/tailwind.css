@@ -68,14 +68,14 @@
     /* SECONDARIES */
 
     /* FONTS */
-    --font-primary: "Nyght Serif";
-    --font-secondary: "Nohemi";
+    --font-primary: 'Nyght Serif';
+    --font-secondary: 'Nohemi';
   }
 
   :root.dark {
     /* COLOURS */
     /* BASE */
-    
+
     --color-primary-100: 145 145 145;
     --color-primary-200: 133 133 133;
     --color-primary-300: 97 97 97;
@@ -138,7 +138,7 @@
     /* SECONDARIES */
 
     /* FONTS */
-    --font-primary: "Nyght Serif";
-    --font-secondary: "Nohemi";
+    --font-primary: 'Nyght Serif';
+    --font-secondary: 'Nohemi';
   }
 }

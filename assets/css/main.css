@@ -1,6 +1,6 @@
-@import "reset.css";
-@import "lenis.css";
-@import "fonts.css";
+@import 'reset.css';
+@import 'lenis.css';
+@import 'fonts.css';
 
 /* not necessary with the nuxt module */
 /* @import "tailwind.css" */
@@ -13,7 +13,9 @@
 }
 
 * {
-  transition: background 1s ease-in-out, color 0.1s ease-in-out;
+  transition:
+    background 1s ease-in-out,
+    color 0.1s ease-in-out;
 }
 
 /* 

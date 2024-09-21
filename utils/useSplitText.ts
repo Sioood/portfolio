@@ -1,19 +1,19 @@
 export const useSplitText = (text: HTMLElement) => {
-  const textContent = text.textContent;
-  const spans = [];
+  const textContent = text.textContent
+  const spans = []
 
-  if (!textContent) return;
+  if (!textContent) return
 
-  text.innerHTML = "";
+  text.innerHTML = ''
 
   for (const characters of textContent) {
-    const span = document.createElement("span");
-    span.classList.add("split-character");
-    span.style.display = "inline-block";
+    const span = document.createElement('span')
+    span.classList.add('split-character')
+    span.style.display = 'inline-block'
     // span.textContent = characters;
-    span.innerHTML = characters;
-    spans.push(span);
+    span.innerHTML = characters
+    spans.push(span)
 
-    text.appendChild(span);
+    text.appendChild(span)
   }
-};
+}
