@@ -2,52 +2,11 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Flip } from 'gsap/Flip'
+import worksData from '~/assets/data/work/work.json'
 
 const route = useRoute()
 
-let works = [
-  {
-    id: '1',
-    name: 'Titre 1',
-    date: '2000',
-    items: [1, 2, 3],
-    variant: '1',
-  },
-  {
-    id: '2',
-    name: 'Titre 2',
-    date: '2000',
-    items: [1, 2],
-    variant: '1',
-  },
-  {
-    id: '3',
-    name: 'Titre 3',
-    date: '2000',
-    items: [1, 2],
-    variant: '2',
-  },
-  {
-    id: '4',
-    name: 'Titre 4',
-    date: '2000',
-    items: [1],
-    variant: '1',
-  },
-  {
-    id: '5',
-    name: 'Titre 5',
-    date: '2000',
-    items: [1],
-    variant: '2',
-  },
-]
-
-// ScrollTrigger.defaults({
-
-// })
-
-const animateHeader = () => {}
+const works = computed(() => worksData.sort((a, b) => Number(b.metadata.date) - Number(a.metadata.date)))
 
 const initContactClipPathAnimation = () => {
   const elements = document.querySelectorAll("[data-animate-element='contact']")
@@ -75,8 +34,6 @@ const initContactClipPathAnimation = () => {
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger, Flip)
-
-  // animateHeader();
 
   initContactClipPathAnimation()
 })
@@ -228,13 +185,6 @@ definePageMeta({
       </div>
     </section>
 
-    <!-- <UiLink @click="initFlipPageTransition" to="/experiments" variant="ghost">
-      <div
-        data-flip-id="1"
-        class="w-1/3 aspect-[16/9] background-surface border"
-      ></div
-    ></UiLink> -->
-
     <section class="relative mt-52 mb-[20vh] min-h-screen overflow-x-clip">
       <div class="blur-3xl">
         <CanvasDraw class="absolute top-0 w-full h-screen" />
@@ -246,29 +196,17 @@ definePageMeta({
     </section>
 
     <section id="works" class="mt-24 mb-[50vh] w-full flex justify-center">
-      <!-- w-2/3 is good instead of w-full maybe -->
       <div class="w-full md:w-2/3 flex flex-col items-center">
         <WorkGrid
           v-for="work in works"
-          :key="work.id"
+          :key="work.metadata.id"
           @transition="initFlipPageTransition"
-          :id="work.id"
-          :name="work.name"
-          :date="work.date"
-          :items="work.items"
-          :variant="work.variant"
+          :id="work.metadata.id"
+          :name="work.metadata.name"
+          :date="work.metadata.date"
+          :items="work.metadata.items"
+          :variant="work.metadata.variant"
         />
-        <!-- <WorkGrid
-          @transition="initFlipPageTransition"
-          name=""
-          date=""
-          :items="[1, 2, 3]"
-          variant="1"
-        />
-        <WorkGrid name="" date="" :items="[1, 2]" variant="1" />
-        <WorkGrid name="" date="" :items="[1, 2]" variant="2" />
-        <WorkGrid name="" date="" :items="[1]" variant="1" />
-        <WorkGrid name="" date="" :items="[1]" variant="2" /> -->
       </div>
     </section>
 

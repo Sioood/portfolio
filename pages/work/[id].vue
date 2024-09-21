@@ -1,74 +1,47 @@
 <script setup lang="ts">
 import gsap from 'gsap'
+import works from '~/assets/data/work/work.json'
 
 const route = useRoute()
 
-let work = {
+const work = ref({
+  metadata: {
+    id: '',
+    name: '',
+    date: '',
+    client: '',
+    type: '',
+    tags: [''],
+    url: '',
+    items: [
+      {
+        url: '',
+        alt: '',
+      },
+    ],
+    variant: '',
+  },
   images: [
     {
-      id: '1',
+      id: '',
+      url: '',
       caption: '',
-      src: 'https://images.unsplash.com/photo-1691229732670-f7034e54d2cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
-    },
-    {
-      id: '2',
-      caption: '',
-      src: 'https://picsum.photos/id/2/1000/1000',
-    },
-    {
-      id: '3',
-      caption: '',
-      src: 'https://picsum.photos/id/3/1000/1000',
-    },
-    {
-      id: '4',
-      caption: '',
-      src: 'https://picsum.photos/id/4/1000/1000',
-    },
-    {
-      id: '5',
-      caption: '',
-      src: 'https://picsum.photos/id/5/1000/1000',
-    },
-    {
-      id: '6',
-      caption: '',
-      src: 'https://picsum.photos/id/6/1000/1000',
-    },
-    {
-      id: '7',
-      caption: '',
-      src: 'https://picsum.photos/id/7/1000/1000',
-    },
-    {
-      id: '8',
-      caption: '',
-      src: 'https://picsum.photos/id/8/1000/1000',
-    },
-    {
-      id: '9',
-      caption: '',
-      src: 'https://picsum.photos/id/9/1000/1000',
+      alt: '',
     },
   ],
-}
-
-let selectedImage = ref({
-  id: '',
-  caption: '',
-  src: '',
 })
+const selectedImage = ref(work.value.images[0])
 
-let slider = ref()
+const slider = ref()
 
 interface SliderImage {
   el: HTMLElement
   left: number
 }
-let sliderImages: Ref<SliderImage[]> = ref([])
-let isDragging = ref(false)
-let hasDragged = ref(false)
-let observerRoot = ref()
+const sliderImages: Ref<SliderImage[]> = ref([])
+const isDragging = ref(false)
+const hasDragged = ref(false)
+const observerRoot = ref()
 
 const draggingStartFrom = {
   pageX: 0,
@@ -80,7 +53,7 @@ const initSlider = () => {
 
   const images = slider.value.querySelectorAll('li')
 
-  // aiming for resize specifically -> more fast than refind an existing element and update the keft
+  // aiming for resize specifically -> more fast than refind an existing element and update the left
   sliderImages.value = []
   images.forEach((image: HTMLElement) => {
     image.setAttribute('data-original-left', image.getBoundingClientRect().left.toString())
@@ -141,7 +114,8 @@ const stopDrag = () => {
 }
 
 const selectImage = (id: string | number) => {
-  const image = work.images.find((image) => image.id === id)
+  if (!work.value) return
+  const image = work.value.images.find((image) => image.id === id)
 
   if (image) {
     selectedImage.value = image
@@ -213,7 +187,8 @@ const initObservers = () => {
   const callback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.intersectionRatio === 1) {
-        selectImage(entry.target.getAttribute('data-slider-img') ?? work.images[0].id)
+        if (!work.value) return
+        selectImage(entry.target.getAttribute('data-slider-img') ?? work.value.images[0].id)
       }
     })
   }
@@ -231,18 +206,23 @@ const initObservers = () => {
   })
 }
 
+const initAll = () => {
+  selectImage(work.value.images[0].id)
+
+  nextTick(initSlider)
+
+  nextTick(initListeners)
+
+  nextTick(initObservers)
+}
+
 onMounted(() => {
-  const { transitioning } = usePageTransition()
-
-  const initAll = () => {
-    selectImage(work.images[0].id)
-
-    initSlider()
-
-    initListeners()
-
-    initObservers()
+  const workById = works.find((work) => work.metadata.id === route.params.id)
+  if (workById) {
+    work.value = workById
   }
+
+  const { transitioning } = usePageTransition()
 
   if (!transitioning.status) {
     initAll()
@@ -256,8 +236,17 @@ onMounted(() => {
   })
 })
 
+watch(
+  work,
+  () => {
+    nextTick(removeListeners)
+    initAll()
+  },
+  { deep: true },
+)
+
 onBeforeUnmount(() => {
-  removeListeners
+  removeListeners()
 })
 
 definePageMeta({
@@ -270,7 +259,7 @@ definePageMeta({
     onEnter: (el, done) => {
       // useRoute results undefined ??
       const router = useRouter()
-      const workId = router.currentRoute.value.params.name.toString()
+      const workId = router.currentRoute.value.params.id.toString()
 
       const { transitioning } = usePageTransition()
 
@@ -341,16 +330,20 @@ definePageMeta({
   <div class="p-2 w-full flex flex-col items-center">
     <main class="relative w-full flex">
       <h1 id="text" class="z-[2] absolute md:w-1/2 text-[clamp(2rem,4vw,4.5rem)] break-words hyphens-auto">
-        Name <sup>2000</sup>, <i>Client</i> / Type of work / Some Tags, Nuxt, Directus, Tailwind /
-        <a href=""><u class="whitespace-nowrap">Visiter le site ↗</u></a>
+        {{ work.metadata.name }} <sup>{{ work.metadata.date }}</sup
+        >, <i>{{ work.metadata.client }}</i> / {{ work.metadata.type }} /
+        <span v-for="(tag, i) in work.metadata.tags">{{ `${tag}${i < work.metadata.tags.length - 1 ? ', ' : ''}` }}</span>
+        <span v-if="work.metadata.url"
+          >/ <a :href="work.metadata.url"><u class="whitespace-nowrap">Visiter le site ↗</u></a></span
+        >
       </h1>
 
       <div class="md:pb-20 w-full h-[94vh] flex flex-col items-center justify-end gap-6 overflow-hidden">
         <!-- translate with calc(index * 100%) -->
         <div class="z-[1] md:h-[75%] w-4/5 sm:w-2/5 aspect-[3/4]">
           <!-- {{ selectedImage }} -->
-          <div :data-flip-id="route.params.name" class="w-full h-full">
-            <img class="w-full h-full object-cover" :src="selectedImage.src" alt="" />
+          <div :data-flip-id="route.params.id" class="w-full h-full">
+            <img class="w-full h-full object-cover" :src="selectedImage.url" alt="" />
           </div>
         </div>
 
@@ -368,7 +361,7 @@ definePageMeta({
                     :class="{
                       'grayscale invert-[65%]': selectedImage.id !== image.id,
                     }"
-                    :src="image.src"
+                    :src="image.url"
                     alt=""
                     draggable="false"
                   />
