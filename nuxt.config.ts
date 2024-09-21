@@ -9,11 +9,8 @@ export default defineNuxtConfig({
   //     routes: ["/", "sitemap.xml"],
   //   },
   // },
-  modules: [
-    // "nuxt-simple-sitemap"
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content',
-  ],
+  modules: [// "nuxt-simple-sitemap"
+  '@nuxtjs/tailwindcss', '@nuxt/content', "@nuxthq/studio"],
 
   css: ['~/assets/css/main.css'],
   components: ['~/components'],
