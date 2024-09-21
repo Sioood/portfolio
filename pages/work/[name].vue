@@ -148,7 +148,12 @@ const selectImage = (id: string | number) => {
   }
 }
 
-const clickedImage = (id: number | string) => {
+const mousedownClickedImagePosition = ref({
+  x: 0,
+  y: 0,
+})
+const clickedImage = (e: any, id: number | string) => {
+  if (mousedownClickedImagePosition.value.x !== e.clientX && mousedownClickedImagePosition.value.y !== e.clientY) return
   const img = document.querySelector(`[data-slider-img="${id}"]`)
 
   const matchedImage = sliderImages.value.find((image) => {
@@ -353,7 +358,11 @@ definePageMeta({
           <div id="slider-wrapper" ref="observerRoot" class="w-[20vh] aspect-[4/3] border">
             <ul data-lenis-prevent ref="slider" class="p-2 w-[85vw] md:w-[68vw] h-full inline-flex gap-2 overflow-hidden cursor-move">
               <li v-for="(image, i) in work.images" :key="i" :data-slider-img="image.id" class="aspect-[4/3] bg-surface">
-                <button @click="hasDragged === false ? clickedImage(image.id) : null" class="aspect-[4/3]">
+                <button
+                  @mousedown="mousedownClickedImagePosition = { x: $event.clientX, y: $event.clientY }"
+                  @click="clickedImage($event, image.id)"
+                  class="aspect-[4/3]"
+                >
                   <img
                     class="w-full h-full object-cover transition-all"
                     :class="{
