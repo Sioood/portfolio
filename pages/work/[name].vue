@@ -353,7 +353,7 @@ definePageMeta({
           <div id="slider-wrapper" ref="observerRoot" class="w-[20vh] aspect-[4/3] border">
             <ul data-lenis-prevent ref="slider" class="p-2 w-[85vw] md:w-[68vw] h-full inline-flex gap-2 overflow-hidden cursor-move">
               <li v-for="(image, i) in work.images" :key="i" :data-slider-img="image.id" class="aspect-[4/3] bg-surface">
-                <button @click="if (hasDragged === false) clickedImage(image.id)" class="aspect-[4/3]">
+                <button @click="hasDragged === false ? clickedImage(image.id) : null" class="aspect-[4/3]">
                   <img
                     class="w-full h-full object-cover transition-all"
                     :class="{

@@ -18,7 +18,7 @@ const toggleTheme = () => {
           <UiLink to="/#works" @click="$lenis.scrollTo('#works')"><h6 class="font-medium uppercase">Works</h6></UiLink>
         </li>
         <li>
-          <UiLink to="/experiments"><h6 class="font-medium uppercase">Experiments</h6></UiLink>
+          <UiLink to="/experiment"><h6 class="font-medium uppercase">Experiments</h6></UiLink>
         </li>
         <li>
           <UiLink to="/#contact" @click="$lenis.scrollTo('#contact')"><h6 class="font-medium uppercase">Contact</h6></UiLink>
