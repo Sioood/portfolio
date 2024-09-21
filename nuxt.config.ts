@@ -7,26 +7,12 @@ export default defineNuxtConfig({
   //     routes: ["/", "sitemap.xml"],
   //   },
   // },
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  },
   modules: [
     "@nuxtjs/tailwindcss",
     // "nuxt-simple-sitemap"
   ],
   css: ["~/assets/css/main.css"],
   components: ["~/components"],
-  app: {
-    // it's default page transition. If no css page transition is defined, it will be used and cause some latency
-    // pageTransition: { name: "page", mode: "out-in" },
-  },
   // image: {
   // provider: "directus",
   // directus: {
@@ -38,4 +24,8 @@ export default defineNuxtConfig({
   //   },
   // },
   // },
+  app: {
+    // it's default page transition. If no css page transition is defined, it will be used and cause some latency
+    // pageTransition: { name: "page", mode: "out-in" },
+  }
 });
