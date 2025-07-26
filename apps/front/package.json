@@ -1,0 +1,16 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "oxlint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+    "devDependencies": {
+    "@devoid/oxlint": "workspace:^",
+    "oxlint": "^1.7.0"
+  }
+}

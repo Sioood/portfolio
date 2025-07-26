@@ -1,0 +1,10 @@
+{
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "rules": {
+    "no-unused-vars": "error",
+    "eqeqeq": "error",
+    "semi": "error",
+    "typescript/no-explicit-any": "error"
+  },
+  "ignorePatterns": ["**/node_modules/**", "**/dist/**"]
+}

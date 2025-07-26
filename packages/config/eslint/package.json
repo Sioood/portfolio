@@ -1,0 +1,24 @@
+{
+  "name": "@devoid/eslint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "eslint.config.js",
+  "type": "module",
+  "scripts": {
+    "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
+    "lint:oxlint": "npx oxlint || true",
+    "lint:eslint": "npx eslint . --max-warnings 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@devoid/oxlint": "workspace:^",
+    "@devoid/prettier": "workspace:^",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-oxlint": "^1.8.0",
+    "eslint-plugin-prettier": "^5.5.3",
+    "eslint": "^9.32.0",
+    "oxlint": "^1.7.0"
+  }
+}

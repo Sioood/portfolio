@@ -1,0 +1,21 @@
+{
+  "name": "devoid",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
+    "lint:oxlint": "npx oxlint || true",
+    "lint:eslint": "npx eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@devoid/eslint": "workspace:^",
+    "@devoid/oxlint": "workspace:^",
+    "@devoid/prettier": "workspace:^",
+    "oxlint": "^1.7.0"
+  },
+  "prettier": "@devoid/prettier"
+}

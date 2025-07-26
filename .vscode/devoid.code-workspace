@@ -1,0 +1,38 @@
+{
+  "folders": [
+    {
+      "name": "/",
+      "path": "../"
+    },
+    {
+      "name": "/config",
+      "path": "../packages/config"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "node_module": true,
+      "apps/": true,
+      "packages/": true
+    },
+    "conventionalCommits.scopes": ["global", "config", "docs"],
+    "editor.formatOnSave": true,
+    "cSpell.words": ["devoid", "Nuxt"]
+  },
+  "extensions": {
+    "recommendations": [
+      "oxc.oxc-vscode",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "vivaxy.vscode-conventional-commits",
+      "Gruntfuggly.todo-tree",
+      "Vue.volar"
+    ]
+  }
+}
