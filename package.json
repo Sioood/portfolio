@@ -5,10 +5,10 @@
   "packageManager": "pnpm@10.13.1",
   "type": "module",
   "scripts": {
-    "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
-    "lint:oxlint": "npx oxlint || true",
-    "lint:eslint": "npx eslint .",
-    "format": "npx prettier --write . --max-warnings 0",
+    "lint": "turbo run lint",
+    "lint:oxlint": "turbo run lint:oxlint",
+    "lint:eslint": "turbo run lint:eslint",
+    "format": "turbo format",
     "prepare": "husky || true",
     "pre-commit": "lint-staged"
   },
@@ -26,7 +26,8 @@
     "@devoid/prettier": "workspace:^",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "oxlint": "catalog:"
+    "oxlint": "catalog:",
+    "turbo": "^2.5.5"
   },
   "prettier": "@devoid/prettier",
   "lint-staged": {

@@ -2,12 +2,12 @@
   "folders": [
     {
       "name": "/",
-      "path": "../"
+      "path": "../",
     },
     {
       "name": "/config",
-      "path": "../packages/config"
-    }
+      "path": "../packages/config",
+    },
   ],
   "settings": {
     "files.exclude": {
@@ -19,11 +19,11 @@
       "**/Thumbs.db": true,
       "node_module": true,
       "apps/": true,
-      "packages/": true
+      "packages/": true,
     },
     "conventionalCommits.scopes": ["global", "config", "docs"],
     "editor.formatOnSave": true,
-    "cSpell.words": ["devoid", "oxlint", "Nuxt"]
+    "cSpell.words": ["devoid", "oxlint", "Nuxt"],
   },
   "extensions": {
     "recommendations": [
@@ -32,7 +32,7 @@
       "esbenp.prettier-vscode",
       "vivaxy.vscode-conventional-commits",
       "Gruntfuggly.todo-tree",
-      "Vue.volar"
-    ]
-  }
+      "Vue.volar",
+    ],
+  },
 }
