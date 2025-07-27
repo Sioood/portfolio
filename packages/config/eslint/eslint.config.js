@@ -1,10 +1,11 @@
-import { defineConfig } from 'eslint/config'
+import tseslint from 'typescript-eslint'
 import eslintPrettierPluginRecommended from 'eslint-plugin-prettier/recommended'
 import prettierConfig from '@stallning/prettier'
 import oxlint from 'eslint-plugin-oxlint'
 
-export default defineConfig([
+export default tseslint.config([
   eslintPrettierPluginRecommended,
+  ...tseslint.configs.recommended,
   {
     rules: {
       'prettier/prettier': ['error', prettierConfig],

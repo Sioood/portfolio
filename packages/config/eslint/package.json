@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
-    "lint:oxlint": "npx oxlint || true",
-    "lint:eslint": "npx eslint . --max-warnings 0",
-    "format": "npx prettier --write ."
+    "lint:oxlint": "pnpx oxlint || true",
+    "lint:eslint": "pnpx eslint . --max-warnings 0",
+    "format": "pnpx prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -16,10 +16,11 @@
   "devDependencies": {
     "@stallning/oxlint": "workspace:^",
     "@stallning/prettier": "workspace:^",
+    "eslint": "catalog:",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "^1.8.0",
     "eslint-plugin-prettier": "^5.5.3",
-    "eslint": "catalog:",
-    "oxlint": "catalog:"
+    "oxlint": "catalog:",
+    "typescript-eslint": "^8.38.0"
   }
 }

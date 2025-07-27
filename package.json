@@ -24,6 +24,7 @@
     "@stallning/eslint": "workspace:^",
     "@stallning/oxlint": "workspace:^",
     "@stallning/prettier": "workspace:^",
+    "@stallning/typescript": "workspace:^",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "oxlint": "catalog:",
