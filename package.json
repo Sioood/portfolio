@@ -1,5 +1,5 @@
 {
-  "name": "devoid",
+  "name": "stallning",
   "version": "1.0.0",
   "description": "",
   "packageManager": "pnpm@10.13.1",
@@ -21,15 +21,15 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@devoid/eslint": "workspace:^",
-    "@devoid/oxlint": "workspace:^",
-    "@devoid/prettier": "workspace:^",
+    "@stallning/eslint": "workspace:^",
+    "@stallning/oxlint": "workspace:^",
+    "@stallning/prettier": "workspace:^",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "oxlint": "catalog:",
     "turbo": "^2.5.5"
   },
-  "prettier": "@devoid/prettier",
+  "prettier": "@stallning/prettier",
   "lint-staged": {
     "**/*.{json,js,ts,tsx,vue}": [
       "oxlint --fix",

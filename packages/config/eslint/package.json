@@ -1,5 +1,5 @@
 {
-  "name": "@devoid/eslint",
+  "name": "@stallning/eslint",
   "version": "1.0.0",
   "description": "",
   "main": "eslint.config.js",
@@ -14,8 +14,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@devoid/oxlint": "workspace:^",
-    "@devoid/prettier": "workspace:^",
+    "@stallning/oxlint": "workspace:^",
+    "@stallning/prettier": "workspace:^",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "^1.8.0",
     "eslint-plugin-prettier": "^5.5.3",

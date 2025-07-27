@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config'
 import eslintPrettierPluginRecommended from 'eslint-plugin-prettier/recommended'
-import prettierConfig from '@devoid/prettier'
+import prettierConfig from '@stallning/prettier'
 import oxlint from 'eslint-plugin-oxlint'
 
 export default defineConfig([
@@ -11,5 +11,5 @@ export default defineConfig([
     },
   },
   // oxlint should be the last one
-  ...oxlint.buildFromOxlintConfigFile('./node_modules/@devoid/oxlint/.oxlintrc.json'),
+  ...oxlint.buildFromOxlintConfigFile('./node_modules/@stallning/oxlint/.oxlintrc.json'),
 ])

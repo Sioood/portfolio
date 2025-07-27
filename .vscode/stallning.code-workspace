@@ -23,7 +23,7 @@
     },
     "conventionalCommits.scopes": ["global", "config", "docs"],
     "editor.formatOnSave": true,
-    "cSpell.words": ["devoid", "oxlint", "Nuxt"],
+    "cSpell.words": ["stallning", "oxlint", "Nuxt"],
   },
   "extensions": {
     "recommendations": [
