@@ -2,6 +2,7 @@
   "name": "devoid",
   "version": "1.0.0",
   "description": "",
+  "packageManager": "pnpm@10.13.1",
   "type": "module",
   "scripts": {
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
@@ -14,6 +15,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=22.5.1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
