@@ -6,16 +6,67 @@
   "scripts": {
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
     "lint:oxlint": "npx oxlint || true",
-    "lint:eslint": "npx eslint ."
+    "lint:eslint": "npx eslint .",
+    "format": "npx prettier --write . --max-warnings 0",
+    "prepare": "husky || true",
+    "pre-commit": "lint-staged"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@devoid/eslint": "workspace:^",
     "@devoid/oxlint": "workspace:^",
     "@devoid/prettier": "workspace:^",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "oxlint": "^1.7.0"
   },
-  "prettier": "@devoid/prettier"
+  "prettier": "@devoid/prettier",
+  "lint-staged": {
+    "**/*.{json,js,ts,tsx,vue}": [
+      "oxlint --fix",
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        100
+      ],
+      "scope-enum": [
+        2,
+        "always",
+        [
+          "global",
+          "config"
+        ]
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "chore",
+          "ci",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "style",
+          "test"
+        ]
+      ]
+    }
+  }
 }
