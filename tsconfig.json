@@ -1,3 +1,10 @@
 {
-  "extends": ["@stallning/typescript/base.json"]
+  "extends": ["@stallning/typescript/base.json"],
+  "include": ["./.changeset/*.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "typeRoots": ["node_modules/@types"]
+  }
 }

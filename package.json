@@ -10,7 +10,9 @@
     "lint:eslint": "turbo run lint:eslint",
     "format": "turbo format",
     "prepare": "husky || true",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "changeset": "pnpm exec changeset",
+    "changeset-conventional-commits": "node --experimental-strip-types ./.changeset/changeset-conventional-commits.ts"
   },
   "keywords": [],
   "author": "",
@@ -18,13 +20,22 @@
   "engines": {
     "node": ">=22.5.1"
   },
+  "dependencies": {
+    "@changesets/cli": "^2.29.5"
+  },
   "devDependencies": {
+    "@changesets/read": "^0.6.5",
+    "@changesets/types": "^6.1.0",
+    "@changesets/write": "^0.4.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@manypkg/get-packages": "^3.1.0",
     "@stallning/eslint": "workspace:^",
     "@stallning/oxlint": "workspace:^",
     "@stallning/prettier": "workspace:^",
     "@stallning/typescript": "workspace:^",
+    "@types/node": "^24.1.0",
+    "commander": "^14.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "oxlint": "catalog:",
