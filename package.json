@@ -12,7 +12,8 @@
     "prepare": "husky || true",
     "pre-commit": "lint-staged",
     "changeset": "pnpm exec changeset",
-    "changeset-conventional-commits": "node --experimental-strip-types ./.changeset/changeset-conventional-commits.ts"
+    "changeset:conventional-commits": "node --experimental-strip-types ./.changeset/changeset-conventional-commits.ts",
+    "changeset:release": "pnpm exec changeset tag"
   },
   "keywords": [],
   "author": "",
