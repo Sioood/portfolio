@@ -3,10 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [
-    ["@stallning/eslint", "@stallning/prettier"],
-    ["@stallning/eslint", "@stallning/typescript"]
-  ],
+  "linked": [["@stallning/eslint", "@stallning/prettier", "@stallning/typescript"]],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
