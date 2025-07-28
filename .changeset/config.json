@@ -4,8 +4,8 @@
   "commit": false,
   "fixed": [],
   "linked": [
-    ["@stallning/eslint", "@stalling/prettier"],
-    ["@stallning/eslint", "@stalling/typescript"]
+    ["@stallning/eslint", "@stallning/prettier"],
+    ["@stallning/eslint", "@stallning/typescript"]
   ],
   "access": "restricted",
   "baseBranch": "main",
