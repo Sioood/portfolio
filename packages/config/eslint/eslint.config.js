@@ -9,6 +9,15 @@ export default tseslint.config([
   {
     rules: {
       'prettier/prettier': ['error', prettierConfig],
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   // oxlint should be the last one
