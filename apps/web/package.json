@@ -1,5 +1,5 @@
 {
-  "name": "@stallning/web",
+  "name": "@portfolio/web",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,16 +13,16 @@
     "lint:eslint": "pnpx eslint . --max-warnings 0"
   },
   "dependencies": {
-    "@stallning/ui": "workspace:^",
+    "@portfolio/ui": "workspace:^",
     "nuxt": "^4.0.1",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.7.1",
-    "@stallning/eslint": "workspace:^",
-    "@stallning/oxlint": "workspace:^",
-    "@stallning/prettier": "workspace:^"
+    "@portfolio/eslint": "workspace:^",
+    "@portfolio/oxlint": "workspace:^",
+    "@portfolio/prettier": "workspace:^"
   },
-  "prettier": "@stallning/prettier"
+  "prettier": "@portfolio/prettier"
 }

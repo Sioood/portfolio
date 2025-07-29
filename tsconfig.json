@@ -1,5 +1,5 @@
 {
-  "extends": ["@stallning/typescript/base.json"],
+  "extends": ["@portfolio/typescript/base.json"],
   "include": ["./.changeset/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {

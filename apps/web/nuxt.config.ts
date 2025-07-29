@@ -2,6 +2,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  extends: ['@stallning/ui'],
+  extends: ['@portfolio/ui'],
   modules: ['@nuxt/eslint'],
 })

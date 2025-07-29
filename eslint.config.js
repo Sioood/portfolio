@@ -1,4 +1,4 @@
 import { defineConfig } from 'eslint/config'
-import base from '@stallning/eslint'
+import base from '@portfolio/eslint'
 
 export default defineConfig(base)

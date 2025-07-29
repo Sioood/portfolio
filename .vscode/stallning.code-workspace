@@ -31,7 +31,7 @@
     },
     "conventionalCommits.scopes": ["global", "config", "docs", "ui", "web"],
     "editor.formatOnSave": true,
-    "cSpell.words": ["stallning", "oxlint", "Nuxt"],
+    "cSpell.words": ["portfolio", "oxlint", "Nuxt"],
   },
   "extensions": {
     "recommendations": [

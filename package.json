@@ -1,5 +1,5 @@
 {
-  "name": "stallning",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "",
   "packageManager": "pnpm@10.13.1",
@@ -31,10 +31,10 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@manypkg/get-packages": "^3.1.0",
-    "@stallning/eslint": "workspace:^",
-    "@stallning/oxlint": "workspace:^",
-    "@stallning/prettier": "workspace:^",
-    "@stallning/typescript": "workspace:^",
+    "@portfolio/eslint": "workspace:^",
+    "@portfolio/oxlint": "workspace:^",
+    "@portfolio/prettier": "workspace:^",
+    "@portfolio/typescript": "workspace:^",
     "@types/node": "^24.1.0",
     "commander": "^14.0.0",
     "husky": "^9.1.7",
@@ -42,7 +42,7 @@
     "oxlint": "catalog:",
     "turbo": "^2.5.5"
   },
-  "prettier": "@stallning/prettier",
+  "prettier": "@portfolio/prettier",
   "lint-staged": {
     "**/*.{json,js,ts,tsx,vue}": [
       "oxlint --fix",

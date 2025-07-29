@@ -1,6 +1,6 @@
 import tseslint from 'typescript-eslint'
 import eslintPrettierPluginRecommended from 'eslint-plugin-prettier/recommended'
-import prettierConfig from '@stallning/prettier'
+import prettierConfig from '@portfolio/prettier'
 import oxlint from 'eslint-plugin-oxlint'
 
 export default tseslint.config([
@@ -21,5 +21,5 @@ export default tseslint.config([
     },
   },
   // oxlint should be the last one
-  ...oxlint.buildFromOxlintConfigFile('./node_modules/@stallning/oxlint/.oxlintrc.json'),
+  ...oxlint.buildFromOxlintConfigFile('./node_modules/@portfolio/oxlint/.oxlintrc.json'),
 ])

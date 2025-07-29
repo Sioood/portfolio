@@ -1,5 +1,5 @@
 {
-  "name": "@stallning/eslint",
+  "name": "@portfolio/eslint",
   "private": true,
   "version": "1.2.0",
   "description": "",
@@ -23,8 +23,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@stallning/oxlint": "workspace:^",
-    "@stallning/prettier": "workspace:^",
+    "@portfolio/oxlint": "workspace:^",
+    "@portfolio/prettier": "workspace:^",
     "eslint": "catalog:",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "^1.8.0",
