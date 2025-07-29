@@ -1,8 +1,17 @@
 {
   "name": "@stallning/eslint",
+  "private": true,
   "version": "1.2.0",
   "description": "",
   "main": "eslint.config.js",
+  "exports": {
+    ".": "./eslint.config.js",
+    "./configs/vue": "./configs/vue.js"
+  },
+  "files": [
+    "eslint.config.js",
+    "configs/vue.js"
+  ],
   "type": "module",
   "scripts": {
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
@@ -20,6 +29,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-oxlint": "^1.8.0",
     "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-vue": "^10.3.0",
     "oxlint": "catalog:",
     "typescript-eslint": "^8.38.0"
   }

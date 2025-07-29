@@ -5,7 +5,15 @@
       "path": "../",
     },
     {
-      "name": "/config",
+      "name": "web",
+      "path": "../apps/web",
+    },
+    {
+      "name": "ui",
+      "path": "../packages/ui",
+    },
+    {
+      "name": "config",
       "path": "../packages/config",
     },
   ],
@@ -21,7 +29,7 @@
       "apps/": true,
       "packages/": true,
     },
-    "conventionalCommits.scopes": ["global", "config", "docs"],
+    "conventionalCommits.scopes": ["global", "config", "docs", "ui", "web"],
     "editor.formatOnSave": true,
     "cSpell.words": ["stallning", "oxlint", "Nuxt"],
   },
@@ -32,7 +40,9 @@
       "esbenp.prettier-vscode",
       "vivaxy.vscode-conventional-commits",
       "Gruntfuggly.todo-tree",
-      "Vue.volar",
+      "antfu.iconify",
+      "yoavbls.pretty-ts-errors",
+      "vue.volar",
     ],
   },
 }

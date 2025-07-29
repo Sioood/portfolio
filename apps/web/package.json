@@ -1,0 +1,28 @@
+{
+  "name": "@stallning/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
+    "lint:oxlint": "pnpx oxlint || true",
+    "lint:eslint": "pnpx eslint . --max-warnings 0"
+  },
+  "dependencies": {
+    "@stallning/ui": "workspace:^",
+    "nuxt": "^4.0.1",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.7.1",
+    "@stallning/eslint": "workspace:^",
+    "@stallning/oxlint": "workspace:^",
+    "@stallning/prettier": "workspace:^"
+  },
+  "prettier": "@stallning/prettier"
+}
