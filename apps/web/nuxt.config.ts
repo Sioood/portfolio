@@ -4,4 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['@portfolio/ui'],
   modules: ['@nuxt/eslint'],
+  i18n: {
+    defaultLocale: 'fr-FR',
+    // ISO 639-1 + ISO 3166-1
+    locales: [{ code: 'fr-FR', name: 'Français', file: 'fr-FR/index.ts' }],
+  },
+  site: {
+    url: 'https://web.com',
+    name: 'Web',
+    description: 'Welcome to my awesome site!',
+  },
 })

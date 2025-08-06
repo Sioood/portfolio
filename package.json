@@ -5,6 +5,7 @@
   "packageManager": "pnpm@10.13.1",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "lint": "turbo run lint",
     "lint:oxlint": "turbo run lint:oxlint",
     "lint:eslint": "turbo run lint:eslint",
@@ -65,7 +66,10 @@
         "always",
         [
           "global",
-          "config"
+          "config",
+          "nuxt-essentials",
+          "ui",
+          "web"
         ]
       ],
       "type-enum": [

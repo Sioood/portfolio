@@ -1,3 +1,3 @@
 <template>
-  <UIHellWorld />
+  <NEssHellWorld />
 </template>

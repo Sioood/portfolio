@@ -4,7 +4,8 @@ const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxtjs/tailwindcss'],
+  extends: [['@portfolio/nuxt-essentials', { install: true }]],
+  modules: ['@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxtjs/tailwindcss', 'v-gsap-nuxt'],
   alias: { '~ui': resolve('./') },
   components: [
     {
@@ -12,4 +13,15 @@ export default defineNuxtConfig({
       prefix: 'UI',
     },
   ],
+  i18n: {
+    defaultLocale: 'fr-FR',
+    // ISO 639-1 + ISO 3166-1
+    locales: [{ code: 'fr-FR', name: 'Français', file: 'fr-FR/index.ts' }],
+  },
+
+  site: {
+    url: 'https://ui.com',
+    name: 'UI',
+    description: 'UI component library',
+  },
 })
