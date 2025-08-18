@@ -1,5 +1,4 @@
 import { createResolver } from '@nuxt/kit'
-import ViteYaml from '@modyfi/vite-plugin-yaml'
 const { resolve } = createResolver(import.meta.url)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -8,20 +7,25 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/i18n',
-    '@pinia/nuxt' /**
+    '@pinia/nuxt',
+    /**
      * See thoses links for more information
      * https://nuxt-security.vercel.app/getting-started/configuration#overriding-a-layers-configuration
      *
      * https://nuxt-security.vercel.app/advanced/good-practices
      * https://nuxt-security.vercel.app/advanced/improve-security
-     */,
+     */
     'nuxt-security',
     '@vueuse/nuxt',
     '@nuxtjs/seo',
+    /**
+     * This module is intended to be used with a self-hosted Bugsink instance.
+     * https://www.bugsink.com/
+     *
+     * Edit the 'sentry' config in each project extending this layer.
+     */
+    '@sentry/nuxt/module',
   ],
-  vite: {
-    plugins: [ViteYaml()],
-  },
   alias: { '~nuxt-essentials': resolve('./') },
   components: [
     {
@@ -29,6 +33,13 @@ export default defineNuxtConfig({
       prefix: 'NEss',
     },
   ],
+  runtimeConfig: {
+    public: {
+      sentry: {
+        dsn: '',
+      },
+    },
+  },
   i18n: {
     defaultLocale: 'fr-FR',
     // ISO 639-1 + ISO 3166-1
@@ -38,5 +49,8 @@ export default defineNuxtConfig({
     url: 'https://example.com',
     name: 'Nuxt Essentials',
     description: 'Welcome to my awesome site!',
+  },
+  sentry: {
+    enabled: true, // Set to `true` to enable the module for a project
   },
 })

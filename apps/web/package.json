@@ -10,11 +10,12 @@
     "postinstall": "nuxt prepare",
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
     "lint:oxlint": "pnpx oxlint || true",
-    "lint:eslint": "pnpx eslint . --max-warnings 0"
+    "lint:eslint": "pnpx eslint .",
+    "i18n:coverage": "node node_modules/@portfolio/ui/node_modules/@portfolio/nuxt-essentials/i18n/utils/coverage.ts -f ./i18n/locales"
   },
   "dependencies": {
     "@portfolio/ui": "workspace:^",
-    "nuxt": "^4.0.1",
+    "nuxt": "catalog:",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   },

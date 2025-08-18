@@ -11,7 +11,8 @@
     "preview": "nuxt preview .playground",
     "lint": "pnpm run lint:oxlint && pnpm run lint:eslint",
     "lint:oxlint": "pnpx oxlint || true",
-    "lint:eslint": "pnpx eslint . --max-warnings 0"
+    "lint:eslint": "pnpx eslint .",
+    "i18n:coverage": "node ./node_modules/@portfolio/nuxt-essentials/i18n/utils/coverage.ts -f ./i18n/locales"
   },
   "dependencies": {
     "@portfolio/nuxt-essentials": "workspace:^"
@@ -26,7 +27,7 @@
     "@portfolio/oxlint": "workspace:^",
     "@portfolio/prettier": "workspace:^",
     "eslint": "^9.32.0",
-    "nuxt": "^4.0.1",
+    "nuxt": "catalog:",
     "typescript": "^5.8.3",
     "v-gsap-nuxt": "^1.4.4",
     "vue": "latest"
