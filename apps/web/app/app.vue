@@ -5,10 +5,12 @@ onBeforeMount(() => {
   useGSAP().registerPlugin(ScrollSmoother)
 
   // Use <Teleport to="#teleports"> for fixed elements
-  ScrollSmoother.create({
+  const scrollSmoother = ScrollSmoother.create({
     smooth: 0.1,
     effects: true,
   })
+
+  provide('scrollSmoother', scrollSmoother)
 })
 </script>
 
