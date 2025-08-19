@@ -1,3 +1,4 @@
+@import '~ui/assets/css/fonts.css';
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -67,8 +68,8 @@
   /* SECONDARIES */
 
   /* FONTS */
-  --font-primary: 'Nyght Serif';
-  --font-secondary: 'Nohemi';
+  --font-primary: 'Nohemi';
+  --font-secondary: 'Nyght Serif';
 }
 
 @layer theme {
@@ -138,7 +139,12 @@
     /* SECONDARIES */
 
     /* FONTS */
-    --font-primary: 'Nyght Serif';
-    --font-secondary: 'Nohemi';
+    --font-primary: 'Nohemi';
+    --font-secondary: 'Nyght Serif';
   }
 }
+
+body {
+    font-family: var(--font-primary);
+}
+

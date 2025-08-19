@@ -6,7 +6,7 @@ onBeforeMount(() => {
 
   // Use <Teleport to="#teleports"> for fixed elements
   const scrollSmoother = ScrollSmoother.create({
-    smooth: 0.1,
+    smooth: 0.5,
     effects: true,
   })
 
@@ -16,7 +16,6 @@ onBeforeMount(() => {
 
 <template id="2">
   <NuxtLayout>
-    {{ $t('hellWorld') }}
     <NuxtPage />
   </NuxtLayout>
 </template>

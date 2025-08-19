@@ -1,0 +1,51 @@
+/* FIXME REMOVE this when @nuxt/fonts work */
+
+/* primary */
+@font-face {
+  font-family: 'Nohemi';
+  src: url("/nohemi/nohemi.ttf") format(truetype);
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* secondary */
+@font-face {
+  font-family: 'Nyght Serif';
+  src:
+    local('Nyght Serif'),
+    url('/nyght-serif/nyght-serif-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nyght Serif';
+  src:
+    local('Nyght Serif'),
+    url('/nyght-serif/nyght-serif-light-italic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nyght Serif';
+  src:
+    local('Nyght Serif'),
+    url('/nyght-serif/nyght-serif-dark.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nyght Serif';
+  src:
+    local('Nyght Serif'),
+    url('/nyght-serif/nyght-serif-dark-italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

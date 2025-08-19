@@ -20,7 +20,6 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
-    "@nuxt/fonts": "0.11.4",
     "@nuxt/icon": "1.15.0",
     "@nuxt/image": "1.10.0",
     "@nuxt/kit": "^4.0.2",

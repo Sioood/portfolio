@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ['@nuxt/fonts', '@nuxt/icon', '@nuxt/image', 'v-gsap-nuxt'],
+  modules: ['@nuxt/icon', '@nuxt/image', 'v-gsap-nuxt'],
   alias: { '~ui': resolve('./') },
   components: [
     {
@@ -23,7 +23,6 @@ export default defineNuxtConfig({
     // ISO 639-1 + ISO 3166-1
     locales: [{ code: 'fr-FR', name: 'Français', file: 'fr-FR/index.ts' }],
   },
-
   site: {
     url: 'https://ui.com',
     name: 'UI',
