@@ -1,6 +1,7 @@
 @import '~ui/assets/css/fonts.css';
 @import 'tailwindcss';
 
+@source "../../components";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
