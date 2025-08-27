@@ -6,7 +6,7 @@ onBeforeMount(() => {
 
   // Use <Teleport to="#teleports"> for fixed elements
   const scrollSmoother = ScrollSmoother.create({
-    smooth: 0.5,
+    smooth: 0.6,
     effects: true,
   })
 
