@@ -3,30 +3,30 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
 </script>
 
 <template>
-  <nav class="hidden w-full p-0.5 md:inline-flex justify-between">
-    <div class="w-1/3 p-0.5 inline-flex justify-between gap-6">
+  <nav class="hidden w-full justify-between p-0.5 md:inline-flex">
+    <div class="inline-flex w-1/3 justify-between gap-6 p-0.5">
       <ul class="inline-flex gap-2.5">
         <li>
-          <UILink to="#" #default="{ isLinkButton }">
-            <UIButton size="sm" :isLinkButton="isLinkButton" class="uppercase">Theo Dupont</UIButton>
+          <UILink v-slot="{ isLinkButton }" to="#">
+            <UIButton size="sm" :is-link-button="isLinkButton" class="uppercase">Theo Dupont</UIButton>
           </UILink>
         </li>
       </ul>
 
       <ul class="inline-flex gap-2.5">
         <li>
-          <UILink to="#" #default="{ isLinkButton }">
-            <UIButton size="sm" :isLinkButton="isLinkButton">Works</UIButton>
+          <UILink v-slot="{ isLinkButton }" to="#">
+            <UIButton size="sm" :is-link-button="isLinkButton">Works</UIButton>
           </UILink>
         </li>
         <li>
-          <UILink to="#" #default="{ isLinkButton }">
-            <UIButton size="sm" :isLinkButton="isLinkButton">Experiments</UIButton>
+          <UILink v-slot="{ isLinkButton }" to="#">
+            <UIButton size="sm" :is-link-button="isLinkButton">Experiments</UIButton>
           </UILink>
         </li>
         <li>
-          <UILink to="#" #default="{ isLinkButton }">
-            <UIButton size="sm" :isLinkButton="isLinkButton">Contact</UIButton>
+          <UILink v-slot="{ isLinkButton }" to="#">
+            <UIButton size="sm" :is-link-button="isLinkButton">Contact</UIButton>
           </UILink>
         </li>
       </ul>
@@ -34,7 +34,7 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
 
     <ul class="inline-flex gap-2.5">
       <li id="theme-switcher" class="p-1">
-        <UIButton @click="toggleTheme" size="sm" class="uppercase">Dark</UIButton>
+        <UIButton size="sm" class="uppercase" @click="toggleTheme">Dark</UIButton>
       </li>
     </ul>
   </nav>

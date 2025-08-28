@@ -1,4 +1,4 @@
-import eslint from '@portfolio/eslint'
+import { eslint } from './src/index.ts'
 
 export default eslint({
   oxlint: true,

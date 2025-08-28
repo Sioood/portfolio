@@ -1,4 +1,4 @@
-import { getMessagesWithNamespace } from '~nuxt-essentials/i18n/utils/namespace'
+import { getMessagesWithNamespace } from '@portfolio/nuxt-essentials/i18n/utils/namespace'
 
 export default defineI18nLocale(async () => {
   const namespacesFiles = {

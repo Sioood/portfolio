@@ -1,4 +1,12 @@
-import { createConfigForNuxt } from '@nuxt/eslint-config'
-import baseVue from '@portfolio/eslint/configs/vue'
+import eslint from '@portfolio/eslint'
 
-export default createConfigForNuxt().append(baseVue)
+import { withNuxt } from './.playground/.nuxt/eslint.config.mjs'
+
+export default withNuxt(
+  eslint({
+    oxlint: true,
+    prettier: true,
+    typescript: true,
+    vue: true,
+  }),
+)
