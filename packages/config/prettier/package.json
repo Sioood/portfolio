@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "exports": {
-    ".": "./prettier.config.js",
-    "./prettier.config.js": "./prettier.config.js"
+    ".": "./index.js",
+    "./index.js": "./index.js"
   },
   "scripts": {
     "format": "pnpx prettier --write ."

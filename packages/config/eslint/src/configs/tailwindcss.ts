@@ -19,7 +19,7 @@ export function tailwindcss(options: boolean | string) {
         },
         rules: {
           'tailwindcss/no-custom-classname': 'off',
-          'tailwindcss/classnames-order': 'warn',
+          'tailwindcss/classnames-order': 'off',
         },
       },
     ])
