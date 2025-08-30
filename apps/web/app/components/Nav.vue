@@ -8,7 +8,7 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
       <ul class="inline-flex gap-2.5">
         <li>
           <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="sm" :is-link-button="isLinkButton" class="uppercase">Theo Dupont</UIButton>
+            <UIButton size="md" :is-link-button="isLinkButton" class="uppercase">Theo Dupont</UIButton>
           </UILink>
         </li>
       </ul>
@@ -16,17 +16,17 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
       <ul class="inline-flex gap-2.5">
         <li>
           <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="sm" :is-link-button="isLinkButton">Works</UIButton>
+            <UIButton size="md" :is-link-button="isLinkButton">Works</UIButton>
           </UILink>
         </li>
         <li>
           <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="sm" :is-link-button="isLinkButton">Experiments</UIButton>
+            <UIButton size="md" :is-link-button="isLinkButton">Experiments</UIButton>
           </UILink>
         </li>
         <li>
           <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="sm" :is-link-button="isLinkButton">Contact</UIButton>
+            <UIButton size="md" :is-link-button="isLinkButton">Contact</UIButton>
           </UILink>
         </li>
       </ul>
@@ -34,7 +34,7 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
 
     <ul class="inline-flex gap-2.5">
       <li id="theme-switcher" class="p-1">
-        <UIButton size="sm" class="uppercase" @click="toggleTheme">Dark</UIButton>
+        <UIButton size="md" class="uppercase" @click="toggleTheme">Dark</UIButton>
       </li>
     </ul>
   </nav>

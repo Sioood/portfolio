@@ -1,4 +1,4 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const button = cva('button', {
@@ -53,10 +53,4 @@ withDefaults(
   >
     <slot />
   </component>
-</template> -->
-
-<template>
-  <div>
-    <!-- MOCK TEMPLATE TO FIX LATER WHEN ESLINT VUE TYPESCRIPT PARSER IS IMPLEMENTED -->
-  </div>
 </template>

@@ -14,4 +14,11 @@ export default defineNuxtConfig({
     name: 'Web',
     description: 'Welcome to my awesome site!',
   },
+  security: {
+    headers: {
+      contentSecurityPolicy: {
+        'img-src': false,
+      },
+    },
+  },
 })

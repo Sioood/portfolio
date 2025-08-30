@@ -1,4 +1,4 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 const props = defineProps<{ to: string; forceExternal?: boolean }>()
 
 const isExternalLink = computed(() => typeof props.to === 'string' && props.to.startsWith('http'))
@@ -6,16 +6,10 @@ const isExternalLink = computed(() => typeof props.to === 'string' && props.to.s
 
 <template>
   <a v-if="props.forceExternal || isExternalLink" :href="props.to" target="_blank">
-    <slot isLinkButton />
+    <slot is-link-button />
   </a>
 
   <NuxtLink v-else :to="props.to">
-    <slot :isLinkButton="true" />
+    <slot :is-link-button="true" />
   </NuxtLink>
-</template> -->
-
-<template>
-  <div>
-    <!-- MOCK TEMPLATE TO FIX LATER WHEN ESLINT VUE TYPESCRIPT PARSER IS IMPLEMENTED -->
-  </div>
 </template>
