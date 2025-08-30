@@ -2,7 +2,6 @@ import eslint from '@portfolio/eslint'
 
 import { withNuxt } from './.nuxt/eslint.config.mjs'
 
-// TODO add tailwind
 export default withNuxt(
   eslint({
     oxlint: 'node_modules/@portfolio/oxlint/.oxlintrc.json',
