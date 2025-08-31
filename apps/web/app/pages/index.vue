@@ -3,7 +3,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div class="h-[300vh]">
+  <div>
     <section class="relative flex min-h-screen flex-col items-center overflow-x-clip">
       <div class="absolute bottom-[5vw] z-[1] flex flex-col items-end xl:bottom-[3vw]">
         <h1 class="font-secondary text-primary-200 text-[clamp(10rem,30vw,40rem)] leading-[7vw] font-light italic">
