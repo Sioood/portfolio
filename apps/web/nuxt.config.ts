@@ -10,9 +10,9 @@ export default defineNuxtConfig({
     locales: [{ code: 'fr-FR', name: 'Français', file: 'fr-FR/index.ts' }],
   },
   site: {
-    url: 'https://web.com',
-    name: 'Web',
-    description: 'Welcome to my awesome site!',
+    url: 'https://theodupont.fr',
+    name: 'Théo Dupont',
+    description: 'Portfolio de Théo Dupont, développeur full-stack.',
   },
   security: {
     headers: {
