@@ -154,3 +154,8 @@ body {
   background 1s ease-in-out,
   color 0.1s ease-in-out;
 }
+
+::selection {
+  background: var(--color-primary-600);
+  color: var(--color-secondary-500);
+}
