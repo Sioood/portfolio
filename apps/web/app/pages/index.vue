@@ -10,7 +10,7 @@ const { t } = useI18n()
           &nbsp; {{ t('firstname') }} <br />
           {{ t('lastname') }}
         </h1>
-        <h6 class="absolute top-2/3 left-1/3 -translate-x-4 text-neutral-900 xl:top-0 xl:left-2/3">
+        <h6 v-gsap.animateText class="absolute top-2/3 left-1/3 -translate-x-4 text-neutral-900 xl:top-0 xl:left-2/3">
           {{
             `[${t('fullStackDeveloper')}]
           (${t('graphicDesigner')})`
