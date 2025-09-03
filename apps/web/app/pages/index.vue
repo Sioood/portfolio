@@ -21,5 +21,15 @@ const { t } = useI18n()
         <div class="bg-secondary-100 absolute top-1/3 right-0 aspect-square w-[10rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" />
       </div>
     </section>
+
+    <section class="relative mt-52 mb-[20vh] min-h-screen cursor-pointer overflow-x-clip">
+      <div class="blur-3xl">
+        <CanvasDraw class="absolute top-0 h-screen w-full" />
+      </div>
+
+      <div class="position pointer-events-none sticky flex min-h-screen w-full items-center justify-end px-10 md:px-52">
+        <h2 class="font-secondary text-background text-8xl italic select-none">Curiosité</h2>
+      </div>
+    </section>
   </div>
 </template>

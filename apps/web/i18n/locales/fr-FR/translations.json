@@ -1,6 +1,7 @@
 {
+  "curiosity": "Curiosité",
   "firstname": "Théo",
   "fullStackDeveloper": "Dévelopeur full-stack",
-  "lastname": "Dupont",
-  "graphicDesigner": "Graphiste"
+  "graphicDesigner": "Graphiste",
+  "lastname": "Dupont"
 }
