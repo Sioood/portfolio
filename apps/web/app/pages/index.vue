@@ -31,5 +31,9 @@ const { t } = useI18n()
         <h2 class="font-secondary text-background text-8xl italic select-none">Curiosité</h2>
       </div>
     </section>
+
+    <section class="relative min-h-screen overflow-x-clip">
+      <HomeContact />
+    </section>
   </div>
 </template>
