@@ -7,13 +7,13 @@ const { t } = useI18n()
     <section class="relative flex min-h-screen flex-col items-center overflow-x-clip">
       <div class="absolute bottom-[5vw] z-[1] flex flex-col items-end xl:bottom-[3vw]">
         <h1 class="font-secondary text-primary-200 text-[clamp(10rem,30vw,40rem)] leading-[7vw] font-light italic select-none">
-          &nbsp; {{ $t('firstname') }} <br />
+          &nbsp; {{ t('firstname') }} <br />
           {{ t('lastname') }}
         </h1>
         <h6 v-gsap.animateText class="absolute top-2/3 left-1/3 -translate-x-4 text-neutral-900 xl:top-0 xl:left-2/3">
           {{
-            `[${$t('fullStackDeveloper')}]
-          (${$t('graphicDesigner')})`
+            `[${t('fullStackDeveloper')}]
+          (${t('graphicDesigner')})`
           }}
         </h6>
       </div>
@@ -36,7 +36,7 @@ const { t } = useI18n()
       </div>
 
       <div class="position pointer-events-none sticky flex min-h-screen w-full items-center justify-end px-10 md:px-52">
-        <h2 class="font-secondary text-background text-[clamp(8rem,10vw,40rem)] italic select-none">{{ $t('curiosity') }}</h2>
+        <h2 class="font-secondary text-background text-[clamp(8rem,10vw,40rem)] italic select-none">{{ t('curiosity') }}</h2>
       </div>
     </section>
 
