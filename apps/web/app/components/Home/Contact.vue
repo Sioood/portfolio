@@ -40,7 +40,11 @@ onMounted(() => {
   <!-- src="https://images.unsplash.com/photo-1691229732670-f7034e54d2cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" -->
 
   <section id="contact" class="relative flex min-h-screen flex-col">
-    <div data-flip-wrapper="1" data-animate-element="contact" class="bg-background sticky top-0 flex h-screen w-full flex-col justify-between pb-16">
+    <div
+      data-flip-wrapper="1"
+      data-animate-element="contact"
+      class="bg-background sticky top-0 flex h-screen w-full flex-col justify-between pb-16 text-neutral-900"
+    >
       <div class="mt-10 flex flex-col-reverse items-center gap-48 p-4 lg:mt-0 lg:flex-row lg:gap-0 lg:gap-16 lg:p-0">
         <h2 class="font-secondary text-center text-5xl italic lg:w-1/2 lg:px-40 lg:text-left">{{ $t('makeContact') }}</h2>
         <div class="flex w-full items-end gap-3 lg:w-1/2 lg:justify-center">
@@ -73,7 +77,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div data-animate-element="contact" class="bg-background sticky top-0 flex h-screen w-full flex-col justify-between pb-16">
+    <div data-animate-element="contact" class="bg-background sticky top-0 flex h-screen w-full flex-col justify-between pb-16 text-neutral-900">
       <div class="mt-10 flex flex-col-reverse items-center gap-48 p-4 lg:mt-0 lg:flex-row lg:gap-0 lg:gap-16 lg:p-0">
         <h2 class="font-secondary text-center text-5xl italic lg:w-1/2 lg:px-40 lg:text-left">{{ $t('makeContact') }}</h2>
         <div class="flex w-full items-end gap-3 lg:w-1/2 lg:justify-center">
