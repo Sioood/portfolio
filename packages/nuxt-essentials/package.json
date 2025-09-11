@@ -36,7 +36,14 @@
     "nuxt": "catalog:",
     "nuxt-security": "^2.3.0",
     "typescript": "^5.8.3",
-    "vue": "latest"
+    "vue": "catalog:"
+  },
+  "lint-staged": {
+    "**/*.{json,js,ts,md,yaml,yml,vue}": [
+      "oxlint --fix",
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "lint-staged": {
     "**/*.{json,js,ts,md,yaml,yml,vue}": [

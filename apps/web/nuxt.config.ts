@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['@portfolio/ui'],
   modules: ['@nuxt/eslint'],
+  runtimeConfig: {
+    public: {
+      rybbitSiteId: process.env.NUXT_PUBLIC_RYBBIT_SITE_ID,
+    },
+  },
   i18n: {
     defaultLocale: 'fr-FR',
     // ISO 639-1 + ISO 3166-1

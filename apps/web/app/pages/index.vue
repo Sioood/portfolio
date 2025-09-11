@@ -17,9 +17,48 @@ const { t } = useI18n()
           }}
         </h6>
       </div>
-      <div class="absolute top-1/2 left-1/2 aspect-square w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-900 blur-3xl xl:w-1/3">
-        <div class="bg-secondary-100 absolute top-1/3 right-0 aspect-square w-[10rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" />
+
+      <div class="absolute top-1/5 -rotate-45 blur-xl">
+        <div class="contrast-200">
+          <div class="relative flex flex-col items-center justify-center blur-3xl">
+            <div class="transform-3d">
+              <div class="top-1/2 left-1/2 aspect-square w-[500px] rounded-full bg-neutral-700" />
+              <div class="bg-secondary-300 orbit absolute top-1/2 left-1/2 aspect-square w-[12rem] rounded-full" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section class="relative mt-52 mb-[20vh] min-h-screen cursor-pointer overflow-x-clip">
+      <div class="blur-3xl">
+        <CanvasDraw class="absolute top-0 h-screen w-full" />
+      </div>
+
+      <div class="position pointer-events-none sticky flex min-h-screen w-full items-center justify-end px-10 md:px-52">
+        <h2 class="font-secondary text-background text-[clamp(8rem,10vw,40rem)] italic select-none">{{ t('curiosity') }}</h2>
+      </div>
+    </section>
+
+    <!-- TODO add content / refix responsive -->
+    <!-- <section class="relative min-h-screen overflow-x-clip">
+      <HomeContact />
+    </section> -->
   </div>
 </template>
+
+<style>
+.orbit {
+  animation: orbit 9s linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotateY(0deg) translateZ(350px) rotateY(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateY(360deg) translateZ(350px) rotateY(0deg);
+  }
+}
+</style>

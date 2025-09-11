@@ -1,6 +1,15 @@
 {
+  "contactParagraph": "Bonjour ! Je suis un développeur passionné par le web et je prends plaisir à travailler sur divers projets.",
+  "curiosity": "Curiosité",
+  "dark": "dark",
+  "email": "theodupontpro[at]gmail.com",
   "firstname": "Théo",
   "fullStackDeveloper": "Dévelopeur full-stack",
+  "githubTag": "https://github.com/Sioood",
+  "graphicDesigner": "Graphiste",
+  "impatientToWorkWithYou": "Je suis impatient de travailler avec vous.",
   "lastname": "Dupont",
-  "graphicDesigner": "Graphiste"
+  "light": "light",
+  "makeContact": "Je suis disponible pour vos idées. Prenons contact !",
+  "twitterTag": "Siooooood"
 }

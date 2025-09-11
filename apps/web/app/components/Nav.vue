@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const toggleTheme = () => document.documentElement.classList.toggle('dark')
+const theme = useCookie<('light' | 'dark') | null>('theme', {
+  default: () => 'light',
+})
+
+const toggleTheme = () => {
+  document.documentElement.classList.toggle('dark')
+  theme.value = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+}
+
+onMounted(() => {
+  if (theme.value === 'dark') toggleTheme()
+})
 </script>
 
 <template>
@@ -8,7 +19,14 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
       <ul class="inline-flex gap-2.5">
         <li>
           <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="md" :is-link-button="isLinkButton" class="uppercase">Theo Dupont</UIButton>
+            <UIButton size="md" :is-link-button="isLinkButton" class="uppercase">
+              {{
+                $t('firstname')
+                  .normalize('NFD')
+                  .replace(/[\u0300-\u036f]/g, '')
+              }}
+              {{ $t('lastname') }}
+            </UIButton>
           </UILink>
         </li>
       </ul>
@@ -34,7 +52,7 @@ const toggleTheme = () => document.documentElement.classList.toggle('dark')
 
     <ul class="inline-flex gap-2.5">
       <li id="theme-switcher" class="p-1">
-        <UIButton size="md" class="uppercase" @click="toggleTheme">Dark</UIButton>
+        <UIButton size="md" class="uppercase" @click="toggleTheme">{{ $t(theme === 'light' ? 'dark' : 'light') }}</UIButton>
       </li>
     </ul>
   </nav>
