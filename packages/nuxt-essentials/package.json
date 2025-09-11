@@ -45,5 +45,12 @@
       "prettier --write"
     ]
   },
+  "lint-staged": {
+    "**/*.{json,js,ts,md,yaml,yml,vue}": [
+      "oxlint --fix",
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "prettier": "@portfolio/prettier"
 }
