@@ -4,6 +4,18 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['@portfolio/ui'],
   modules: ['@nuxt/eslint'],
+  app: {
+    head: {
+      script: [
+        {
+          src: 'https://app.rybbit.io/api/script.js',
+          async: true,
+          defer: true,
+          'data-site-id': process.env.NUXT_APP_HEAD_SCRIPT_DATA_SITE_ID,
+        },
+      ],
+    },
+  },
   i18n: {
     defaultLocale: 'fr-FR',
     // ISO 639-1 + ISO 3166-1
