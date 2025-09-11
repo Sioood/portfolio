@@ -4,16 +4,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['@portfolio/ui'],
   modules: ['@nuxt/eslint'],
-  app: {
-    head: {
-      script: [
-        {
-          src: 'https://app.rybbit.io/api/script.js',
-          async: true,
-          defer: true,
-          'data-site-id': process.env.NUXT_APP_HEAD_SCRIPT_DATA_SITE_ID,
-        },
-      ],
+  runtimeConfig: {
+    public: {
+      rybbitSiteId: process.env.NUXT_PUBLIC_RYBBIT_SITE_ID,
     },
   },
   i18n: {

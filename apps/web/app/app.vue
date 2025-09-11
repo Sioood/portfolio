@@ -12,6 +12,19 @@
 
 // provide('scrollSmoother', scrollSmoother)
 // })
+
+const runtimeConfig = useRuntimeConfig()
+
+useHead({
+  script: [
+    {
+      src: 'https://app.rybbit.io/api/script.js',
+      async: true,
+      defer: true,
+      'data-site-id': runtimeConfig.public.rybbitSiteId as string | undefined,
+    },
+  ],
+})
 </script>
 
 <template id="2">
