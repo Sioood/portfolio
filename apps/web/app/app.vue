@@ -22,6 +22,7 @@ useHead({
       async: true,
       defer: true,
       'data-site-id': runtimeConfig.public.rybbitSiteId as string | undefined,
+      'data-track-errors': true,
     },
   ],
 })
