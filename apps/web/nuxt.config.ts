@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint'],
   runtimeConfig: {
     public: {
+      rybbitSrc: process.env.NUXT_PUBLIC_RYBBIT_SRC || 'https://app.rybbit.io/api/script.js',
       rybbitSiteId: process.env.NUXT_PUBLIC_RYBBIT_SITE_ID,
     },
   },
