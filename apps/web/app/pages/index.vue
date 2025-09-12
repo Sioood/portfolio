@@ -41,9 +41,9 @@ const { t } = useI18n()
     </section>
 
     <!-- TODO add content / refix responsive -->
-    <!-- <section class="relative min-h-screen overflow-x-clip">
+    <section class="relative min-h-screen overflow-x-clip">
       <HomeContact />
-    </section> -->
+    </section>
   </div>
 </template>
 
