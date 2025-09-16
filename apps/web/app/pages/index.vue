@@ -40,8 +40,140 @@ const { t } = useI18n()
       </div>
     </section>
 
-    <section id="works" class="relative min-h-screen">
-      <WorkList />
+    <section id="works" class="relative flex min-h-screen flex-col items-center">
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: null, overflow: 'hidden' },
+          image: { aspect: '16/9', rounded: 't-full' },
+        }"
+      />
+
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: null, overflow: 'hidden' },
+          image: { aspect: '9/16', rounded: 't-full' },
+        }"
+      />
+
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: null, overflow: 'hidden' },
+          image: { aspect: 'default', rounded: 't-full' },
+        }"
+      />
+
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: null, overflow: 'hidden' },
+          image: { aspect: 'default', rounded: 't-full' },
+        }"
+      />
+
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: 'md', overflow: 'hidden' },
+          image: { aspect: 'default' },
+        }"
+      />
+
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: null, overflow: 'hidden' },
+          image: { aspect: 'default' },
+        }"
+      />
+
+      <WorkCard
+        :data="{
+          slug: 'curiosity',
+          title: t('curiosity'),
+          year: 2023,
+          images: [
+            {
+              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            },
+          ],
+        }"
+        :ui="{
+          imageList: { gap: null, overflow: 'hidden' },
+          image: { aspect: 'default' },
+        }"
+      />
     </section>
 
     <!-- TODO add content / refix responsive -->
