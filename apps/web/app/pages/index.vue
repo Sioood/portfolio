@@ -120,7 +120,7 @@
       </pre>
 
       <UILink v-slot="{ isLinkButton }" to="" class="absolute mix-blend-difference">
-        <UIButton size="xl" :is-link-button="isLinkButton" class="!text-neutral-100">{{ t('experiments') }}↖</UIButton>
+        <UIButton size="xl" :is-link-button="isLinkButton" class="!text-neutral-100">{{ $t('experiments') }}↖</UIButton>
       </UILink>
     </section>
 
