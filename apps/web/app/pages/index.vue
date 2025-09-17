@@ -176,8 +176,8 @@ const { t } = useI18n()
       />
     </section>
 
-    <section class="relative flex min-h-dvh flex-col items-center justify-center overflow-scroll">
-      <pre class="text-[0.3rem] sm:text-xs">
+    <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">
+      <pre class="text-[clamp(0.3rem,1.5vw,1rem)]">
                                                                             ↖↖↖↖
                     ↖↙↙                                                 ←↑←
                 ↖↑↓↖     ↘↓  ↓→↘↓↘→↑↑↑↑↑↓ ↙→   ←→↑↑↗↑↑↑↑↖              ↖↓↗
@@ -216,7 +216,7 @@ const { t } = useI18n()
 ↖↗                    ↗→                                        →↗    ←↘         ↓↗↖            ↑←→↘
                       ←↗                                         ↖↑↗↖   →↘         ←↑↓   ↑↘     ↑↑↑↖
                       ↑↙                                            ↖↗↑↘↖ ↖↓↘↑↓       ←↘↑↑↙↗↑
-                      ↘↑↖         <code class="text-[0.22rem] sm:text-[0.56rem]">Henri Matisse, <i>La Danse</i> (1909-1910)</code>            ↖←←↗↖ ↖↙↓↙        ↖←←
+                      ↘↑↖         <code class="text-[clamp(0.3rem,1.11vw,0.75rem)]">Henri Matisse, <i>La Danse</i> (1909-1910)</code>            ↖←←↗↖ ↖↙↓↙        ↖←←
       </pre>
 
       <UILink v-slot="{ isLinkButton }" to="" class="absolute mix-blend-difference">
