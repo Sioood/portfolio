@@ -14,6 +14,7 @@ const button = cva('button', {
       sm: 'text-sm active:scale-97',
       md: 'font-medium text-md active:scale-97',
       lg: 'text-lg active:scale-97',
+      xl: 'font-medium text-xl active:scale-97',
     },
     disabled: {
       true: 'cursor-not-allowed opacity-75',
