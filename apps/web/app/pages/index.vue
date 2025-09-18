@@ -174,7 +174,7 @@
 
     <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">
       <UILink v-slot="{ isLinkButton }" to="/experiments">
-        <UIButton size="xl" :is-link-button="isLinkButton" class="">
+        <UIButton size="xl" :is-link-button="isLinkButton">
           <pre class="text-[clamp(0.3rem,1vw,1rem)] select-none lg:text-[0.7vw]">
                                                                             ↖↖↖↖
                     ↖↙↙                                                 ←↑←
