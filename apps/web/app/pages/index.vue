@@ -173,7 +173,9 @@
     </section>
 
     <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">
-      <pre class="text-[clamp(0.3rem,1.5vw,1rem)]">
+      <UILink v-slot="{ isLinkButton }" to="/experiments">
+        <UIButton size="xl" :is-link-button="isLinkButton" class="">
+          <pre class="text-[clamp(0.3rem,1vw,1rem)] select-none lg:text-[0.7vw]">
                                                                             ↖↖↖↖
                     ↖↙↙                                                 ←↑←
                 ↖↑↓↖     ↘↓  ↓→↘↓↘→↑↑↑↑↑↓ ↙→   ←→↑↑↗↑↑↑↑↖              ↖↓↗
@@ -212,11 +214,15 @@
 ↖↗                    ↗→                                        →↗    ←↘         ↓↗↖            ↑←→↘
                       ←↗                                         ↖↑↗↖   →↘         ←↑↓   ↑↘     ↑↑↑↖
                       ↑↙                                            ↖↗↑↘↖ ↖↓↘↑↓       ←↘↑↑↙↗↑
-                      ↘↑↖         <code class="text-[clamp(0.3rem,1.11vw,0.75rem)]">Henri Matisse, <i>La Danse</i> (1909-1910)</code>            ↖←←↗↖ ↖↙↓↙        ↖←←
+                      ↘↑↖         <code class="text-[clamp(0.3rem,0.745vw,0.75rem)] lg:text-[0.52vw]">Henri Matisse, <i>La Danse</i> (1909-1910)</code>            ↖←←↗↖ ↖↙↓↙        ↖←←
       </pre>
+        </UIButton>
+      </UILink>
 
-      <UILink v-slot="{ isLinkButton }" to="" class="absolute mix-blend-difference">
-        <UIButton size="xl" :is-link-button="isLinkButton" class="!text-neutral-100">{{ $t('experiments') }}↖</UIButton>
+      <UILink v-slot="{ isLinkButton }" to="/experiments" class="absolute">
+        <UIButton size="xl" :is-link-button="isLinkButton" class="text-[clamp(1rem,1.5vw,1.5vw)] leading-[1] !text-neutral-900">
+          →{{ $t('experiments') }}←
+        </UIButton>
       </UILink>
     </section>
 
