@@ -152,6 +152,7 @@ body {
 }
 
 * {
+  /* Need to add !important to override */
   transition:
     background 1s ease-in-out,
     color 0.1s ease-in-out;
