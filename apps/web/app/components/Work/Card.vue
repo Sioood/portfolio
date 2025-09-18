@@ -68,6 +68,7 @@ const props = withDefaults(
     </UILink>
 
     <UILink
+      v-gsap.parallax.slower-10
       :to="`/work/${props.data.slug}`"
       class="inline-flex w-full items-center justify-between px-8 text-lg text-neutral-100 mix-blend-difference active:scale-97 md:absolute"
     >
