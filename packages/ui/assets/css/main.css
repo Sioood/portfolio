@@ -2,6 +2,7 @@
 @import 'tailwindcss';
 
 @source "../../components";
+@source "../../pages";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -143,6 +144,10 @@
     --font-primary: 'Nohemi';
     --font-secondary: 'Nyght Serif';
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

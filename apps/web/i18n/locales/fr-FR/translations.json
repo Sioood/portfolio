@@ -1,9 +1,11 @@
 {
+  "contact": "Contact",
   "contactParagraph": "Bonjour ! Je suis un développeur passionné par le web et je prends plaisir à travailler sur divers projets.",
   "curiosity": "Curiosité",
   "dark": "dark",
   "email": "theodupontpro[at]gmail.com",
-  "experiments": "Experimentations",
+  "experiment_none": "Aucune expérimentations",
+  "experiment_other": "Expérimentations",
   "firstname": "Théo",
   "fullStackDeveloper": "Dévelopeur full-stack",
   "githubTag": "https://github.com/Sioood",
@@ -12,5 +14,6 @@
   "lastname": "Dupont",
   "light": "light",
   "makeContact": "Je suis disponible pour vos idées. Prenons contact !",
-  "twitterTag": "Siooooood"
+  "twitterTag": "Siooooood",
+  "work_other": "Projets"
 }
