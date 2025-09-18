@@ -20,6 +20,17 @@ export default defineNuxtConfig({
     name: 'Théo Dupont',
     description: 'Portfolio de Théo Dupont, développeur full-stack.',
   },
+  ogImage: {
+    fonts: [
+      'Inter:400',
+      'Inter:700',
+      {
+        name: 'nyght-serif-light-italic',
+        weight: 300,
+        path: '/nyght-serif-light-italic.otf',
+      },
+    ],
+  },
   security: {
     headers: {
       contentSecurityPolicy: {
