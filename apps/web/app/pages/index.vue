@@ -175,7 +175,7 @@
     <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">
       <UILink v-slot="{ isLinkButton }" to="/experiments">
         <UIButton size="xl" :is-link-button="isLinkButton">
-          <pre class="text-[clamp(0.3rem,1vw,1rem)] select-none lg:text-[0.7vw]">
+          <pre class="text-[clamp(0.36rem,1vw,1rem)] select-none lg:text-[0.7vw]">
                                                                             ↖↖↖↖
                     ↖↙↙                                                 ←↑←
                 ↖↑↓↖     ↘↓  ↓→↘↓↘→↑↑↑↑↑↓ ↙→   ←→↑↑↗↑↑↑↑↖              ↖↓↗
@@ -214,8 +214,8 @@
 ↖↗                    ↗→                                        →↗    ←↘         ↓↗↖            ↑←→↘
                       ←↗                                         ↖↑↗↖   →↘         ←↑↓   ↑↘     ↑↑↑↖
                       ↑↙                                            ↖↗↑↘↖ ↖↓↘↑↓       ←↘↑↑↙↗↑
-                      ↘↑↖         <code class="text-[clamp(0.3rem,0.745vw,0.75rem)] lg:text-[0.52vw]">Henri Matisse, <i>La Danse</i> (1909-1910)</code>            ↖←←↗↖ ↖↙↓↙        ↖←←
-      </pre>
+                      ↘↑↖         <code class="text-[clamp(0.268rem,0.745vw,0.75rem)] lg:text-[0.52vw]">Henri Matisse, <i>La Danse</i> (1909-1910)</code>            ↖←←↗↖ ↖↙↓↙        ↖←←
+          </pre>
         </UIButton>
       </UILink>
 
