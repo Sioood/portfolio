@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { type, visible } = extractStore(useCursorStore())
+</script>
+
 <template>
   <div>
     <Teleport to="#teleports">
@@ -6,6 +10,11 @@
         <Nav></Nav>
       </header>
     </Teleport>
+
+    <template v-if="visible">
+      <CursorTypewriter v-if="type === 'typewriter'" />
+    </template>
+
     <slot />
   </div>
 </template>
