@@ -4,7 +4,7 @@ const { experiments } = extractStore(useExperimentStore())
 
 <template>
   <div class="flex flex-col">
-    <ul v-if="experiments?.length" class="mt-10 grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 p-4">
+    <ul v-if="experiments?.length" class="mt-10 grid grid-cols-[repeat(auto-fill,minmax(max(250px,17.5vw),1fr))] gap-4 p-4">
       <UILink
         v-for="experiment in experiments.reverse()"
         v-slot="{ isLinkButton }"
