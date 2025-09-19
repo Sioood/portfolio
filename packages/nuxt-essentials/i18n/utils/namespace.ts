@@ -1,7 +1,7 @@
 export const prefixKeys = (prefix: string, obj: Record<string, string>) =>
   Object.fromEntries(Object.entries(obj).map(([key, value]) => [`${prefix}:${key}`, value]))
 
-export const getMessagesWithNamespace = async (files: Record<string, () => Promise<{ default: Record<string, string> }>>) => {
+export const getMessagesWithNamespace = async (files: Record<string, () => Promise<{ default: Record<string, string | Record<string, string>> }>>) => {
   const namespaces = Object.keys(files)
 
   const messagesArray = await Promise.all(
@@ -11,7 +11,7 @@ export const getMessagesWithNamespace = async (files: Record<string, () => Promi
         throw new Error(`Namespace "${name}" not found`)
       }
       const module = await loadFn()
-      return name === 'translations' ? module.default : prefixKeys(name, module.default)
+      return name === 'translations' ? module.default : prefixKeys(name, module.default as Record<string, string>)
     }),
   )
 

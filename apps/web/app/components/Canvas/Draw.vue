@@ -7,8 +7,7 @@ let ctx: CanvasRenderingContext2D | null = null
 const cssProperties = computed(() => {
   const root = document?.documentElement
   return {
-    background: getComputedStyle(root).getPropertyValue('--color-background'),
-    black: getComputedStyle(root).getPropertyValue('--color-neutral-900'),
+    stroke: getComputedStyle(root).getPropertyValue('--color-neutral-900'),
   }
 })
 
@@ -29,13 +28,32 @@ const getCanvasCoordinates = (x: number, y: number) => {
   }
 }
 
+interface Stroke {
+  from: { x: number; y: number }
+  to: { x: number; y: number }
+  timestamp: number
+  color: string
+  shadowColor: string
+  lineWidth: number
+  lineCap: CanvasLineCap
+  shadowBlur: number
+}
+
+const strokes = ref<Stroke[]>([])
+
 const draw = (coords: { x: number; y: number } | null) => {
   if (!isDrawing || !ctx || !coords) return
 
-  ctx.beginPath()
-  ctx.moveTo(lastX, lastY)
-  ctx.lineTo(coords.x, coords.y)
-  ctx.stroke()
+  strokes.value.push({
+    from: { x: lastX, y: lastY },
+    to: { x: coords.x, y: coords.y },
+    timestamp: Date.now(),
+    color: ctx.strokeStyle as string,
+    shadowColor: ctx.shadowColor as string,
+    lineWidth: ctx.lineWidth,
+    lineCap: ctx.lineCap as CanvasLineCap,
+    shadowBlur: ctx.shadowBlur,
+  })
   ;[lastX, lastY] = [coords.x, coords.y]
 }
 
@@ -69,30 +87,31 @@ const trackMouse = (e: MouseEvent) => {
   viewportY = e.clientY
 }
 
-const handleMouseDown = () => {
-  if (!ctx) return
-  ctx.strokeStyle = cssProperties.value.background
-  ctx.shadowColor = cssProperties.value.background
-}
+const animate = () => {
+  requestAnimationFrame(animate)
 
-const handleTouchStart = () => {
-  if (!ctx) return
-  ctx.strokeStyle = cssProperties.value.black
-  ctx.shadowColor = cssProperties.value.black
-}
+  if (!ctx || !canvas.value) {
+    return
+  }
 
-const handleMouseUp = () => {
-  if (!ctx) return
-  ctx.strokeStyle = cssProperties.value.black
-  ctx.shadowColor = cssProperties.value.black
-  isDrawing = false
-}
+  const now = Date.now()
+  const expirationTime = 1000
 
-const handleTouchEnd = () => {
-  if (!ctx) return
-  ctx.strokeStyle = cssProperties.value.black
-  ctx.shadowColor = cssProperties.value.black
-  isDrawing = false
+  strokes.value = strokes.value.filter((stroke) => now - stroke.timestamp < expirationTime)
+
+  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
+
+  for (const stroke of strokes.value) {
+    ctx.beginPath()
+    ctx.moveTo(stroke.from.x, stroke.from.y)
+    ctx.lineTo(stroke.to.x, stroke.to.y)
+    ctx.strokeStyle = stroke.color
+    ctx.shadowColor = stroke.shadowColor
+    ctx.lineWidth = stroke.lineWidth
+    ctx.lineCap = stroke.lineCap
+    ctx.shadowBlur = stroke.shadowBlur
+    ctx.stroke()
+  }
 }
 
 onMounted(() => {
@@ -114,23 +133,21 @@ onMounted(() => {
       canvasEl.height = h * 2
 
       // Reset context properties
-      ctx.strokeStyle = cssProperties.value.black
+      ctx.strokeStyle = cssProperties.value.stroke
       ctx.lineCap = 'round'
       ctx.lineWidth = 200
       ctx.shadowBlur = 100
-      ctx.shadowColor = cssProperties.value.black
+      ctx.shadowColor = cssProperties.value.stroke
     },
     { immediate: true },
   )
+
+  animate()
 })
 
 // Set up listeners with VueUse, which handles cleanup automatically
 useEventListener(canvas, 'mousemove', handleMouseMove)
 useEventListener(canvas, 'touchmove', handleTouchMove, { passive: true })
-useEventListener(canvas, 'mousedown', handleMouseDown)
-useEventListener(canvas, 'touchstart', handleTouchStart, { passive: true })
-useEventListener(canvas, 'mouseup', handleMouseUp)
-useEventListener(canvas, 'touchend', handleTouchEnd)
 useEventListener(window, 'scroll', handleScroll)
 useEventListener(window, 'mousemove', trackMouse)
 </script>

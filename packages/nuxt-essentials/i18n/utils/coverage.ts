@@ -108,6 +108,7 @@ export const getMessagesByLocaleWithNamespace = ({ locales, localesPath }: { loc
   return messagesByLocale
 }
 
+// FIXME this doesn't count namespaces i believe
 export const getUniqueMessageKeys = (messagesByLocale: MessagesByLocale): string[] => {
   const uniqueMessageKeys = new Set<string>()
 

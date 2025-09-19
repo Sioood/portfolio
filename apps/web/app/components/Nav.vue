@@ -15,10 +15,10 @@ onMounted(() => {
 
 <template>
   <nav class="inline-flex w-full justify-between p-0.5">
-    <div class="inline-flex w-1/3 justify-between gap-6 p-0.5">
+    <div class="inline-flex w-1/3 justify-between gap-32 p-0.5">
       <ul class="inline-flex gap-2.5">
         <li>
-          <UILink v-slot="{ isLinkButton }" to="#">
+          <UILink v-slot="{ isLinkButton }" to="/">
             <UIButton size="md" :is-link-button="isLinkButton" class="uppercase">
               {{
                 $t('firstname')
@@ -31,23 +31,25 @@ onMounted(() => {
         </li>
       </ul>
 
-      <!-- <ul class="inline-flex gap-2.5">
+      <ul class="hidden gap-2.5 md:inline-flex">
+        <!-- <li>
+          <UILink v-slot="{ isLinkButton }" to="/#works">
+            <UIButton size="md" :is-link-button="isLinkButton">{{ $t('work_other') }}</UIButton>
+          </UILink>
+        </li> -->
+
         <li>
-          <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="md" :is-link-button="isLinkButton">Works</UIButton>
+          <UILink v-slot="{ isLinkButton }" to="/experiments">
+            <UIButton size="md" :is-link-button="isLinkButton">{{ $t('experiment_other') }}</UIButton>
           </UILink>
         </li>
+
         <li>
-          <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="md" :is-link-button="isLinkButton">Experiments</UIButton>
+          <UILink v-slot="{ isLinkButton }" to="/#contact">
+            <UIButton size="md" :is-link-button="isLinkButton">{{ $t('contact') }}</UIButton>
           </UILink>
         </li>
-        <li>
-          <UILink v-slot="{ isLinkButton }" to="#">
-            <UIButton size="md" :is-link-button="isLinkButton">Contact</UIButton>
-          </UILink>
-        </li>
-      </ul> -->
+      </ul>
     </div>
 
     <ul class="inline-flex gap-2.5">

@@ -26,6 +26,13 @@ useHead({
     },
   ],
 })
+
+const { t } = useI18n()
+
+defineOgImageComponent('Default', {
+  title: document?.title || `${t('firstname')} ${t('lastname')}`,
+  theme: 'rgb(255, 138, 0)',
+})
 </script>
 
 <template id="2">

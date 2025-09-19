@@ -2,6 +2,9 @@
 @import 'tailwindcss';
 
 @source "../../components";
+@source "../../pages";
+@source "../../app.vue";
+@source "../../error.vue";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -145,14 +148,21 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--font-primary);
+  font-family: var(--font-primary);
+  color: var(--color-neutral-900);
+  overscroll-behavior: none;
 }
 
 * {
+  /* Need to add !important to override */
   transition:
-  background 1s ease-in-out,
-  color 0.1s ease-in-out;
+    background 1s ease-in-out,
+    color 0.1s ease-in-out;
 }
 
 ::selection {
