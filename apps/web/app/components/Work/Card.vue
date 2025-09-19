@@ -69,6 +69,7 @@ const { visible, text: cursorText } = extractStore(useCursorStore())
       :class="imageList(props.ui.imageList)"
       @mouseenter="((visible = true), (cursorText = `${props.data.title}, ${props.data.year}`))"
       @mouseleave="((visible = false), (cursorText = ''))"
+      @click="((visible = false), (cursorText = ''))"
     >
       <div v-for="img in props.data.images" :key="img.src" class="flex overflow-hidden" :class="image(props.ui.image)">
         <NuxtImg :src="img.src" :alt="img?.alt || `${props.data.title}, ${props.data.year}`" class="size-full object-cover" format="webp" />

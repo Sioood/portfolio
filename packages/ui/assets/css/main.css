@@ -3,6 +3,8 @@
 
 @source "../../components";
 @source "../../pages";
+@source "../../app.vue";
+@source "../../error.vue";
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
