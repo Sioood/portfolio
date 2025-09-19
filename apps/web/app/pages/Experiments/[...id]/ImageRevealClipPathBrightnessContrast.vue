@@ -36,9 +36,8 @@ useHead({
           y: 0,
         },
       ]"
-      class="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-12"
+      class="grid grid-cols-[repeat(auto-fill,minmax(max(300px,25vw),1fr))] gap-12"
     >
-      <!-- !transition-[clip-path,filter,scale] ease-[cubic-bezier(0.15,0,0.65,1)] -->
       <li v-for="src in mockGallery" :key="src" class="flex aspect-16/9 size-full bg-neutral-900">
         <NuxtImg class="size-full object-cover" format="webp" :src="src" />
       </li>
