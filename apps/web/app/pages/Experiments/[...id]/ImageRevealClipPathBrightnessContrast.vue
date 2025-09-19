@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ListBladeApi } from 'tweakpane'
+import { Pane, ListBladeApi } from 'tweakpane'
 
 const { t } = useI18n()
 
@@ -37,11 +37,12 @@ const tweakParams = reactive({
   },
 })
 
+let pane: Pane
 onMounted(() => {
   const wrapper = document.getElementById('tweakpane')
   if (wrapper?.firstElementChild) return
 
-  const pane = new $Tweakpane({
+  pane = new $Tweakpane({
     container: document.getElementById('tweakpane')!,
   })
 
@@ -118,6 +119,10 @@ onMounted(() => {
     title: 'Reload',
   })
   reloadBtn.on('click', tweakParams.actions.onReload)
+})
+
+onBeforeUnmount(() => {
+  pane?.dispose()
 })
 
 useHead({
