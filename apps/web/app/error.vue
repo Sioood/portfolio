@@ -14,7 +14,7 @@ const handleError = () => clearError({ redirect: '/' })
       <div class="relative flex items-center justify-center">
         <span class="absolute top-0 text-neutral-500">{{ error?.statusMessage }}</span>
         <h2 class="font-secondary text-[20vw] font-light text-neutral-900 italic">{{ error?.statusCode }}</h2>
-        <h2 class="text-secondary-500 absolute text-[1.5vw]">
+        <h2 v-if="error?.statusCode === 404" class="text-secondary-500 absolute text-[1.5vw]">
           <pre>
 
 
