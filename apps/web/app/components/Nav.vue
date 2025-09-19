@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
   <nav class="inline-flex w-full justify-between p-0.5">
-    <div class="inline-flex w-1/3 justify-between gap-12 p-0.5">
+    <div class="inline-flex w-1/3 justify-between gap-32 p-0.5">
       <ul class="inline-flex gap-2.5">
         <li>
           <UILink v-slot="{ isLinkButton }" to="/">
