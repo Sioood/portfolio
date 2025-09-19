@@ -16,30 +16,23 @@
   },
   "dependencies": {
     "@portfolio/nuxt-essentials": "workspace:^",
-    "@tailwindcss/vite": "^4.1.12",
+    "@tailwindcss/vite": "^4.1.13",
     "class-variance-authority": "^0.7.1",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@nuxt/icon": "1.15.0",
     "@nuxt/image": "1.10.0",
-    "@nuxt/kit": "^4.0.2",
+    "@nuxt/kit": "^4.1.2",
     "@portfolio/eslint": "workspace:^",
     "@portfolio/oxlint": "workspace:^",
     "@portfolio/prettier": "workspace:^",
-    "eslint": "^9.32.0",
+    "eslint": "^9.35.0",
     "eslint-plugin-tailwindcss": "4.0.0-beta.0",
     "nuxt": "catalog:",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "v-gsap-nuxt": "^1.4.4",
     "vue": "catalog:"
-  },
-  "lint-staged": {
-    "**/*.{json,js,ts,md,yaml,yml,vue}": [
-      "oxlint --fix",
-      "eslint --fix",
-      "prettier --write"
-    ]
   },
   "lint-staged": {
     "**/*.{json,js,ts,md,yaml,yml,vue}": [
