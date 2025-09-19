@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ListBladeApi } from 'tweakpane'
+
 const { t } = useI18n()
 
 const mockGallery = [
@@ -12,6 +14,112 @@ const mockGallery = [
   'https://images.unsplash.com/photo-1740829707989-eca7b2ee18f9?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 ]
 
+const showExperiment = ref(true)
+
+const { $Tweakpane } = useNuxtApp()
+const tweakParams = reactive({
+  delay: 0,
+  duration: 1.6,
+  stagger: 0.02,
+  brightness: 4,
+  contrast: 2.5,
+  blur: 1,
+  scaleX: 1,
+  scaleY: 1.2,
+  clipPath: { from: 'circle(0% at 50% 50%)', to: 'circle(100% at 50% 50%)' },
+  actions: {
+    onReload: () => {
+      showExperiment.value = false
+      nextTick(() => {
+        showExperiment.value = true
+      })
+    },
+  },
+})
+
+onMounted(() => {
+  const wrapper = document.getElementById('tweakpane')
+  if (wrapper?.firstElementChild) return
+
+  const pane = new $Tweakpane({
+    container: document.getElementById('tweakpane')!,
+  })
+
+  const wrapperFolder = pane.addFolder({
+    title: 'Tweak it',
+    expanded: false,
+  })
+
+  wrapperFolder.addBinding(tweakParams, 'delay', {
+    min: 0,
+    max: 15,
+    step: 0.1,
+  })
+  wrapperFolder.addBinding(tweakParams, 'duration', {
+    min: 0,
+    max: 15,
+    step: 0.1,
+  })
+
+  wrapperFolder.addBinding(tweakParams, 'stagger', {
+    min: 0,
+    max: 1,
+    step: 0.1,
+  })
+
+  wrapperFolder.addBlade({
+    view: 'separator',
+  })
+
+  wrapperFolder.addBinding(tweakParams, 'brightness', {
+    min: 1,
+    max: 100,
+    step: 0.1,
+  })
+  wrapperFolder.addBinding(tweakParams, 'contrast', {
+    min: 1,
+    max: 100,
+    step: 0.1,
+  })
+  wrapperFolder.addBinding(tweakParams, 'blur', {
+    min: 0,
+    max: 100,
+    step: 0.1,
+  })
+
+  wrapperFolder.addBinding(tweakParams, 'scaleY', {
+    min: 0,
+    max: 2,
+    step: 0.1,
+  })
+  wrapperFolder.addBinding(tweakParams, 'scaleX', {
+    min: 0,
+    max: 2,
+    step: 0.1,
+  })
+
+  const clipPath = wrapperFolder.addBlade({
+    view: 'list',
+    label: 'clip-path',
+    options: [
+      { text: 'circle', value: { from: 'circle(0% at 50% 50%)', to: 'circle(100% at 50% 50%)' } },
+      { text: 'from bottom to top', value: { from: 'polygon(0 95%, 100% 100%, 100% 100%, 0% 100%)', to: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)' } },
+    ],
+    value: 'circle',
+  }) as ListBladeApi<{ from: string; to: string }>
+  clipPath.on('change', (ev) => {
+    tweakParams.clipPath = ev.value
+  })
+
+  wrapperFolder.addBlade({
+    view: 'separator',
+  })
+  const reloadBtn = wrapperFolder.addButton({
+    title: 'Reload',
+  })
+  reloadBtn.on('click', tweakParams.actions.onReload)
+})
+
 useHead({
   title: () => t('experiments:imageRevealClipPathBrightnessContrast.title'),
 })
@@ -19,20 +127,27 @@ useHead({
 
 <template>
   <div class="mt-10 flex flex-col p-12">
-    <div class="mb-10 flex flex-col gap-2">
+    <div class="mb-10 flex flex-col items-center gap-2">
       <h1 class="font-secondary text-[3rem] font-light italic">{{ $t('experiments:imageRevealClipPathBrightnessContrast.title') }}</h1>
       <p class="text-neutral-700">{{ $t('experiments:imageRevealClipPathBrightnessContrast.description') }}</p>
     </div>
     <ul
+      v-if="showExperiment"
       v-gsap.stagger.fromTo="[
-        { clipPath: 'polygon(0 95%, 100% 100%, 100% 100%, 0% 100%)', filter: 'brightness(4) contrast(2.5) blur(1px)', scale: '1.1', y: 25 },
         {
-          duration: 1.6,
+          clipPath: tweakParams.clipPath.from,
+          filter: `brightness(${tweakParams.brightness}) contrast(${tweakParams.contrast}) blur(${tweakParams.blur}px)`,
+          scaleY: tweakParams.scaleY,
+          y: 25,
+        },
+        {
+          delay: tweakParams.delay,
+          duration: tweakParams.duration,
           ease: 'expo.out',
-          stagger: 0.02,
-          clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)',
+          stagger: tweakParams.stagger,
+          clipPath: tweakParams.clipPath.to,
           filter: 'brightness(1) contrast(1) blur(0px)',
-          scale: '1',
+          scaleY: 1,
           y: 0,
         },
       ]"

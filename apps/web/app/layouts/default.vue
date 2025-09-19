@@ -8,6 +8,9 @@ const { type, visible } = extractStore(useCursorStore())
       <!-- Need to find a workaround with gsap and scrollSmoother for sticky, like pinned or something -->
       <header class="fixed top-0 z-[666] w-full">
         <Nav></Nav>
+        <div class="z-[99999] m-2 flex justify-end">
+          <div id="tweakpane" class="w-fit" />
+        </div>
       </header>
     </Teleport>
 
