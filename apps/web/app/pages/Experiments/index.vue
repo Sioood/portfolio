@@ -14,14 +14,14 @@ const { experiments } = extractStore(useExperimentStore())
       >
         <UIButton
           v-gsap.stagger.fromTo="[
-            { clipPath: 'polygon(0 95%, 100% 100%, 100% 100%, 0% 100%)', filter: 'brightness(4) contrast(2.5) blur(1px)', scale: '1.1', y: 25 },
+            { clipPath: 'polygon(0 95%, 100% 100%, 100% 100%, 0% 100%)', filter: 'brightness(4) contrast(2.5) blur(1px)', scaleY: '1.2', y: 25 },
             {
               duration: 1.6,
               ease: 'expo.out',
               stagger: 0.02,
               clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)',
               filter: 'brightness(1) contrast(1) blur(0px)',
-              scale: '1',
+              scaleY: '1',
               y: 0,
             },
           ]"

@@ -16,6 +16,7 @@
   "dependencies": {
     "@portfolio/ui": "workspace:^",
     "nuxt": "catalog:",
+    "tweakpane": "^4.0.5",
     "vue": "catalog:",
     "vue-router": "catalog:"
   },
@@ -23,7 +24,8 @@
     "@nuxt/eslint": "1.7.1",
     "@portfolio/eslint": "workspace:^",
     "@portfolio/oxlint": "workspace:^",
-    "@portfolio/prettier": "workspace:^"
+    "@portfolio/prettier": "workspace:^",
+    "@tweakpane/core": "^2.0.5"
   },
   "lint-staged": {
     "**/*.{json,js,ts,md,yaml,yml,vue}": [
