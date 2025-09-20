@@ -16,9 +16,12 @@ definePageMeta({
 
 <template>
   <div>
-    <section class="relative flex min-h-dvh flex-col items-center overflow-x-clip">
+    <section class="relative flex min-h-dvh flex-col items-center justify-center overflow-x-clip">
       <div class="absolute bottom-[5vw] z-[1] flex flex-col items-end xl:bottom-[3vw]">
-        <h1 class="font-secondary text-primary-200 text-[clamp(10rem,30vw,40rem)] leading-[7vw] font-light italic select-none">
+        <h1
+          v-gsap.from="{ duration: 2.6, ease: 'power4.out', filter: 'blur(0.75vw)', scaleY: 0.93 }"
+          class="font-secondary text-primary-200 origin-bottom text-[clamp(10rem,30vw,40rem)] leading-[7vw] font-light italic select-none"
+        >
           &nbsp; {{ $t('firstname') }} <br />
           {{ $t('lastname') }}
         </h1>
@@ -40,6 +43,17 @@ definePageMeta({
           </div>
         </div>
       </div>
+
+      <span class="z-10 translate-x-[-3px] text-neutral-900 dark:text-[rgb(109,109,109)]">
+        <sup
+          class="font-primary after:font-primary relative font-light after:absolute after:top-1/2 after:left-[120%] after:-translate-y-1/2 after:content-['—']"
+          >Hell<span class="font-secondary italic">0</span></sup
+        >
+        <sub
+          class="font-secondary before:font-primary font-light italic before:absolute before:top-2/3 before:right-[120%] before:-translate-y-1/2 before:content-['—']"
+          >world</sub
+        ></span
+      >
     </section>
 
     <section class="relative mt-52 mb-[20vh] min-h-screen cursor-pointer overflow-x-clip">
