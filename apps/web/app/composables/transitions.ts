@@ -1,5 +1,4 @@
 export const blurredCircleRef = ref<HTMLElement | null>(null)
-export const beginTransitionDone = ref(false)
 
 export const useBeginTransition = (done: () => void) => {
   if (blurredCircleRef.value) {
@@ -25,7 +24,6 @@ export const useBeginTransition = (done: () => void) => {
       clipPath: 'circle(100% at 50% 50%)',
       filter: 'blur(0px)',
       onComplete: () => {
-        beginTransitionDone.value = true
         done()
       },
     },
@@ -33,11 +31,6 @@ export const useBeginTransition = (done: () => void) => {
 }
 
 export const useEndTransition = (done: () => void) => {
-  if (!beginTransitionDone.value) {
-    done()
-    return
-  }
-
   useGSAP().fromTo(
     blurredCircleRef.value,
     {
@@ -53,7 +46,6 @@ export const useEndTransition = (done: () => void) => {
 
         blurredCircleRef.value?.remove()
         done()
-        beginTransitionDone.value = false
       },
     },
   )
