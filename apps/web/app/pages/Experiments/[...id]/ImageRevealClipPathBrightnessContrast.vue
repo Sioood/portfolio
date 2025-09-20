@@ -133,7 +133,7 @@ onBeforeUnmount(() => {
 })
 
 useHead({
-  title: () => t('experiments:imageRevealClipPathBrightnessContrast.title'),
+  title: () => `${t('experiments:expId', { id: '001' })} - ${t('experiments:imageRevealClipPathBrightnessContrast.title')}`,
 })
 </script>
 

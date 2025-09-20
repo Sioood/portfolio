@@ -1,4 +1,5 @@
 {
+  "expId": "exp{id}",
   "imageRevealClipPathBrightnessContrast": {
     "description": "Reveal par clip-path, brightness et contrast. Images venant d'unsplash.",
     "title": "Galerie d'images avec reveal"
