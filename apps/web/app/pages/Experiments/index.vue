@@ -6,7 +6,7 @@ const { experiments } = extractStore(useExperimentStore())
   <div class="flex flex-col">
     <ul v-if="experiments?.length" class="mt-10 grid grid-cols-[repeat(auto-fill,minmax(max(250px,17.5vw),1fr))] gap-4 p-4">
       <UILink
-        v-for="experiment in experiments.reverse()"
+        v-for="experiment in [...experiments].reverse()"
         v-slot="{ isLinkButton }"
         :key="experiment.id"
         :to="`/experiments/${experiment.id}/${experiment.slug}`"
