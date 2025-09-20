@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { enabled: previewMode } = useMyPreviewMode()
+
 definePageMeta({
   pageTransition: {
     mode: 'out-in',
@@ -50,7 +52,7 @@ definePageMeta({
       </div>
     </section>
 
-    <section id="works" class="relative flex min-h-screen flex-col items-center">
+    <section v-if="previewMode" id="works" class="relative flex min-h-screen flex-col items-center">
       <!-- <WorkCard
         :data="{
           slug: 'curiosity',
