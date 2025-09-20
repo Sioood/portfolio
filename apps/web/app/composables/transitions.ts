@@ -10,18 +10,7 @@ export const useBeginTransition = (done: () => void) => {
 
   const circle = document.createElement('div')
   circle.id = 'blurred-circle'
-  circle.classList.add(
-    'fixed',
-    'top-1/2',
-    'left-1/2',
-    '-translate-x-1/2',
-    '-translate-y-1/2',
-    'bg-neutral-900',
-    'z-[99999]',
-    // 'rounded-full',
-    'blur-[800px]',
-    'size-full',
-  )
+  circle.classList.add('fixed', 'top-1/2', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2', 'bg-neutral-900', 'z-[99999]', 'blur-[25vw]', 'size-full')
   const el = document.body.appendChild(circle)
   blurredCircleRef.value = el
 
