@@ -32,7 +32,9 @@ const handleError = () => clearError({ redirect: '/' })
         <div class="bg-secondary-500/20 absolute z-[-1] aspect-square w-[50vw] translate-y-[1%] rounded-full blur-3xl" />
         <div class="bg-accent-500/20 absolute z-[-1] aspect-square w-[25vw] translate-y-[1%] rounded-full blur-3xl" />
       </div>
-      <UIButton @click="handleError">{{ $t('home') }}</UIButton>
+      <div class="inline-flex items-center justify-center">
+        <UIButton @click="handleError">{{ $t('home') }}</UIButton>
+      </div>
     </div>
   </NuxtLayout>
 </template>
