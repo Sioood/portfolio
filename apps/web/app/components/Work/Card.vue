@@ -71,8 +71,14 @@ const { visible, text: cursorText } = extractStore(useCursorStore())
       @mouseleave="((visible = false), (cursorText = ''))"
       @click="((visible = false), (cursorText = ''))"
     >
-      <div v-for="img in props.data.images" :key="img.src" class="flex overflow-hidden" :class="image(props.ui.image)">
-        <NuxtImg :src="img.src" :alt="img?.alt || `${props.data.title}, ${props.data.year}`" class="size-full object-cover" format="webp" />
+      <div v-for="img in props.data.images" :key="img.src" class="flex items-end overflow-hidden" :class="image(props.ui.image)">
+        <NuxtImg
+          v-gsap.parallax.slower-2
+          :src="img.src"
+          :alt="img?.alt || `${props.data.title}, ${props.data.year}`"
+          class="size-[110%] object-cover"
+          format="webp"
+        />
       </div>
     </UILink>
 
