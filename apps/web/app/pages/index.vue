@@ -1,3 +1,17 @@
+<script setup lang="ts">
+definePageMeta({
+  pageTransition: {
+    mode: 'out-in',
+    onEnter: (el, done) => {
+      useEndTransition(done)
+    },
+    onLeave: (el, done) => {
+      useBeginTransition(done)
+    },
+  },
+})
+</script>
+
 <template>
   <div>
     <section class="relative flex min-h-dvh flex-col items-center overflow-x-clip">
@@ -69,7 +83,9 @@
         </div>
 
         <UIButton size="xl" :is-link-button="isLinkButton" class="z-10">
-          <AsciiDance />
+          <ClientOnly>
+            <AsciiDance />
+          </ClientOnly>
 
           <span class="absolute z-10 text-[clamp(1rem,1.5vw,1.5vw)] leading-[1] text-neutral-900"> →{{ $t('experiment_other') }}← </span>
         </UIButton>
