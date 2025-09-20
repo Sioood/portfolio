@@ -1,5 +1,17 @@
 <script setup lang="ts">
 const { experiments } = extractStore(useExperimentStore())
+
+definePageMeta({
+  pageTransition: {
+    mode: 'out-in',
+    onEnter: (el, done) => {
+      useEndTransition(done)
+    },
+    onLeave: (el, done) => {
+      useBeginTransition(done)
+    },
+  },
+})
 </script>
 
 <template>
