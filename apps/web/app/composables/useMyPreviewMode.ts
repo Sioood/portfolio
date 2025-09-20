@@ -5,7 +5,7 @@ export function useMyPreviewMode() {
 
       if (!import.meta.server) {
         const previewLocalStorage = localStorage.getItem('preview')
-        return !!previewLocalStorage || !!route.query.preview
+        return previewLocalStorage === 'true' || !!route.query.preview
       }
 
       return !!route.query.preview
