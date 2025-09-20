@@ -150,6 +150,7 @@ useHead({
           clipPath: tweakParams.clipPath.from,
           filter: `brightness(${tweakParams.brightness}) contrast(${tweakParams.contrast}) blur(${tweakParams.blur}px)`,
           scaleY: tweakParams.scaleY,
+          scaleX: tweakParams.scaleX,
           y: 25,
         },
         {
@@ -160,6 +161,7 @@ useHead({
           clipPath: tweakParams.clipPath.to,
           filter: 'brightness(1) contrast(1) blur(0px)',
           scaleY: 1,
+          scaleX: 1,
           y: 0,
         },
       ]"
