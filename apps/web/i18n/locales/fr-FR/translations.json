@@ -15,6 +15,10 @@
   "lastname": "Dupont",
   "light": "light",
   "makeContact": "Je suis disponible pour vos idées. Prenons contact !",
+  "tag_one": "Tag",
+  "tag_other": "Tags",
+  "techno_one": "Techno",
+  "techno_other": "Technos",
   "twitterTag": "Siooooood",
   "work_other": "Projets"
 }
