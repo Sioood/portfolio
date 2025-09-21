@@ -21,8 +21,8 @@ const work = computed(() => {
 
     <UIDivider class="mb-13" />
 
-    <div class="flex h-[75dvh] w-full flex-wrap gap-5">
-      <div class="flex flex-[3_1_300px] flex-col gap-5">
+    <div class="flex min-h-[75dvh] w-full flex-wrap gap-5">
+      <div class="flex h-min flex-[3_1_400px] flex-col-reverse gap-5 lg:flex-col">
         <div v-if="work.leftImage" class="h-3/5 w-full overflow-hidden bg-neutral-200">
           <NuxtImg :src="work.leftImage.src" :alt="work.leftImage.alt" class="size-full object-cover" format="webp" />
         </div>
@@ -45,12 +45,14 @@ const work = computed(() => {
           </div>
         </div>
       </div>
-      <div class="flex h-full flex-[4_1_400px] flex-col">
+
+      <div class="flex h-[65dvh] flex-[4_1_500px] flex-col">
         <div v-for="image in work.centerImages" :key="image.src" class="size-full overflow-hidden bg-neutral-200">
           <NuxtImg :src="image.src" :alt="image.alt" class="size-full object-cover" format="webp" />
         </div>
       </div>
-      <div class="h-full flex-[2_1_200px]">
+
+      <div class="mb-10 h-full flex-[2_1_300px]">
         <p v-if="work.description" class="w-full">
           {{ work.description }}
         </p>
