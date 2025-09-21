@@ -33,27 +33,31 @@ definePageMeta({
         </h6>
       </div>
 
-      <div class="absolute top-1/5 -rotate-45 blur-xl">
-        <div class="contrast-200">
-          <div class="relative flex flex-col items-center justify-center blur-3xl">
-            <div class="transform-3d">
-              <div class="top-1/2 left-1/2 aspect-square w-[500px] rounded-full bg-neutral-700" />
-              <div class="bg-secondary-300 orbit absolute top-1/2 left-1/2 aspect-square w-[12rem] rounded-full" />
+      <div class="absolute top-1/5">
+        <div class="-rotate-45 blur-xl">
+          <div class="contrast-200">
+            <div class="relative flex flex-col items-center justify-center blur-3xl">
+              <div class="transform-3d">
+                <div class="top-1/2 left-1/2 aspect-square w-[500px] rounded-full bg-neutral-700" />
+                <div class="bg-secondary-300 orbit absolute top-1/2 left-1/2 aspect-square w-[12rem] rounded-full" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <span class="z-10 translate-x-[-3px] text-neutral-900 dark:text-[rgb(109,109,109)]">
-        <sup
-          class="font-primary after:font-primary relative font-light after:absolute after:top-1/2 after:left-[120%] after:-translate-y-1/2 after:content-['—']"
-          >Hell<span class="font-secondary italic">0</span></sup
-        >
-        <sub
-          class="font-secondary before:font-primary font-light italic before:absolute before:top-2/3 before:right-[120%] before:-translate-y-1/2 before:content-['—']"
-          >world</sub
-        ></span
-      >
+        <span class="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-neutral-900 dark:text-[rgb(109,109,109)]">
+          <sup
+            class="font-primary after:font-primary relative font-light after:absolute after:top-1/2 after:left-[120%] after:-translate-y-1/2 after:content-['—']"
+          >
+            Hell<span class="font-secondary italic">0</span>
+          </sup>
+          <sub
+            class="font-secondary before:font-primary font-light italic before:absolute before:top-2/3 before:right-[120%] before:-translate-y-1/2 before:content-['—']"
+          >
+            world
+          </sub>
+        </span>
+      </div>
     </section>
 
     <section class="relative mt-52 mb-[20vh] min-h-screen cursor-pointer overflow-x-clip">
