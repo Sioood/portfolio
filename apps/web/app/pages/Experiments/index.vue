@@ -16,13 +16,13 @@ definePageMeta({
 
 <template>
   <div class="flex flex-col">
-    <ul v-if="experiments?.length" class="mt-10 grid grid-cols-[repeat(auto-fill,minmax(max(250px,17.5vw),1fr))] gap-4 p-4">
+    <ul v-if="experiments?.length" class="mt-10 grid grid-cols-[repeat(auto-fill,minmax(max(250px,17.5vw),1fr))] gap-[5vw] p-[5vw]">
       <UILink
         v-for="experiment in [...experiments].reverse()"
         v-slot="{ isLinkButton }"
         :key="experiment.id"
         :to="`/experiments/${experiment.id}/${experiment.slug}`"
-        class="size-full [&>*>*>*>img]:filter-[invert(100%)_grayscale(100%)] [&>*>*>*>img]:!transition-[filter] [&>*>*>*>img]:duration-1000 [&>*>*>*>img]:ease-out hover:[&>*>*>*>img]:filter-[invert(0%)_grayscale(0%)] hover:[&>*>*>*>img]:!transition-none"
+        class="size-full [&_img]:filter-[invert(100%)_grayscale(100%)] [&_img]:!transition-[filter] [&_img]:duration-1000 [&_img]:ease-out hover:[&_img]:filter-[invert(0%)_grayscale(0%)] hover:[&_img]:!transition-none"
       >
         <UIButton
           v-gsap.stagger.fromTo="[
