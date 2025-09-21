@@ -13,6 +13,16 @@ const work = computed(() => {
     throw createError({ statusCode: 404, message: 'not found', fatal: true })
   }
 })
+
+useHead({
+  title: `${work.value.title} — ${work.value.date}`,
+  meta: [
+    {
+      name: 'description',
+      content: work.value.description,
+    },
+  ],
+})
 </script>
 
 <template>
