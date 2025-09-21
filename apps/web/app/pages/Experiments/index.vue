@@ -42,7 +42,7 @@ definePageMeta({
           class="size-full"
         >
           <li class="flex aspect-13/9 size-full">
-            <ExperimentsCard v-bind="experiment" />
+            <ExperimentCard v-bind="experiment" />
           </li>
         </UIButton>
       </UILink>
