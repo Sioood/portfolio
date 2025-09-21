@@ -138,11 +138,10 @@ useHead({
 </script>
 
 <template>
-  <div class="mt-10 flex flex-col p-12">
-    <div class="mb-10 flex flex-col items-center gap-2">
-      <h1 class="font-secondary text-[3rem] font-light italic">{{ $t('experiments:imageRevealClipPathBrightnessContrast.title') }}</h1>
-      <p class="text-neutral-700">{{ $t('experiments:imageRevealClipPathBrightnessContrast.description') }}</p>
-    </div>
+  <ExperimentPageDefault
+    :title="$t('experiments:imageRevealClipPathBrightnessContrast.title')"
+    :description="$t('experiments:imageRevealClipPathBrightnessContrast.description')"
+  >
     <ul
       v-if="showExperiment"
       v-gsap.stagger.fromTo="[
@@ -165,11 +164,11 @@ useHead({
           y: 0,
         },
       ]"
-      class="grid grid-cols-[repeat(auto-fill,minmax(max(300px,25vw),1fr))] gap-12"
+      class="grid w-full grid-cols-[repeat(auto-fill,minmax(max(300px,25vw),1fr))] gap-12"
     >
       <li v-for="src in mockGallery" :key="src" class="flex aspect-16/9 size-full bg-neutral-900">
         <NuxtImg class="size-full object-cover" format="webp" :src="src" />
       </li>
     </ul>
-  </div>
+  </ExperimentPageDefault>
 </template>
