@@ -58,10 +58,10 @@ onMounted(() => {
           </div>
           <ul class="mb-10 flex flex-col gap-1">
             <li>
-              <a :href="`mailto:${$t('email')}`">{{ $t('email') }}</a>
+              <a :href="`mailto:${$t('email')}`" data-rybbit-event="contact-email_mailto">{{ $t('email') }}</a>
             </li>
             <li>
-              <UILink to="#">
+              <UILink to="https://x.com/Siooooood" data-rybbit-event="contact-twitter_x">
                 {{ $t('twitterTag') }}
               </UILink>
             </li>
@@ -91,10 +91,10 @@ onMounted(() => {
           </div>
           <ul class="mb-10 flex flex-col gap-1">
             <li>
-              <a :href="`mailto:${$t('email')}`">{{ $t('email') }}</a>
+              <a :href="`mailto:${$t('email')}`" data-rybbit-event="contact-email_mailto">{{ $t('email') }}</a>
             </li>
             <li>
-              <UILink to="#">
+              <UILink to="https://x.com/Siooooood" data-rybbit-event="contact-twitter_x">
                 {{ $t('twitterTag') }}
               </UILink>
             </li>
@@ -126,10 +126,10 @@ onMounted(() => {
           </div>
           <ul class="mb-10 flex flex-col gap-1">
             <li>
-              <a :href="`mailto:${$t('email')}`">{{ $t('email') }}</a>
+              <a :href="`mailto:${$t('email')}`" data-rybbit-event="contact-email_mailto">{{ $t('email') }}</a>
             </li>
             <li>
-              <UILink to="#">
+              <UILink to="https://x.com/Siooooood" data-rybbit-event="contact-twitter_x">
                 {{ $t('twitterTag') }}
               </UILink>
             </li>
