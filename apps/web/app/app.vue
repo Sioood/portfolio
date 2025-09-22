@@ -15,16 +15,21 @@
 
 const runtimeConfig = useRuntimeConfig()
 
+const script = []
+if (import.meta.client) {
+  // Load Rybbit only on client side to avoid duplicates
+  script.push({
+    src: runtimeConfig.public.rybbitSrc as string,
+    async: true,
+    defer: true,
+    'data-site-id': runtimeConfig.public.rybbitSiteId as string | undefined,
+    'data-track-errors': true,
+    'data-api-key': 'rb_ea77b240a45d3d2d4459cf6fe865ac7b',
+  })
+}
+
 useHead({
-  script: [
-    {
-      src: runtimeConfig.public.rybbitSrc as string,
-      async: true,
-      defer: true,
-      'data-site-id': runtimeConfig.public.rybbitSiteId as string | undefined,
-      'data-track-errors': true,
-    },
-  ],
+  script,
 })
 
 const { t } = useI18n()
