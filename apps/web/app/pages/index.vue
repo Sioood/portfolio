@@ -1,6 +1,26 @@
 <script setup lang="ts">
 const { enabled: previewMode } = useMyPreviewMode()
 
+const { works } = useWorkStore()
+
+const workPositioning = useState('workPositioning', () => {
+  const positions: ('items-start' | 'items-center' | 'items-end')[] = []
+
+  for (let i = 0; i < works.length; i++) {
+    const random = Math.random()
+
+    if (random < 0.333) {
+      positions.push('items-start')
+    } else if (random >= 0.333 && random < 0.666) {
+      positions.push('items-center')
+    } else {
+      positions.push('items-end')
+    }
+  }
+
+  return positions
+})
+
 definePageMeta({
   pageTransition: {
     mode: 'out-in',
@@ -70,23 +90,8 @@ definePageMeta({
       </div>
     </section>
 
-    <section v-if="previewMode" id="works" class="relative flex min-h-screen flex-col items-center">
-      <!-- <WorkCard
-        :data="{
-          slug: 'curiosity',
-          title: $t('curiosity'),
-          year: 2023,
-          images: [
-            {
-              src: 'https://images.unsplash.com/photo-1533134663120-ec7e68d56494?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            },
-          ],
-        }"
-        :ui="{
-          imageList: { gap: null, overflow: 'hidden' },
-          image: { aspect: '16/9', rounded: 't-full' },
-        }"
-      /> -->
+    <section v-if="previewMode" id="works" class="relative flex min-h-dvh flex-col items-center px-10">
+      <WorkCard v-for="(work, i) in works" :key="i" :class="workPositioning[i] || 'items-center'" :work="work" />
     </section>
 
     <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">

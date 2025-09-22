@@ -6,7 +6,7 @@ export interface Work {
   // Main description, displayed on the right of the page
   description?: string
   date: string
-  preview?: { src: string; alt: string } | { src: string; alt: string }[]
+  preview?: { src: string; alt: string }
   caption?: string
   tags?: string[]
   technos?: string[]
