@@ -11,7 +11,7 @@ const year = computed(() => Number(props.work.date.split('-')[0] || props.work.d
 <template>
   <div class="relative flex w-full flex-col items-center justify-center overflow-hidden py-[15dvh]">
     <UILink
-      :to="`/work/${props.work.slug}`"
+      :to="`/works/${props.work.slug}`"
       class="flex w-[90%] flex-col items-center justify-center gap-1 active:scale-97 lg:w-2/5 2xl:w-2/7"
       @mouseenter="((visible = true), (cursorText = `${props.work.title}, ${year}`))"
       @mouseleave="((visible = false), (cursorText = ''))"
@@ -22,8 +22,7 @@ const year = computed(() => Number(props.work.date.split('-')[0] || props.work.d
       <NuxtImg
         :src="work.preview?.src || work.leftImage?.src"
         :alt="work.preview?.alt || `${props.work.title}, ${Number(work.date.split('-')[0] || work.date)}`"
-        class="size-full object-cover"
-        format="webp"
+        class="size-full min-h-[40dvh] bg-neutral-200 object-cover"
       />
 
       <div class="inline-flex w-full justify-between gap-2">
