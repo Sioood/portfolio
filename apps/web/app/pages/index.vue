@@ -115,27 +115,6 @@ definePageMeta({
       </UILink>
     </section>
 
-    <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">
-      <UILink v-slot="{ isLinkButton }" to="/experiments" class="group flex items-center justify-center">
-        <!-- FIXME matching size with ascii -->
-        <div
-          class="absolute flex aspect-11/9 h-[max(40%,53vw)] items-center justify-center bg-white !transition-all duration-1000 ease-out [clip-path:circle(10%_at_50%_50%)] group-hover:[clip-path:circle(100%_at_50%_50%)] lg:h-[39vw]"
-        >
-          <NuxtImg
-            class="size-full object-cover"
-            format="webp"
-            src="https://i0.wp.com/arthive.com/res/media/img/oy800/work/b74/449397.jpg?resize=644%2C430&ssl=1"
-          />
-        </div>
-
-        <UIButton size="xl" :is-link-button="isLinkButton" class="z-10">
-          <AsciiDance />
-
-          <span class="absolute z-10 text-[clamp(1rem,1.5vw,1.5vw)] leading-[1] text-neutral-900"> →{{ $t('experiment_other') }}← </span>
-        </UIButton>
-      </UILink>
-    </section>
-
     <!-- TODO add content / refix responsive -->
     <section id="contact" class="relative min-h-screen overflow-x-clip">
       <HomeContact />
