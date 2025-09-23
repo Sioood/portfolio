@@ -24,7 +24,6 @@ if (import.meta.client) {
     defer: true,
     'data-site-id': runtimeConfig.public.rybbitSiteId as string | undefined,
     'data-track-errors': true,
-    'data-api-key': 'rb_ea77b240a45d3d2d4459cf6fe865ac7b',
   })
 }
 
