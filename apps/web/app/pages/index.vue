@@ -35,7 +35,7 @@ definePageMeta({
 <template>
   <div>
     <section class="relative flex min-h-dvh flex-col items-center justify-center overflow-x-clip">
-      <div class="absolute bottom-[5vw] z-[1] flex flex-col items-end xl:bottom-[3vw]">
+      <div class="absolute bottom-[5vw] z-10 flex flex-col items-end xl:bottom-[3vw]">
         <h1
           v-gsap.from="{ duration: 2.6, ease: 'power4.out', filter: 'blur(0.75vw)', scaleY: 0.93 }"
           class="font-secondary text-primary-200 origin-bottom text-[clamp(10rem,30vw,40rem)] leading-[7vw] font-light italic select-none"
@@ -63,7 +63,7 @@ definePageMeta({
           </div>
         </div>
 
-        <span class="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-neutral-900 dark:text-[rgb(109,109,109)]">
+        <span class="absolute top-1/2 left-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 text-neutral-900 dark:text-[rgb(109,109,109)]">
           <sup
             class="font-primary after:font-primary relative font-light after:absolute after:top-1/2 after:left-[120%] after:-translate-y-1/2 after:content-['—']"
           >
