@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { enabled: previewMode } = useMyPreviewMode()
-
 const theme = useCookie<('light' | 'dark') | null>('theme', {
   default: () => 'light',
 })
@@ -34,7 +32,7 @@ onMounted(() => {
       </ul>
 
       <ul class="hidden gap-2.5 md:inline-flex">
-        <li v-if="previewMode">
+        <li>
           <UILink v-slot="{ isLinkButton }" to="/#works">
             <UIButton size="md" :is-link-button="isLinkButton">{{ $t('work_other') }}</UIButton>
           </UILink>
