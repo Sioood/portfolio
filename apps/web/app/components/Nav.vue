@@ -32,11 +32,11 @@ onMounted(() => {
       </ul>
 
       <ul class="hidden gap-2.5 md:inline-flex">
-        <!-- <li>
+        <li>
           <UILink v-slot="{ isLinkButton }" to="/#works">
             <UIButton size="md" :is-link-button="isLinkButton">{{ $t('work_other') }}</UIButton>
           </UILink>
-        </li> -->
+        </li>
 
         <li>
           <UILink v-slot="{ isLinkButton }" to="/experiments">
