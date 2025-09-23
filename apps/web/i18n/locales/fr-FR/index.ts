@@ -4,6 +4,7 @@ export default defineI18nLocale(async () => {
   const namespacesFiles = {
     translations: () => import('./translations.json'),
     experiments: () => import('./experiments.json'),
+    works: () => import('./works.json'),
   }
 
   return await getMessagesWithNamespace(namespacesFiles)

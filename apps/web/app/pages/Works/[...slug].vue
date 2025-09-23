@@ -23,6 +23,18 @@ useHead({
     },
   ],
 })
+
+definePageMeta({
+  pageTransition: {
+    mode: 'out-in',
+    onEnter: (el, done) => {
+      useEndTransition(done)
+    },
+    onLeave: (el, done) => {
+      useBeginTransition(done)
+    },
+  },
+})
 </script>
 
 <template>
@@ -34,11 +46,20 @@ useHead({
     <div class="flex min-h-[75dvh] w-full flex-wrap gap-5">
       <div class="flex h-min flex-[3_1_400px] flex-col-reverse gap-5 lg:flex-col">
         <div v-if="work.leftImage" class="h-3/5 w-full overflow-hidden bg-neutral-200">
-          <NuxtImg :src="work.leftImage.src" :alt="work.leftImage.alt" class="size-full object-cover" format="webp" />
+          <NuxtImg v-if="work.leftImage?.src" :src="work.leftImage.src" :alt="work.leftImage.alt" class="size-full object-cover" />
         </div>
 
         <div class="flex flex-col gap-4">
           <!-- <h1 class="font-secondary text-4xl font-light text-neutral-900 italic">TITLE —&nbsp;2004</h1> -->
+
+          <div v-if="work.links" class="flex flex-col gap-1">
+            <h2 class="font-secondary text-2xl font-light text-neutral-900 italic">{{ $t('link_other') }}</h2>
+            <ul class="flex flex-col flex-wrap gap-2 text-neutral-700">
+              <UILink v-for="link in work.links" :key="link.name" v-slot="{ isLinkButton }" :to="link.url">
+                <UIButton size="sm" :is-link-button="isLinkButton">{{ link?.name }}<span class="font-bold">↛</span></UIButton>
+              </UILink>
+            </ul>
+          </div>
 
           <div v-if="work.tags" class="flex flex-col gap-1">
             <h2 class="font-secondary text-2xl font-light text-neutral-900 italic">{{ $t('tag_other') }}</h2>
@@ -58,14 +79,13 @@ useHead({
 
       <div class="flex h-[65dvh] flex-[4_1_500px] flex-col">
         <div v-for="image in work.centerImages" :key="image.src" class="size-full overflow-hidden bg-neutral-200">
-          <NuxtImg :src="image.src" :alt="image.alt" class="size-full object-cover" format="webp" />
+          <NuxtImg v-if="image.src" :src="image.src" :alt="image.alt" class="size-full object-cover" />
         </div>
       </div>
 
       <div class="mb-10 h-full flex-[2_1_300px]">
-        <p v-if="work.description" class="w-full">
-          {{ work.description }}
-        </p>
+        <!-- eslint-disable-next-line vue/no-v-html personal HTML, so not a security issue relative to XSS -->
+        <p v-if="work.description" class="w-full" v-html="work.description" />
       </div>
     </div>
 

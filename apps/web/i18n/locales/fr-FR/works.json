@@ -1,0 +1,18 @@
+{
+  "99reference": {
+    "title": "99reference",
+    "description": "99reference a composé 3 années de ma vie, j'ai beaucoup appris et c'est un vecteur de nombre de mes projets. </br> C'est avant tout un média artistique, partageant connaissances et visuels, le tout dans une démarche de partage. Avec un bonne présence sur les réseaux sociaux, nous avons eu l'occasion de réaliser divers projets, concours en collaboration avec des marques, événements, projets collaboratifs... </br></br> 99Ogma est l'un des projets les plus importants, nous avons créé un magazine en 2 éditions regroupant les interviews de nouveaux artistes émergents dans la sphère d'internet et regroupant quelques expérimentations. Pour la première édition nous avons fait un système de précommande et de vente en ligne, mais pour la deuxième édition, nous avons eu la chance de participer au popup store d'Entropy, exposition, projet indé, DJ set... et nous avons pu distribuer ce magazine en main propre. </br></br> Je me suis donné aussi pour ma part à la création d'un site internet en partie pour avoir un support numérique lors de notre deuxième version de 99Ogma, mais aussi dans l'objectif d'en faire un outil et de centraliser un bon nombre de ressources pour que les gens puissent s'y retrouver et que celui-ci devienne un point de repère."
+  },
+  "leJardinDeServins": {
+    "title": "Le jardin de servins",
+    "description": "Réalisation du logo pour le jardin de Servins, entreprise agricole, libre cueillette de fruits et légumes."
+  },
+  "kartelLeFresnoy": {
+    "title": "Kartel - le Fresnoy",
+    "description": "Kartel, outil interne du <i>Studio National des Arts Contemporains</i>, Le Fresnoy, Front End de Kart (API). C'est un outil permettant au personnel et aux équipes de visualiser toutes les données relatives aux promotions étudiantes, aux artistes et aux oeuvres ayant ou ayant eu un lien avec le Fresnoy. </br></br> Le projet est apparu dans le cadre d'une refonte du site existant et avec objectif de le porter vers des technologies plus récentes et plus performantes. J'ai été force de proposition et j'ai pu valoriser les technologies comme Vue.js, Tailwind CSS, Vite, Vitest... pour concevoir cette nouvelle version."
+  },
+  "stallning": {
+    "title": "Ställning",
+    "description": "Ställning est une boilerplate, un ensemble qui permet de rapidement construire et mettre en place des projets d'environnement Javascript. C'est un monorepo (basé sur PNPM et Turborepo) qui contient tout le nécessaire pour échaffauder un projet avec toutes les ressources nécessaires pour assurer une bonne qualité de code et une bonne DX (<i>Developer Experience</i>). </br></br> Plusieurs template sont disponibles (Minimal, Nuxt...), mais globalement chaque template contient des outils comme Typescript, ESlint, Oxlint, prettier, Husky et Lint-Staged pour avancer proprement et dans la même direction."
+  }
+}

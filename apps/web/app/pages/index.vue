@@ -91,7 +91,7 @@ definePageMeta({
     </section>
 
     <section v-if="previewMode" id="works" class="relative flex min-h-dvh flex-col items-center px-10">
-      <WorkCard v-for="(work, i) in works" :key="i" :class="workPositioning[i] || 'items-center'" :work="work" />
+      <WorkCard v-for="(work, i) in [...works].reverse()" :key="i" :class="workPositioning[i] || 'items-center'" :work="work" />
     </section>
 
     <section class="relative my-20 flex min-h-dvh flex-col items-center justify-center overflow-hidden">
