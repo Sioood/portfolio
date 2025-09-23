@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { enabled: previewMode } = useMyPreviewMode()
-
 const { works } = useWorkStore()
 
 const workPositioning = useState('workPositioning', () => {
@@ -90,7 +88,7 @@ definePageMeta({
       </div>
     </section>
 
-    <section v-if="previewMode" id="works" class="relative flex min-h-dvh flex-col items-center px-10">
+    <section id="works" class="relative flex min-h-dvh flex-col items-center px-10">
       <WorkCard v-for="(work, i) in [...works].reverse()" :key="i" :class="workPositioning[i] || 'items-center'" :work="work" />
     </section>
 
